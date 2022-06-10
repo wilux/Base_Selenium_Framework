@@ -1,15 +1,10 @@
 package TestCase;
 
-import UI.EjecutarPage;
-import UI.LoginPage;
-import UI.MenuPage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.AfterAll;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
-
-import java.util.ArrayList;
 
 
 public class BaseTest {

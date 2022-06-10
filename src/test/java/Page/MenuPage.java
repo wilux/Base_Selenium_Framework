@@ -1,4 +1,4 @@
-package UI;
+package Page;
 
 
 import org.openqa.selenium.By;
@@ -38,19 +38,18 @@ public  class MenuPage
 
 
 
-        while (true) {
             try {
 
                 driver.findElement(Accesos).click();
                 Thread.sleep(200);
                 driver.findElement(MenuEjecutar).click();
-                break;
+
 
             } catch (Exception e) {
-                Thread.sleep(200);
-                continue;
+                System.out.println("No se encontro elemento "+e.getMessage());
+
             }
-        }
+
 
     }
 
