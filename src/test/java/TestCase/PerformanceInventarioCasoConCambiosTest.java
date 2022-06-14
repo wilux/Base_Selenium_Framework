@@ -8,20 +8,14 @@ import Page.MenuPage;
 import Tools.Frame;
 import com.google.common.base.Stopwatch;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
-
-import java.time.Duration;
-import java.time.Instant;
 import java.util.concurrent.TimeUnit;
 
 public class PerformanceInventarioCasoConCambiosTest extends BaseTest{
 
     @Test
-    //Login
+    //Pruebas de Performance para Inventario de Legajo con Ajustes
     public void ConCambios() throws InterruptedException {
-
+        System.out.println("Pruebas de Performance para Inventario de Legajo Con Ajustes");
         //Instancio Objectos
         LoginPage login = new LoginPage(driver);
         MenuPage menu = new MenuPage(driver);

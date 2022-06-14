@@ -8,17 +8,14 @@ import Page.MenuPage;
 import Tools.Frame;
 import com.google.common.base.Stopwatch;
 import org.junit.jupiter.api.Test;
-
-import java.time.Duration;
-import java.time.Instant;
 import java.util.concurrent.TimeUnit;
 
 public class PerformanceInventarioCasoSinCambiosTest extends BaseTest{
 
     @Test
-    //Login
+    //Pruebas de Performance para Inventario de Legajo sin Ajustes
     public void SinCambios() throws InterruptedException {
-
+        System.out.println("Pruebas de Performance para Inventario de Legajo sin Ajustes");
         //Instancio Objectos
         LoginPage login = new LoginPage(driver);
         MenuPage menu = new MenuPage(driver);
