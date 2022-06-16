@@ -7,6 +7,8 @@ import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
+import javax.swing.*;
+
 
 public class BaseTest {
 
@@ -33,7 +35,17 @@ public class BaseTest {
         }
         @AfterSuite
         public static void after() throws InterruptedException {
-        driver.quit();
+
+            int reply = JOptionPane.showConfirmDialog(null, "¿Queres Cerrar Navegador?", "Test Terminado", JOptionPane.YES_NO_OPTION);
+            if (reply == JOptionPane.YES_OPTION) {
+                driver.quit();
+
+            } else {
+                System.exit(0);
+            }
+
+
+
         }
 
     }
