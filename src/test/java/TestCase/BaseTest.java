@@ -1,17 +1,18 @@
 package TestCase;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.AfterAll;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 
 
 public class BaseTest {
 
     protected static WebDriver driver;
 
-    @BeforeAll
+    @BeforeSuite
     //Tests google calculator
     public static void before() throws InterruptedException {
 
@@ -30,7 +31,7 @@ public class BaseTest {
          driver = new InternetExplorerDriver(ieOptions);
 
         }
-        @AfterAll
+        @AfterSuite
         public static void after() throws InterruptedException {
         driver.quit();
         }

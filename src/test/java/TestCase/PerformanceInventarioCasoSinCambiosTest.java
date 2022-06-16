@@ -7,7 +7,8 @@ import Page.LoginPage;
 import Page.MenuPage;
 import Tools.Frame;
 import com.google.common.base.Stopwatch;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
+
 import java.util.concurrent.TimeUnit;
 
 public class PerformanceInventarioCasoSinCambiosTest extends BaseTest{
