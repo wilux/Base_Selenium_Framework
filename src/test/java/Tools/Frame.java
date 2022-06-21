@@ -12,9 +12,6 @@ public class Frame {
 
     WebDriver driver;
 
-    By UserInput = By.id("_USER");
-    By PasswordInput = By.id("_PASSWORD");
-    By LoginButton = By.id("BTNOPINICIARSESION");
 
     public Frame(WebDriver driver) {
 
