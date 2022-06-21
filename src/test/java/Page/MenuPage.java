@@ -4,6 +4,8 @@ package Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.util.ArrayList;
+
 public  class MenuPage
 {
     WebDriver driver;
@@ -24,6 +26,9 @@ public  class MenuPage
 
     By _PROGRAMA = By.id("_PROGRAMA");
     By BTNOPCONFIRMAR = By.id("BTNOPCONFIRMAR");
+
+    //Logout
+    By Logout = BandejaTareas = By.xpath("//a[.='Salir']");
     
 
     public MenuPage(WebDriver driver){
@@ -32,7 +37,15 @@ public  class MenuPage
 
     }
 
+    public void Logout() throws InterruptedException {
+        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1));
 
+        driver.switchTo().defaultContent();
+        driver.findElement(Logout).click();
+
+        driver.switchTo().window(tabs.get(0));
+    }
 
     public void Ejecutar() throws InterruptedException {
 

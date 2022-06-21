@@ -42,6 +42,11 @@ public  class CierredeCuentasVistasPage
     public By btnSi = By.id("BTNCONFIRMATION");
     public By btnNo = By.id("BTNCANCELCONFIRMATION");
 
+    //Supervision
+    public By inputMotivoRechazo = By.id("_BNQFT33RMO");
+    public By btnApruebaCierre = By.id("BTNOPAPRUEBACIERRE");
+    public By btnRechazaCierre = By.id("BTNOPRECHAZACIERRE");
+
 
     public CierredeCuentasVistasPage(WebDriver driver){
 
@@ -53,13 +58,13 @@ public  class CierredeCuentasVistasPage
     public void DecisionDeCierre(int value){
         //value 1 o 2
         driver.findElement(radioDecision).click();
-        driver.findElement(By.cssSelector("input[type='radio'][value='"+value+"']"));
+        driver.findElement(By.cssSelector("input[type='radio'][value='"+value+"']")).click();
     }
 
     public void MotivoDeCierre(int value){
         //value 1 a 4
         driver.findElement(radioMotivo).click();
-        driver.findElement(By.cssSelector("input[type='radio'][value='"+value+"']"));
+        driver.findElement(By.cssSelector("input[type='radio'][value='"+value+"']")).click();
     }
 
     public void BuscarCuenta(String cuenta){

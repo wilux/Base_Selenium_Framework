@@ -15,8 +15,7 @@ public class BaseTest {
     protected static WebDriver driver;
 
     @BeforeSuite
-    //Tests google calculator
-    public static void before() throws InterruptedException {
+        public  void before() throws InterruptedException {
 
         System.setProperty("webdriver.ie.driver", "C:\\webdriver\\IEDriverServer_back.exe");
         //System.setProperty("webdriver.ie.driver", "C:\\webdriver\\IEDriverServer.exe");
@@ -36,16 +35,26 @@ public class BaseTest {
         @AfterSuite
         public static void after() throws InterruptedException {
 
-            int reply = JOptionPane.showConfirmDialog(null, "¿Queres Cerrar Navegador?", "Test Terminado", JOptionPane.YES_NO_OPTION);
-            if (reply == JOptionPane.YES_OPTION) {
-                driver.quit();
-
-            } else {
-                System.exit(0);
-            }
+//            int reply = JOptionPane.showConfirmDialog(null, "¿Queres Cerrar Navegador?", "Test Terminado", JOptionPane.YES_NO_OPTION);
+//            if (reply == JOptionPane.YES_OPTION) {
+//                driver.quit();
+//
+//            } else {
+//                System.exit(0);
+//            }
 
 
 
         }
+
+    public static void iniciar()  {
+
+        System.setProperty("webdriver.ie.driver", "C:\\webdriver\\IEDriverServer_back.exe");
+        InternetExplorerOptions ieOptions = new InternetExplorerOptions();
+        ieOptions.ignoreZoomSettings();
+        ieOptions.setCapability("ignoreProtectedModeSettings", true);
+        driver = new InternetExplorerDriver(ieOptions);
+
+    }
 
     }
