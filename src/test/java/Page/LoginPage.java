@@ -47,7 +47,7 @@ public  class LoginPage extends Credenciales
 
         // To handle parent window
         String MainWindow = driver.getWindowHandle();
-        System.out.println("Main window handle is " + MainWindow);
+//        System.out.println("Main window handle is " + MainWindow);
 
         // To handle child window
         Set<String> s1 = driver.getWindowHandles();
@@ -58,7 +58,7 @@ public  class LoginPage extends Credenciales
             if (!MainWindow.equalsIgnoreCase(ChildWindow)) {
                 driver.switchTo().window(ChildWindow);
                 String pageTitle=driver.getTitle();
-                System.out.println("The web page title of child window is:"+pageTitle);
+//                System.out.println("The web page title of child window is:"+pageTitle);
                 driver.manage().window().maximize();
                 break;
             }

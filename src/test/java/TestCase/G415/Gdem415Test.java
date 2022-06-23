@@ -1,27 +1,22 @@
-package TestCase;
+package TestCase.G415;
 
 import Page.*;
+import Config.BaseTest;
 import Tools.Frame;
 import Tools.Grid;
 import Tools.SQLDatabaseConnection;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import Tools.Screenshot;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Set;
+import java.io.IOException;
 
 
-public class Gdem415Test extends BaseTest{
+public class Gdem415Test extends BaseTest {
 
 
     @Test
     //Tests google calculator
-    public void CierreNoContractual() throws InterruptedException {
+    public void CierreNoContractual() throws InterruptedException, IOException {
 
         SQLDatabaseConnection bd = new SQLDatabaseConnection();
         //Inicio Como usuario de Plataforma
@@ -37,6 +32,7 @@ public class Gdem415Test extends BaseTest{
         BandejaTareasPage bandejaTareasPage = new BandejaTareasPage(driver);
         CierredeCuentasVistasPage cierreCuentas = new CierredeCuentasVistasPage(driver);
         Frame frame = new Frame(driver);
+        Screenshot screenshot = new Screenshot(driver);
 
         //Ejecutar
         menu.Ejecutar();
@@ -78,5 +74,36 @@ public class Gdem415Test extends BaseTest{
         driver.findElement(bandejaTareasPage.BTNOPOTOMAR).click();
         grid.rowSelectbyFila(bandejaTareasPage.Grilla_Tareas, bandejaTareasPage.PrimerTarea);
         driver.findElement(bandejaTareasPage.BTNOPOEJECUTAR).click();
+
+        screenshot.takeScreenshot("c:\\SemaforosSupervisor.png");
+
+        frame.BuscarFrame(cierreCuentas.btnApruebaCierre);
+        driver.findElement(cierreCuentas.btnApruebaCierre).click();
+
+        //Cambiar usuario a Centralizadora
+        bd.CambiarUsuario("OJEDAM");
+
+        //Cerramos Sesion
+        menu.Logout();
+
+        //Ingreso con nuevo Usuario
+        login.Ingresar();
+        //BandejaTareas
+        menu.Ejecutar();
+        ejecutar.Programa("hxwf900");
+        //Retomo tarea
+        frame.BuscarFrame(bandejaTareasPage.Grilla_Tareas);
+        grid.rowSelectbyFila(bandejaTareasPage.Grilla_Tareas, bandejaTareasPage.PrimerTarea);
+        driver.findElement(bandejaTareasPage.BTNOPOTOMAR).click();
+        //Cierre de CtaCte. Control de Productos Vinculados
+        screenshot.takeScreenshot("c:\\SemaforosCentalizadora.png");
+        driver.findElement(cierreCuentas.btnContinuaCierre).click();
+        //Retomo tarea
+        frame.BuscarFrame(bandejaTareasPage.Grilla_Tareas);
+        grid.rowSelectbyFila(bandejaTareasPage.Grilla_Tareas, bandejaTareasPage.PrimerTarea);
+        driver.findElement(bandejaTareasPage.BTNOPOTOMAR).click();
+        //Cierre MANUAL de Cuenta Vista
+        screenshot.takeScreenshot("c:\\CierreManual.png");
+
         }
     }

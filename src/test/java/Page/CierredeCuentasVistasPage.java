@@ -47,6 +47,10 @@ public  class CierredeCuentasVistasPage
     public By btnApruebaCierre = By.id("BTNOPAPRUEBACIERRE");
     public By btnRechazaCierre = By.id("BTNOPRECHAZACIERRE");
 
+    //Centralizadora Controles
+    public By btnContinuaCierre = By.id("BTNOPCONTINUACIERRE");
+
+
 
     public CierredeCuentasVistasPage(WebDriver driver){
 

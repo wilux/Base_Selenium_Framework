@@ -1,17 +1,18 @@
-package TestCase;
+package TestCase.Performance;
 
 
 import Page.EjecutarPage;
 import Page.InventariodeCasosPage;
 import Page.LoginPage;
 import Page.MenuPage;
+import Config.BaseTest;
 import Tools.Frame;
 import com.google.common.base.Stopwatch;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class PerformanceInventarioCasoSinCambiosTest extends BaseTest{
+public class PerformanceInventarioCasoSinCambiosTest extends BaseTest {
 
     @Test
     //Pruebas de Performance para Inventario de Legajo sin Ajustes

@@ -1,5 +1,6 @@
 package Tools;
 
+import com.google.common.base.Stopwatch;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.JavascriptExecutor;
@@ -59,8 +60,7 @@ public class Frame {
 
     public WebElement FindElementIfExists(By by) {
         WebElement element = null;
-        long endTime = System.nanoTime() + TimeUnit.NANOSECONDS.convert(60L, TimeUnit.SECONDS);
-
+        final Stopwatch stopwatch = Stopwatch.createStarted();
         do {
 
             try {
@@ -71,7 +71,7 @@ public class Frame {
                 continue;
             }
 
-        } while (System.nanoTime() < endTime);
+        } while (stopwatch.elapsed(TimeUnit.SECONDS) < 5);
 
         return element;
     }
@@ -84,7 +84,12 @@ public class Frame {
             return true;
         } else {
 
-            driver.switchTo().defaultContent();
+            try {
+                driver.switchTo().defaultContent();
+            }catch (Exception e){
+                System.out.println(e);
+
+            }
             //IWebElement iframe = driver.FindElement(By.Id("0"));
             //driver.SwitchTo().Frame(iframe);
             String frameI = FrameActual();

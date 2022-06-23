@@ -1,10 +1,11 @@
 package TestCase;
 
+import Config.BaseTest;
 import Page.LoginPage;
 import org.testng.annotations.Test;
 
 
-public class InicioTest extends BaseTest{
+public class InicioTest extends BaseTest {
 
 
     @Test
