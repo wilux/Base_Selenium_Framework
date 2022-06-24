@@ -20,42 +20,33 @@ public class Choose {
 
     public void byText(By locator, String text) {
 
-        Frame frame = new Frame(driver);
-            if (frame.BuscarFrame(locator)) {
-                Select select = new Select(driver.findElement(locator));
-                select.selectByVisibleText(text);
-            }else{
-                System.out.println("No se encontró "+locator);
+        Frame frame = new Frame ( driver );
+        if ( frame.BuscarFrame ( locator ) ) {
+            Select select = new Select ( driver.findElement ( locator ) );
+            select.selectByVisibleText ( text );
+            System.out.println ( "Se cambio " + locator + " a " + text );
+        }
+        else {
+            System.out.println ( "No se encontró " + locator );
+        }
+    }
+
+    public void byValue(By locator, String value) {
+
+
+        Frame frame = new Frame ( driver );
+
+        try {
+            if ( frame.BuscarFrame ( locator ) ) {
+                frame.BuscarFrame ( locator );
+                Select select = new Select ( driver.findElement ( locator ) );
+                select.selectByValue ( value );
+
             }
-        }
+        } catch (Exception e) {
 
-    public void byValue(By locator, String value)   {
-
-        Frame frame = new Frame(driver);
-        if (frame.BuscarFrame(locator)) {
-            Select select = new Select(driver.findElement(locator));
-            select.selectByValue(value);
-        }else{
-            System.out.println("No se encontró "+locator);
         }
     }
-//        Frame frame = new Frame(driver);
-//        final Stopwatch stopwatch = Stopwatch.createStarted();
-//
-//        do {
-//            try {
-//            if (frame.BuscarFrame(locator)) {
-//                Select select = new Select(driver.findElement(locator));
-//                select.selectByValue(value);
-//                    break;
-//                }  else{System.out.println("No se encontró " + locator);}
-//            }catch (Exception e){
-//                System.out.println("No se encuentra " + locator);
-//                    continue;
-//                }
-//            }while (stopwatch.elapsed(TimeUnit.SECONDS) < 10);
-//
-//    }
 
-    }
+}
 

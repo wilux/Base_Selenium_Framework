@@ -3,7 +3,9 @@ package Action;
 import Tools.Frame;
 import com.google.common.base.Stopwatch;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import java.util.concurrent.TimeUnit;
 
@@ -17,29 +19,45 @@ public class Write {
 
     }
 
-    public void On(By locator, String text) throws InterruptedException {
-        Frame frame = new Frame(driver);
-        Get get = new Get(driver);
-        Boolean cambio = false;
-        Stopwatch stopwatch;
-        stopwatch = Stopwatch.createStarted();
-        do {
-            if (frame.BuscarFrame(locator)) {
-                try {
-                    driver.findElement(locator).clear();
-                    driver.findElement(locator).sendKeys(text);
-                    cambio = true;
-                    break;
-                }catch (Exception e) {
-                    continue;
-                }
+    public void On(By locator, String text) {
+        Frame frame = new Frame ( driver );
+
+        if ( frame.BuscarFrame ( locator ) ) {
+            try {
+                frame.BuscarFrame ( locator );
+                driver.findElement ( locator ).clear ();
+                driver.findElement ( locator ).sendKeys ( text );
+                Thread.sleep ( 200 );
+
+
+            } catch (Exception e) {
             }
         }
-        while (stopwatch.elapsed(TimeUnit.SECONDS) < 5);
-            if (!cambio) {
-            System.out.println("No se encontró " + locator);
-        }
+    }
+
+    public void Js(By locator, String text) {
+        Frame frame = new Frame ( driver );
+
+        frame.BuscarFrame ( locator );
+        WebElement i = driver.findElement ( locator );
+        JavascriptExecutor j = (JavascriptExecutor) driver;
+        j.executeScript ( "arguments[0].value='" + text + "';", i );
+
+    }
+
+    public void Clear(By locator) {
+        Frame frame = new Frame ( driver );
+
+        if ( frame.BuscarFrame ( locator ) ) {
+            try {
+                driver.findElement ( locator ).clear ();
+
+            } catch (Exception e) {
+
             }
         }
+    }
+
+}
 
 

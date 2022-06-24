@@ -16,61 +16,41 @@ public class Grid {
 
     }
 
-    public void rowSelectbyText(By locator, String valor)
-    {
-        // Crea e inicia un nuevo cronómetro
-        Stopwatch stopwatch;
-        stopwatch = Stopwatch.createStarted();
-        Frame frame = new Frame(driver);
-         if (frame.BuscarFrame(locator)) {
+    public void rowSelectbyText(By locator, String valor) {
 
-             while (stopwatch.elapsed(TimeUnit.SECONDS) < 5) {
-                 try {
-                     WebElement webElement = driver.findElement(locator);
-//                   webElement.findElement(By.xpath("//span[text()='" + valor + "']")).click();
-                     WebElement span = webElement.findElement(By.xpath("//span[contains(text(),'"+valor+"')]"));
-                     span.click();
-                     stopwatch.stop();
-                     break;
-                 } catch (Exception e) {
-                     System.out.println(e);
-                     continue;
-                 }
-             }
+        Frame frame = new Frame ( driver );
+        if ( frame.BuscarFrame ( locator ) ) {
 
-             if (stopwatch.isRunning()) {
-                 stopwatch.stop();
-             }
-             System.out.println("Tiempo Select " + stopwatch.elapsed(TimeUnit.SECONDS) + " segundos.");
-         }
+            try {
+                WebElement webElement = driver.findElement ( locator );
+                WebElement span = webElement.findElement ( By.xpath ( "//span[contains(text(),'" + valor + "')]" ) );
+                System.out.println ( "Encontre " + valor );
+                span.click ();
+                System.out.println ( "Seleccione " + valor );
+
+            } catch (Exception e) {
+                System.out.println ( "No encontre " + valor );
+            }
+        }
+        else {
+            System.out.println ( "No se encontro " + locator + " - " + valor );
+        }
 
     }
 
 
-    public void rowSelectbyFila(By locator, By fila)
-    {
-        // Crea e inicia un nuevo cronómetro
-        Stopwatch stopwatch;
-        stopwatch = Stopwatch.createStarted();
-        Frame frame = new Frame(driver);
-        if (frame.BuscarFrame(locator)) {
+    public void rowSelectbyFila(By locator, By fila) {
 
-            while (stopwatch.elapsed(TimeUnit.SECONDS) < 5) {
-                try {
-                    WebElement webElement = driver.findElement(locator);
-                    webElement.findElement(fila).click();
-                    stopwatch.stop();
-                    break;
-                } catch (Exception e) {
-                    System.out.println(e);
-                    continue;
-                }
-            }
+        Frame frame = new Frame ( driver );
+        if ( frame.BuscarFrame ( locator ) ) {
 
-            if (stopwatch.isRunning()) {
-                stopwatch.stop();
+            try {
+                WebElement webElement = driver.findElement ( locator );
+                webElement.findElement ( fila ).click ();
+
+            } catch (Exception e) {
+                System.out.println ( e );
             }
-            System.out.println("Tiempo Select " + stopwatch.elapsed(TimeUnit.SECONDS) + " segundos.");
         }
 
     }
