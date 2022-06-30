@@ -6,23 +6,65 @@ import Action.Get;
 import Action.Write;
 import Page.DetalleDireccionPage;
 import Page.EntrevistaPage;
+import Tools.Frame;
 import Tools.Grid;
-import com.google.common.base.Stopwatch;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
-import java.util.concurrent.TimeUnit;
-
-public class CompletarEntrevista {
+public class Entrevista {
     WebDriver driver;
 
 
-    public CompletarEntrevista(WebDriver driver) {
+    public Entrevista(WebDriver driver) {
 
         this.driver = driver;
 
 
     }
+
+    public void CompletarGenerico() throws InterruptedException {
+        Modalidad ( "Presencial" );
+        ActividadLaboral ();
+        DatosDelNegocio ();
+        DatosPersonales ();
+        DatosContacto ();
+        CuentaDebito ();
+        Ingresos ( "Dependiente" );
+        Confirmar ();
+    }
+
+
+    public String NroEntrevista() {
+        EntrevistaPage entrevistaPage = new EntrevistaPage ( driver );
+        Get get = new Get ( driver );
+        return get.TextOnTag ( entrevistaPage.campoTramite );
+    }
+
+    public boolean Error() {
+        System.out.println ( "Buscando mensajes de error" );
+        Frame frame = new Frame ( driver );
+        if ( frame.BuscarFrame ( By.id ( "TXTMESSAGES" ) ) ) {
+            System.out.printf ( "Elemento TXTMESSAGES encontrado " );
+            WebElement element = driver.findElement ( By.id ( "TXTMESSAGES" ) );
+            String imgError = element.findElement ( By.cssSelector ( "img" ) ).getAttribute ( "src" );
+
+
+            //http://btwebqa.ar.bpn:99/BTWeb/error.gif
+            if ( imgError.contains ( "error.gif" ) ) {
+                System.out.println ( imgError );
+                return true;
+            }
+            else {
+                System.out.println ( imgError );
+                return false;
+            }
+        }
+        else {
+            return false;
+        }
+    }
+
 
     public void IdentificacionPersona(String tipo, String cuilCuit) throws InterruptedException {
         System.out.println ( "Ingresando Entrevista para el Documento " + cuilCuit );
@@ -222,7 +264,7 @@ public class CompletarEntrevista {
     }
 
 
-    public void CuentaDebito() {
+    public void CuentaDebito() throws InterruptedException {
         EntrevistaPage entrevistaPage = new EntrevistaPage ( driver );
         Grid grid = new Grid ( driver );
         Get get = new Get ( driver );
@@ -234,6 +276,7 @@ public class CompletarEntrevista {
             grid.rowSelectbyFila ( entrevistaPage.GRIDACRED, entrevistaPage.PrimerFilaCuenta );
             System.out.println ( "Seleccionada la primer fila de acreditaciones" );
             click.On ( entrevistaPage.BTNOPELEGIRCTA );
+            Thread.sleep ( 5000 );
         }
     }
 
@@ -244,13 +287,14 @@ public class CompletarEntrevista {
         String sector = "";
         String importe = "";
 
-        if ( tipo == "Dependencia" ) {
+        if ( tipo == "Dependiente" ) {
             sector = "PUB"; //Empleado
             importe = "300000"; //Empleado
-
-
+            System.out.println ( "Cambiando ingresos de Relacion Dependencia" );
             choose.byValue ( entrevistaPage.SelectSectorEmpleador, sector );
+            System.out.println ( "Se Elijio " + sector );
             write.Js ( entrevistaPage.InputIngresosDepedencia, importe );
+            System.out.println ( "Se Ingreso como importe " + importe );
         }
 
         if ( tipo == "Jubilado" ) {
@@ -264,29 +308,34 @@ public class CompletarEntrevista {
 
     }
 
-    public void Confirmar() {
+    public void Confirmar() throws InterruptedException {
+        Thread.sleep ( 3000 );
         EntrevistaPage entrevistaPage = new EntrevistaPage ( driver );
         Click click = new Click ( driver );
         click.On ( entrevistaPage.BTNOPCONFIRMAR );
+        Thread.sleep ( 3000 );
     }
 
-    public void Descartar() {
+    public void Descartar() throws InterruptedException {
         EntrevistaPage entrevistaPage = new EntrevistaPage ( driver );
         Click click = new Click ( driver );
         click.On ( entrevistaPage.BTNOPDESCARTAR );
         Si ();
+
     }
 
-    public void Si() {
+    public void Si() throws InterruptedException {
         EntrevistaPage entrevistaPage = new EntrevistaPage ( driver );
         Click click = new Click ( driver );
         click.On ( entrevistaPage.BTN_SI );
+        Thread.sleep ( 2000 );
     }
 
-    public void No() {
+    public void No() throws InterruptedException {
         EntrevistaPage entrevistaPage = new EntrevistaPage ( driver );
         Click click = new Click ( driver );
         click.On ( entrevistaPage.BTN_NO );
+        Thread.sleep ( 2000 );
     }
 
     public void Cerrar() {
@@ -294,5 +343,6 @@ public class CompletarEntrevista {
         Click click = new Click ( driver );
         click.On ( entrevistaPage.BTNOPCERRAR );
     }
+
 
 }

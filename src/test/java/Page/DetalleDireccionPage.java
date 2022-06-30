@@ -26,18 +26,6 @@ public class DetalleDireccionPage {
     }
 
 
-    public void Programa(String strProgram) {
-
-//
-//        WebElement iframe = driver.findElement(By.id("0"));
-//        driver.switchTo().frame(iframe);
-//        driver.switchTo().frame("step1");
-//        driver.findElement(_PROGRAMA).sendKeys(strProgram);
-//        driver.findElement(BTNOPCONFIRMAR).click();
-
-    }
-
-
 }
 
 

@@ -4,11 +4,9 @@ package Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public  class CargandoPage
-{
+public class CargandoPage {
+    public By frameMsg = By.xpath ( "//IFRAME[]" );
     WebDriver driver;
-
-     By frameMsg = By.xpath("//IFRAME[]");
 
 
 //<TABLE style="POSITION: absolute" cellSpacing=3 cellPadding=0 width=502 bgColor=#888888><TBODY>
@@ -34,24 +32,11 @@ public  class CargandoPage
 
 //    <IFRAME onload="this.style.width = this.parentElement.childNodes[0].clientWidth; this.style.height = this.parentElement.childNodes[0].clientHeight" style="HEIGHT: 105px; WIDTH: 502px" height=10 src="javascript:''" width=10></IFRAME>
 
-    public CargandoPage(WebDriver driver){
+    public CargandoPage(WebDriver driver) {
 
         this.driver = driver;
 
     }
-
-
-    public void Programa(String strProgram){
-
-//
-//        WebElement iframe = driver.findElement(By.id("0"));
-//        driver.switchTo().frame(iframe);
-//        driver.switchTo().frame("step1");
-//        driver.findElement(_PROGRAMA).sendKeys(strProgram);
-//        driver.findElement(BTNOPCONFIRMAR).click();
-
-    }
-
 
 
 }

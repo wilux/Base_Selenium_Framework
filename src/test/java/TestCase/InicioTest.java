@@ -2,6 +2,7 @@ package TestCase;
 
 import Config.BaseTest;
 import Page.LoginPage;
+import Task.Login;
 import org.testng.annotations.Test;
 
 
@@ -12,8 +13,8 @@ public class InicioTest extends BaseTest {
     //Tests google calculator
     public void Login() throws InterruptedException {
 
-        LoginPage login = new LoginPage(driver);
-        login.Ingresar();
+        Login login = new Login ( driver );
+        login.Ingresar ();
 
-        }
     }
+}

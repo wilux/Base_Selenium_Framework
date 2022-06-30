@@ -4,37 +4,22 @@ package Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public  class ReutilizacionABMProductosPage
-{
+public class ReutilizacionABMProductosPage {
+    public By GRID_TarjetasDebito = By.id ( "GRIDGRDTD" );
+    public By PrimerTarjeta = By.id ( "span__DESCTD_0001" );
+    public By BTNOPACEPTARTDNUEVA = By.id ( "BTNOPACEPTARTDNUEVA" );
+    public By BTNOPACEPTARTExistente = By.id ( "BTNOPACEPTARTDEXISTENTE" );
+    public By BTNOPPERFILDERIESGO = By.id ( "BTNOPPERFILDERIESGO" );
+    public By BTNOPCONFIRMAR = By.id ( "BTNOPCONFIRMAR" );
+    public By BTNOPCERRAR = By.id ( "BTNOPCERRAR" );
+    public By SelectSeguroVida = By.name ( "_BNQFPC5SCC" );
     WebDriver driver;
 
-     By GRID_TarjetasDebito = By.id("GRIDGRDTD");
-     By PrimerTarjeta = By.id("span__DESCTD_0001");
-     By BTNOPACEPTARTDNUEVA = By.id("BTNOPACEPTARTDNUEVA");
-     By BTNOPACEPTARTExistente = By.id("BTNOPACEPTARTDEXISTENTE");
-     By BTNOPPERFILDERIESGO = By.id("BTNOPPERFILDERIESGO");
-     By BTNOPCONFIRMAR = By.id("BTNOPCONFIRMAR");
-     By BTNOPCERRAR = By.id("BTNOPCERRAR");
-     By SelectSeguroVida = By.name("_BNQFPC5SCC");
-
-    public ReutilizacionABMProductosPage(WebDriver driver){
+    public ReutilizacionABMProductosPage(WebDriver driver) {
 
         this.driver = driver;
 
     }
-
-
-    public void Programa(String strProgram){
-
-//
-//        WebElement iframe = driver.findElement(By.id("0"));
-//        driver.switchTo().frame(iframe);
-//        driver.switchTo().frame("step1");
-//        driver.findElement(_PROGRAMA).sendKeys(strProgram);
-//        driver.findElement(BTNOPCONFIRMAR).click();
-
-    }
-
 
 
 }
