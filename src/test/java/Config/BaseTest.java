@@ -1,22 +1,25 @@
 package Config;
 
 
+import Tools.logs.Log;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 
 import javax.swing.*;
-import java.util.concurrent.TimeUnit;
 
 
 public class BaseTest {
 
-    protected WebDriver driver;
+    public WebDriver driver;
 
-    @BeforeSuite
+    @BeforeClass
     public void before() throws InterruptedException {
+        Log.info ( "Tests is starting!" );
 
         System.setProperty ( "webdriver.ie.driver", "C:\\webdriver\\IEDriverServer_back.exe" );
         //System.setProperty("webdriver.ie.driver", "C:\\webdriver\\IEDriverServer.exe");
@@ -33,31 +36,30 @@ public class BaseTest {
         driver = new InternetExplorerDriver ( ieOptions );
         //driver.manage ().timeouts ().implicitlyWait ( 5, TimeUnit.SECONDS );
 
-    }
-
-    @AfterSuite
-    public void after() throws InterruptedException {
-
-//            int reply = JOptionPane.showConfirmDialog(null, "¿Queres Cerrar Navegador?", "Test Terminado", JOptionPane.YES_NO_OPTION);
-//            if (reply == JOptionPane.YES_OPTION) {
-//                driver.quit();
-//
-//            } else {
-//                System.exit(0);
-//            }
-
 
     }
 
-//    public void iniciar() {
+    @AfterClass
+    public void after() {
+        Log.info ( "Tests are ending!" );
+//        JFrame jf = new JFrame ();
+//        jf.setAlwaysOnTop ( true );
+//        int reply = JOptionPane.showConfirmDialog ( jf, "¿Queres Cerrar Navegador?", "Test Terminado",
+//                                                    JOptionPane.YES_NO_OPTION );
 //
-//        System.setProperty ( "webdriver.ie.driver", "C:\\webdriver\\IEDriverServer_back.exe" );
-//        InternetExplorerOptions ieOptions = new InternetExplorerOptions ();
-//        ieOptions.ignoreZoomSettings ();
-//        ieOptions.setCapability ( "ignoreProtectedModeSettings", true );
-//        driver = new InternetExplorerDriver ( ieOptions );
-//        driver.manage ().timeouts ().implicitlyWait ( 20, TimeUnit.SECONDS );
+//        if ( reply == JOptionPane.YES_OPTION ) {
+//            driver.quit ();
 //
-//    }
+//        }
+//        else {
+//            System.exit ( 0 );
+//        }
+        driver.quit ();
 
+    }
+
+
+    public WebDriver getDriver() {
+        return this.driver;
+    }
 }

@@ -1,9 +1,13 @@
 package Task;
 
 import Page.LoginPage;
+import Tools.logs.JSErrorLogs;
+import Tools.logs.Log;
 import org.openqa.selenium.WebDriver;
 
 import java.util.Set;
+
+import static org.testng.Assert.assertTrue;
 
 public class Login extends LoginPage {
     WebDriver driver;
@@ -13,6 +17,7 @@ public class Login extends LoginPage {
         super ( driver );
         this.driver = driver;
     }
+
 
     //Set user name in textbox
 

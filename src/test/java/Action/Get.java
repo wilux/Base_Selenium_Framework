@@ -67,6 +67,49 @@ public class Get {
         }
         return value;
     }
+
+    public boolean Visible(By locator) {
+
+        Frame frame = new Frame ( driver );
+        boolean value = false;
+        if ( frame.BuscarFrame ( locator ) ) {
+            value = driver.findElement ( locator ).isDisplayed ();
+            System.out.println ( "El elemento " + locator + " esta visible" );
+        }
+        else {
+            System.out.println ( "No se encontró " + locator );
+        }
+        return value;
+    }
+
+    public boolean Seleccionado(By locator) {
+
+        Frame frame = new Frame ( driver );
+        boolean value = false;
+        if ( frame.BuscarFrame ( locator ) ) {
+            value = driver.findElement ( locator ).isSelected ();
+            System.out.println ( "El elemento " + locator + " esta seleccionado" );
+        }
+        else {
+            System.out.println ( "No se encontró " + locator );
+        }
+        return value;
+    }
+
+    public boolean Habilitado(By locator) {
+
+        Frame frame = new Frame ( driver );
+        boolean value = false;
+        if ( frame.BuscarFrame ( locator ) ) {
+            value = driver.findElement ( locator ).isEnabled ();
+            System.out.println ( "El elemento " + locator + " esta habilitado" );
+        }
+        else {
+            System.out.println ( "No se encontró " + locator );
+        }
+        return value;
+    }
+
 }
 
 

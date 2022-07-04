@@ -14,7 +14,7 @@ public class Menu extends MenuPage {
         this.driver = driver;
     }
 
-    public void Logout() throws InterruptedException {
+    public void Logout() {
         ArrayList<String> tabs = new ArrayList<String> ( driver.getWindowHandles () );
         driver.switchTo ().window ( tabs.get ( 1 ) );
 

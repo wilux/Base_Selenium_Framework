@@ -32,6 +32,7 @@ public class Entrevista {
         CuentaDebito ();
         Ingresos ( "Dependiente" );
         Confirmar ();
+
     }
 
 

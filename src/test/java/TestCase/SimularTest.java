@@ -1,7 +1,7 @@
 package TestCase;
 
 import Config.BaseTest;
-import Task.*;
+import Config.Accion;
 import Tools.SQLDatabaseConnection;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -12,50 +12,49 @@ public class SimularTest extends BaseTest {
 
     @Test
     //Tests google calculator
-    public void Completar() throws InterruptedException {
+    public void Simular() throws InterruptedException {
 
+        //Instanciamos clases que usaremos
         SQLDatabaseConnection bd = new SQLDatabaseConnection ();
+        Accion accion = new Accion ( driver );
+
         //Inicio Como usuario de Plataforma
         bd.CambiarUsuario ( "SERPILLOE" );
 
-        //Login
-        Login login = new Login ( driver );
-        login.Ingresar ();
-
-        Menu menu = new Menu ( driver );
-        Ejecutar ejecutar = new Ejecutar ( driver );
-        BandejaTareas bandejaTareas = new BandejaTareas ( driver );
-        Entrevista entrevista = new Entrevista ( driver );
+        //Logueamos
+        accion.login ().Ingresar ();
 
         //Menu Ejecutar
-        menu.Ejecutar ();
+        accion.menu ().Ejecutar ();
         //Abrir BandejaTareas
-        ejecutar.Programa ( "hxwf900" );
+        accion.ejecutar ().Programa ( "hxwf900" );
 
         //Abrir Entrevista
-        bandejaTareas.iniciarEntrevista ( "Entrevista / Identificación" );
+        accion.bandejaTareas ().iniciarEntrevista ( "Entrevista / Identificación" );
 
 
         //Ingresar Tipo y Documento
-        entrevista.IdentificacionPersona ( "C.U.I.L.", "23353071459 " );
+        accion.entrevista ().IdentificacionPersona ( "C.U.I.L.", "23353071459 " );
         //Entrevista
-        entrevista.CompletarGenerico ();
+        accion.entrevista ().CompletarGenerico ();
         //Guardar Nro Entrevista
-        String NroEntrevista = entrevista.NroEntrevista ();
+        String NroEntrevista = accion.entrevista ().NroEntrevista ();
         System.out.println ( "Entrevista Nro: " + NroEntrevista );
 
-        //Si no hay errores, la entrevista se completó bien.
-        Assert.assertTrue ( !entrevista.Error () );
 
-        if ( entrevista.Error () ) {
-            System.out.println ( "Existen errores" );
+        //Si la entrevista retorna un error detenemos sino continuamos
+        if ( accion.entrevista ().Error () ) {
+            System.out.println ( "Existen errores con la Entrevista" );
+            Assert.fail ();
         }
         else {
-            entrevista.Cerrar ();
+            accion.entrevista ().Cerrar ();
+            accion.bandejaTareas ().siguienteEntrevista ( NroEntrevista );
+            accion.bandejaTareas ().ejecutarEntrevista ( NroEntrevista );
         }
 
-        bandejaTareas.siguienteEntrevista ( NroEntrevista );
-        bandejaTareas.ejecutarEntrevista ( NroEntrevista );
+        //Si llegamos hasta la pantalla de simulacion la prueba fue exitosa.
+        Assert.assertTrue ( accion.simulacion ().Existe () );
 
     }
 }
