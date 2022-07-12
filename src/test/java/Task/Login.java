@@ -1,13 +1,10 @@
 package Task;
 
 import Page.LoginPage;
-import Tools.logs.JSErrorLogs;
-import Tools.logs.Log;
 import org.openqa.selenium.WebDriver;
 
 import java.util.Set;
 
-import static org.testng.Assert.assertTrue;
 
 public class Login extends LoginPage {
     WebDriver driver;
@@ -60,7 +57,7 @@ public class Login extends LoginPage {
     }
 
 
-    public void loginToBT(String strUserName, String strPassword) {
+    public void loginToBT(String strUserName, String strPassword) throws InterruptedException {
 
         //Fill user name
 
@@ -75,11 +72,21 @@ public class Login extends LoginPage {
         this.LoginButton ();
     }
 
-    public void Ingresar() {
+    public void Ingresar(String ambiente) throws InterruptedException {
 
+        if ( ambiente.equals ( "DF" ) ) {
 
-        driver.get ( "http://btwebqa.ar.bpn/BTWeb/hlogin.aspx" );
-        //driver.get ( "http://btdesafuncional.ar.bpn/BTWeb/hlogin.aspx" );
+            driver.get ( "http://btdesafuncional.ar.bpn/BTWeb/hlogin.aspx" );
+        }
+        else if ( ambiente.equals ( "QA" ) ) {
+
+            driver.get ( "http://btwebqa.ar.bpn/BTWeb/hlogin.aspx" );
+        }
+        else {
+            System.out.println ( "El Ambiente elegido " + ambiente + " no es valido, se asume QA" );
+            System.out.println ( "El Ambientes validos QA o DF" );
+            driver.get ( "http://btwebqa.ar.bpn/BTWeb/hlogin.aspx" );
+        }
 
         setUserName ( username );
         setPassword ( password );

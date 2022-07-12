@@ -1,7 +1,6 @@
 package Page;
 
 
-import Tools.Grid;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

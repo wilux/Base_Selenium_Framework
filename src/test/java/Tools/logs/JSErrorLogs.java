@@ -9,9 +9,9 @@ public class JSErrorLogs {
         return driver.manage ().logs ().get ( LogType.BROWSER );
     }
 
-    public static Boolean isLoginErrorLog(WebDriver driver) {
-        LogEntries logEntries = driver.manage ().logs ().get ( LogType.BROWSER );
-        return logEntries.getAll ().stream ()
-                .anyMatch ( logEntry -> logEntry.getMessage ().contains ( "Usuario Invalido" ) );
-    }
+//    public static Boolean isLoginErrorLog(WebDriver driver) {
+//        LogEntries logEntries = driver.manage ().logs ().get ( LogType.BROWSER );
+//        return logEntries.getAll ().stream ()
+//                .anyMatch ( logEntry -> logEntry.getMessage ().contains ( "Usuario Invalido" ) );
+//    }
 }

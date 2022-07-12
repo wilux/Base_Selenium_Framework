@@ -1,5 +1,6 @@
 package Tools;
 
+import Config.BaseTest;
 import com.google.common.base.Stopwatch;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +10,7 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class Frame {
+public class Frame extends BaseTest {
 
     WebDriver driver;
 
@@ -93,7 +94,7 @@ public class Frame {
 
             }
 
-            String frameI = FrameActual ();
+            //String frameI = FrameActual ();
             int sizeInicial = driver.findElements ( By.tagName ( "iframe" ) ).size ();
             for (int i = 0; i < sizeInicial; i++) {
                 driver.switchTo ().frame ( i );
@@ -102,7 +103,7 @@ public class Frame {
                     for (int j = 0; j < sizeNuevo; j++) {
                         driver.switchTo ().frame ( j );
                         try {
-                            String frameJ = FrameActual ();
+                            //String frameJ = FrameActual ();
                             driver.findElement ( locator );
                             estado = true;
                             break;

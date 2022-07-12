@@ -1,12 +1,12 @@
 package TestCase.G415;
 
-import Page.*;
 import Config.BaseTest;
 import Task.*;
 import Tools.Frame;
-import Tools.Grid;
+import Action.Grid;
 import Tools.SQLDatabaseConnection;
 import Tools.Screenshot;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -25,7 +25,7 @@ public class Gdem415Test extends BaseTest {
 
         //Login
         Login login = new Login ( driver );
-        login.Ingresar ();
+        login.Ingresar ( "QA" );
 
         Grid grid = new Grid ( driver );
         Menu menu = new Menu ( driver );
@@ -65,7 +65,7 @@ public class Gdem415Test extends BaseTest {
         menu.Logout ();
 
         //Ingreso con nuevo Usuario
-        login.Ingresar ();
+        login.Ingresar ( "QA" );
         //BandejaTareas
         menu.Ejecutar ();
         ejecutar.Programa ( "hxwf900" );
@@ -88,7 +88,7 @@ public class Gdem415Test extends BaseTest {
         menu.Logout ();
 
         //Ingreso con nuevo Usuario
-        login.Ingresar ();
+        login.Ingresar ( "QA" );
         //BandejaTareas
         menu.Ejecutar ();
         ejecutar.Programa ( "hxwf900" );

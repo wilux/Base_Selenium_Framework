@@ -3,7 +3,7 @@ package Task;
 import Action.Click;
 import Action.Write;
 import Page.BandejaTareasPage;
-import Tools.Grid;
+import Action.Grid;
 import org.openqa.selenium.WebDriver;
 
 public class BandejaTareas extends BandejaTareasPage {

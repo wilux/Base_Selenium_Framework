@@ -1,5 +1,6 @@
 package Task;
 
+import Config.Accion;
 import Page.EjecutarPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,6 +17,10 @@ public class Ejecutar extends EjecutarPage {
 
     public void Programa(String strProgram) {
 
+        Accion accion = new Accion ( driver );
+
+//        accion.write ().On ( _PROGRAMA, strProgram );
+//        accion.click ().On ( BTNOPCONFIRMAR );
 
         WebElement iframe = driver.findElement ( By.id ( "0" ) );
         driver.switchTo ().frame ( iframe );

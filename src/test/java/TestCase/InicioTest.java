@@ -2,7 +2,6 @@ package TestCase;
 
 import Config.BaseTest;
 import Task.Login;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.lang.reflect.Method;
@@ -15,13 +14,13 @@ public class InicioTest extends BaseTest {
 
     @Test(priority = 0, description = "Prueba de Login correcto")
     //Tests google calculator
-    public void Login(Method method) {
+    public void Login(Method method) throws InterruptedException {
 
         //ExtentReports Description
         startTest ( method.getName (), "Valid Login Scenario with valid username and password." );
 
         Login login = new Login ( driver );
-        login.Ingresar ();
+        login.Ingresar ( "QA" );
 
     }
 

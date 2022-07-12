@@ -7,7 +7,7 @@ import Action.Write;
 import Page.DetalleDireccionPage;
 import Page.EntrevistaPage;
 import Tools.Frame;
-import Tools.Grid;
+import Action.Grid;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

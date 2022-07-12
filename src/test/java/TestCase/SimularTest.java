@@ -3,6 +3,7 @@ package TestCase;
 import Config.BaseTest;
 import Config.Accion;
 import Tools.SQLDatabaseConnection;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -22,7 +23,7 @@ public class SimularTest extends BaseTest {
         bd.CambiarUsuario ( "SERPILLOE" );
 
         //Logueamos
-        accion.login ().Ingresar ();
+        accion.login ().Ingresar ( "QA" );
 
         //Menu Ejecutar
         accion.menu ().Ejecutar ();

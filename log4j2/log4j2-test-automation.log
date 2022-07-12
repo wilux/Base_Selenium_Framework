@@ -1,112 +1,135 @@
-[INFO ] 2022-07-04 13:13:14.517 [main] Log - Tests is starting!
-[INFO ] 2022-07-04 13:13:28.145 [main] Log - Tests are ending!
-[INFO ] 2022-07-04 13:13:32.012 [main] Log - Tests is starting!
-[INFO ] 2022-07-04 13:13:41.708 [main] Log - Tests are ending!
-[INFO ] 2022-07-04 13:13:43.969 [main] Log - Tests is starting!
-[INFO ] 2022-07-04 13:13:51.369 [main] Log - Tests are ending!
-[INFO ] 2022-07-04 13:13:55.062 [main] Log - Tests is starting!
-[INFO ] 2022-07-04 13:14:03.315 [main] Log - Tests are ending!
-[INFO ] 2022-07-04 13:14:04.906 [main] Log - Tests is starting!
-[INFO ] 2022-07-04 13:14:13.344 [main] Log - Tests are ending!
-[INFO ] 2022-07-04 13:14:14.977 [main] Log - Tests is starting!
-[INFO ] 2022-07-04 13:14:23.041 [main] Log - Tests are ending!
-[INFO ] 2022-07-04 14:06:17.191 [main] Log - Tests is starting!
-[INFO ] 2022-07-04 14:06:27.415 [main] Log - Tests are ending!
-[INFO ] 2022-07-04 15:30:50.865 [main] Log - I am in onStart method LoginTest
-[INFO ] 2022-07-04 15:30:50.905 [main] Log - Tests is starting!
-[INFO ] 2022-07-04 15:30:54.826 [main] Log - Login test is starting.
-[INFO ] 2022-07-04 15:31:13.634 [main] Log - Login test is succeed.
-[INFO ] 2022-07-04 15:31:13.645 [main] Log - Tests are ending!
-[INFO ] 2022-07-04 15:31:16.534 [main] Log - I am in onFinish method LoginTest
-[INFO ] 2022-07-04 15:41:17.349 [main] Log - I am in onStart method LoginTest
-[INFO ] 2022-07-04 15:41:17.386 [main] Log - Tests is starting!
-[INFO ] 2022-07-04 15:41:21.572 [main] Log - Login test is starting.
-[INFO ] 2022-07-04 15:41:31.933 [main] Log - Login test is succeed.
-[INFO ] 2022-07-04 15:41:31.934 [main] Log - Login test is failed.
-[INFO ] 2022-07-04 15:41:32.084 [main] Log - Tests are ending!
-[INFO ] 2022-07-04 15:41:40.173 [main] Log - I am in onFinish method LoginTest
-[INFO ] 2022-07-04 15:46:56.786 [main] Log - I am in onStart method LoginTest
-[INFO ] 2022-07-04 15:46:56.814 [main] Log - Tests is starting!
-[INFO ] 2022-07-04 15:46:59.606 [main] Log - Login test is starting.
-[INFO ] 2022-07-04 15:47:05.939 [main] Log - Login test is succeed.
-[INFO ] 2022-07-04 15:47:05.939 [main] Log - Login test is failed.
-[INFO ] 2022-07-04 15:47:05.942 [main] Log - Tests are ending!
-[INFO ] 2022-07-04 15:47:10.871 [main] Log - I am in onFinish method LoginTest
-[INFO ] 2022-07-04 16:09:21.751 [main] Log - I am in onStart method LoginTest
-[INFO ] 2022-07-04 16:09:21.780 [main] Log - Tests is starting!
-[INFO ] 2022-07-04 16:09:24.587 [main] Log - Login test is starting.
-[INFO ] 2022-07-04 16:09:32.020 [main] Log - Login test is failed.
-[INFO ] 2022-07-04 16:09:32.023 [main] Log - Tests are ending!
-[INFO ] 2022-07-04 16:09:35.934 [main] Log - I am in onFinish method LoginTest
-[INFO ] 2022-07-04 16:11:59.361 [main] Log - I am in onStart method LoginTest
-[INFO ] 2022-07-04 16:11:59.395 [main] Log - Tests is starting!
-[INFO ] 2022-07-04 16:12:02.181 [main] Log - Login test is starting.
-[INFO ] 2022-07-04 16:12:08.564 [main] Log - Login test is failed.
-[INFO ] 2022-07-04 16:12:08.566 [main] Log - Tests are ending!
-[INFO ] 2022-07-04 16:12:12.100 [main] Log - I am in onFinish method LoginTest
-[INFO ] 2022-07-04 16:14:46.403 [main] Log - I am in onStart method LoginTest
-[INFO ] 2022-07-04 16:14:46.436 [main] Log - Tests is starting!
-[INFO ] 2022-07-04 16:14:49.207 [main] Log - Login test is starting.
-[INFO ] 2022-07-04 16:14:55.773 [main] Log - Login test is succeed.
-[INFO ] 2022-07-04 16:14:55.774 [main] Log - Login test is failed.
-[INFO ] 2022-07-04 16:14:55.776 [main] Log - Tests are ending!
-[INFO ] 2022-07-04 16:14:58.463 [main] Log - I am in onFinish method LoginTest
-[INFO ] 2022-07-04 16:29:19.043 [main] Log - I am in onStart method LoginTest
-[INFO ] 2022-07-04 16:29:19.071 [main] Log - Tests is starting!
-[INFO ] 2022-07-04 16:29:21.851 [main] Log - Login test is starting.
-[INFO ] 2022-07-04 16:29:28.376 [main] Log - Verifying javascript login errors.
-[INFO ] 2022-07-04 16:29:28.406 [main] Log - Login test is failed.
-[INFO ] 2022-07-04 16:29:28.408 [main] Log - Tests are ending!
-[INFO ] 2022-07-04 16:29:29.086 [main] Log - I am in onFinish method LoginTest
-[INFO ] 2022-07-04 16:40:45.296 [main] Log - I am in onStart method LoginTest
-[INFO ] 2022-07-04 16:40:45.333 [main] Log - Tests is starting!
-[INFO ] 2022-07-04 16:40:48.398 [main] Log - Login test is starting.
-[INFO ] 2022-07-04 16:40:55.975 [main] Log - Verifying javascript login errors.
-[INFO ] 2022-07-04 16:40:56.002 [main] Log - Login test is failed.
-[INFO ] 2022-07-04 16:40:56.117 [main] Log - Tests are ending!
-[INFO ] 2022-07-04 16:40:56.799 [main] Log - I am in onFinish method LoginTest
-[INFO ] 2022-07-04 16:41:55.499 [main] Log - I am in onStart method LoginTest
-[INFO ] 2022-07-04 16:41:55.529 [main] Log - Tests is starting!
-[INFO ] 2022-07-04 16:41:58.320 [main] Log - Login test is starting.
-[INFO ] 2022-07-04 16:42:04.455 [main] Log - Verifying javascript login errors.
-[INFO ] 2022-07-04 16:42:04.587 [main] Log - Login test is skipped.
-[INFO ] 2022-07-04 16:42:04.588 [main] Log - Login test is starting.
-[INFO ] 2022-07-04 16:42:10.505 [main] Log - Verifying javascript login errors.
-[INFO ] 2022-07-04 16:42:10.518 [main] Log - Login test is failed.
-[INFO ] 2022-07-04 16:42:12.718 [main] Log - Tests are ending!
-[INFO ] 2022-07-04 16:42:13.509 [main] Log - I am in onFinish method LoginTest
-[INFO ] 2022-07-04 16:45:30.065 [main] Log - I am in onStart method LoginTest
-[INFO ] 2022-07-04 16:45:30.100 [main] Log - Tests is starting!
-[INFO ] 2022-07-04 16:45:33.468 [main] Log - Login test is starting.
-[INFO ] 2022-07-04 16:45:40.258 [main] Log - Verifying javascript login errors.
-[INFO ] 2022-07-04 16:45:40.383 [main] Log - Login test is skipped.
-[INFO ] 2022-07-04 16:45:40.384 [main] Log - Login test is starting.
-[INFO ] 2022-07-04 16:45:44.224 [main] Log - Verifying javascript login errors.
-[INFO ] 2022-07-04 16:45:44.231 [main] Log - Login test is failed.
-[INFO ] 2022-07-04 16:45:44.309 [main] Log - Tests are ending!
-[INFO ] 2022-07-04 16:45:44.885 [main] Log - I am in onFinish method LoginTest
-[INFO ] 2022-07-04 16:47:11.729 [main] Log - I am in onStart method LoginTest
-[INFO ] 2022-07-04 16:47:11.760 [main] Log - Tests is starting!
-[INFO ] 2022-07-04 16:47:14.499 [main] Log - Login test is starting.
-[INFO ] 2022-07-04 16:47:20.596 [main] Log - Login test is succeed.
-[INFO ] 2022-07-04 16:47:20.603 [main] Log - Tests are ending!
-[INFO ] 2022-07-04 16:47:21.280 [main] Log - I am in onFinish method LoginTest
-[INFO ] 2022-07-04 16:49:44.943 [main] Log - I am in onStart method LoginTest
-[INFO ] 2022-07-04 16:49:44.978 [main] Log - Tests is starting!
-[INFO ] 2022-07-04 16:49:47.719 [main] Log - Login test is starting.
-[INFO ] 2022-07-04 16:49:53.964 [main] Log - Login test is succeed.
-[INFO ] 2022-07-04 16:49:53.965 [main] Log - Login test is failed.
-[INFO ] 2022-07-04 16:49:54.096 [main] Log - Tests are ending!
-[INFO ] 2022-07-04 16:49:54.782 [main] Log - I am in onFinish method LoginTest
-[INFO ] 2022-07-04 16:50:29.700 [main] Log - I am in onStart method LoginTest
-[INFO ] 2022-07-04 16:50:29.730 [main] Log - Tests is starting!
-[INFO ] 2022-07-04 16:50:32.502 [main] Log - Login test is starting.
-[INFO ] 2022-07-04 16:50:38.481 [main] Log - Login test is succeed.
-[INFO ] 2022-07-04 16:50:38.606 [main] Log - Tests are ending!
-[INFO ] 2022-07-04 16:50:39.379 [main] Log - I am in onFinish method LoginTest
-[INFO ] 2022-07-04 16:52:50.562 [main] Log - I am in onStart method LoginTest
-[INFO ] 2022-07-04 16:52:50.593 [main] Log - Tests is starting!
-[INFO ] 2022-07-04 16:52:53.286 [main] Log - Login test is starting.
-[INFO ] 2022-07-04 16:52:59.535 [main] Log - Login test is succeed.
-[INFO ] 2022-07-04 16:52:59.652 [main] Log - Tests are ending!
-[INFO ] 2022-07-04 16:53:00.342 [main] Log - I am in onFinish method LoginTest
+[INFO ] 2022-07-11 08:17:26.552 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 08:17:30.622 [main] Log - I am in onStart method GDEM 775
+[INFO ] 2022-07-11 08:17:54.808 [main] Log - TestConPaqueteConPtosParticulares test is starting.
+[INFO ] 2022-07-11 08:17:58.491 [main] Log - TestConPaqueteConPtosParticulares test is succeed.
+[INFO ] 2022-07-11 08:17:58.492 [main] Log - TestConPaqueteConPtosParticulares test is failed.
+[INFO ] 2022-07-11 08:17:58.493 [main] Log - I am in onFinish method GDEM 775
+[INFO ] 2022-07-11 08:22:05.708 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 08:22:08.850 [main] Log - I am in onStart method GDEM 775
+[INFO ] 2022-07-11 08:22:29.524 [main] Log - TestConPaqueteConPtosParticulares test is starting.
+[INFO ] 2022-07-11 08:22:33.050 [main] Log - TestConPaqueteConPtosParticulares test is failed.
+[INFO ] 2022-07-11 08:22:33.051 [main] Log - I am in onFinish method GDEM 775
+[INFO ] 2022-07-11 08:24:01.128 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 08:24:30.150 [main] Log - Tests are ending!
+[INFO ] 2022-07-11 08:30:09.162 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 08:30:32.696 [main] Log - Tests are ending!
+[INFO ] 2022-07-11 08:34:13.686 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 08:34:59.095 [main] Log - Tests are ending!
+[INFO ] 2022-07-11 08:43:27.594 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 08:44:19.801 [main] Log - Tests are ending!
+[INFO ] 2022-07-11 08:50:53.445 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 08:51:47.228 [main] Log - Tests are ending!
+[INFO ] 2022-07-11 09:00:46.706 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 09:01:47.305 [main] Log - Tests are ending!
+[INFO ] 2022-07-11 13:46:47.165 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 13:47:52.330 [main] Log - Tests are ending!
+[INFO ] 2022-07-11 13:56:02.656 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 13:57:01.151 [main] Log - Tests are ending!
+[INFO ] 2022-07-11 14:19:32.790 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 14:19:36.972 [main] Log - I am in onStart method GDEM 775
+[INFO ] 2022-07-11 14:20:03.529 [main] Log - TestSinPaquete test is starting.
+[INFO ] 2022-07-11 14:20:13.348 [main] Log - TestSinPaquete test is failed.
+[INFO ] 2022-07-11 14:20:13.433 [main] Log - I am in onFinish method GDEM 775
+[INFO ] 2022-07-11 18:13:56.991 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 18:14:59.869 [main] Log - Tests are ending!
+[INFO ] 2022-07-11 18:16:44.212 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 18:16:47.714 [main] Log - I am in onStart method GDEM 775
+[INFO ] 2022-07-11 18:17:11.405 [main] Log - TestSinPaquete test is starting.
+[INFO ] 2022-07-11 18:17:23.361 [main] Log - TestSinPaquete test is failed.
+[INFO ] 2022-07-11 18:17:23.448 [main] Log - I am in onFinish method GDEM 775
+[INFO ] 2022-07-11 19:03:05.045 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 19:03:53.548 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 19:04:51.967 [main] Log - Tests are ending!
+[INFO ] 2022-07-11 19:11:23.661 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 19:11:44.063 [main] Log - I am in onStart method GDEM 775
+[INFO ] 2022-07-11 19:12:24.611 [main] Log - TestSinPaquete test is starting.
+[INFO ] 2022-07-11 19:12:54.672 [main] Log - TestSinPaquete test is failed.
+[INFO ] 2022-07-11 19:12:56.005 [main] Log - I am in onFinish method GDEM 775
+[INFO ] 2022-07-11 20:19:13.038 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 20:19:15.447 [main] Log - I am in onStart method GDEM 775
+[INFO ] 2022-07-11 20:19:38.343 [main] Log - TestSinPaquete test is starting.
+[INFO ] 2022-07-11 20:19:47.786 [main] Log - TestSinPaquete test is failed.
+[INFO ] 2022-07-11 20:19:47.879 [main] Log - I am in onFinish method GDEM 775
+[INFO ] 2022-07-11 20:24:22.064 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 20:24:24.268 [main] Log - I am in onStart method GDEM 775
+[INFO ] 2022-07-11 20:24:43.690 [main] Log - TestSinPaquete test is starting.
+[INFO ] 2022-07-11 20:24:53.073 [main] Log - TestSinPaquete test is failed.
+[INFO ] 2022-07-11 20:24:53.075 [main] Log - I am in onFinish method GDEM 775
+[INFO ] 2022-07-11 20:26:35.971 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 20:26:38.275 [main] Log - I am in onStart method GDEM 775
+[INFO ] 2022-07-11 20:26:58.704 [main] Log - TestSinPaquete test is starting.
+[INFO ] 2022-07-11 20:27:08.025 [main] Log - TestSinPaquete test is failed.
+[INFO ] 2022-07-11 20:27:08.027 [main] Log - I am in onFinish method GDEM 775
+[INFO ] 2022-07-11 20:31:45.256 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 20:31:47.705 [main] Log - I am in onStart method GDEM 775
+[INFO ] 2022-07-11 20:32:08.255 [main] Log - TestSinPaquete test is starting.
+[INFO ] 2022-07-11 20:32:17.494 [main] Log - TestSinPaquete test is failed.
+[INFO ] 2022-07-11 20:32:17.495 [main] Log - I am in onFinish method GDEM 775
+[INFO ] 2022-07-11 21:08:02.544 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 21:08:05.427 [main] Log - I am in onStart method GDEM 775
+[INFO ] 2022-07-11 21:08:29.133 [main] Log - TestSinPaquete test is starting.
+[INFO ] 2022-07-11 21:08:38.586 [main] Log - TestSinPaquete test is failed.
+[INFO ] 2022-07-11 21:08:38.671 [main] Log - I am in onFinish method GDEM 775
+[INFO ] 2022-07-11 21:18:22.607 [main] Log - I am in onStart method GDEM 775
+[INFO ] 2022-07-11 21:18:23.070 [main] Log - TestSinPaquete test is starting.
+[INFO ] 2022-07-11 21:18:23.070 [main] Log - TestSinPaquete test is skipped.
+[INFO ] 2022-07-11 21:18:23.271 [main] Log - TestSinPaquete test is failed.
+[INFO ] 2022-07-11 21:18:23.271 [main] Log - I am in onFinish method GDEM 775
+[INFO ] 2022-07-11 21:20:55.894 [main] Log - I am in onStart method GDEM 775
+[INFO ] 2022-07-11 21:20:55.952 [main] Log - TestSinPaquete test is starting.
+[INFO ] 2022-07-11 21:20:55.952 [main] Log - TestSinPaquete test is skipped.
+[INFO ] 2022-07-11 21:20:56.152 [main] Log - TestSinPaquete test is failed.
+[INFO ] 2022-07-11 21:20:56.153 [main] Log - I am in onFinish method GDEM 775
+[INFO ] 2022-07-11 21:21:47.684 [main] Log - I am in onStart method GDEM 775
+[INFO ] 2022-07-11 21:21:47.718 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 21:21:58.113 [main] Log - TestSinPaquete test is starting.
+[INFO ] 2022-07-11 21:22:17.233 [main] Log - TestSinPaquete test is failed.
+[INFO ] 2022-07-11 21:22:17.297 [main] Log - I am in onFinish method GDEM 775
+[INFO ] 2022-07-11 21:44:56.923 [main] Log - I am in onStart method GDEM 775
+[INFO ] 2022-07-11 21:44:57.440 [main] Log - TestSinPaquete test is starting.
+[INFO ] 2022-07-11 21:44:57.441 [main] Log - TestSinPaquete test is skipped.
+[INFO ] 2022-07-11 21:44:57.686 [main] Log - TestSinPaquete test is failed.
+[INFO ] 2022-07-11 21:44:57.686 [main] Log - I am in onFinish method GDEM 775
+[INFO ] 2022-07-11 21:47:53.922 [main] Log - I am in onStart method GDEM 775
+[INFO ] 2022-07-11 21:47:53.955 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 21:47:56.126 [main] Log - TestSinPaquete test is starting.
+[INFO ] 2022-07-11 21:48:44.739 [main] Log - I am in onStart method GDEM 775
+[INFO ] 2022-07-11 21:48:45.217 [main] Log - TestSinPaquete test is starting.
+[INFO ] 2022-07-11 21:48:45.218 [main] Log - TestSinPaquete test is skipped.
+[INFO ] 2022-07-11 21:48:45.452 [main] Log - TestSinPaquete test is failed.
+[INFO ] 2022-07-11 21:48:45.452 [main] Log - I am in onFinish method GDEM 775
+[INFO ] 2022-07-11 21:52:03.845 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 21:52:06.162 [main] Log - I am in onStart method GDEM 775
+[INFO ] 2022-07-11 21:52:29.206 [main] Log - TestSinPaquete test is starting.
+[INFO ] 2022-07-11 21:52:38.878 [main] Log - TestSinPaquete test is failed.
+[INFO ] 2022-07-11 21:52:38.973 [main] Log - I am in onFinish method GDEM 775
+[INFO ] 2022-07-11 22:10:07.550 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 22:11:11.701 [main] Log - Tests are ending!
+[INFO ] 2022-07-11 22:28:11.903 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 22:28:54.710 [main] Log - *** Test execution TestSinPaquete failed...
+[INFO ] 2022-07-11 22:28:54.711 [main] Log - TestSinPaquete failed!
+[INFO ] 2022-07-11 22:28:54.711 [main] Log - Screen shots reports path - C:\Users\floresnes\source\repos\BT_Selenium_Java_Maven\TestReport\screenshots
+[INFO ] 2022-07-11 22:28:54.712 [main] Log - Directory: C:\Users\floresnes\source\repos\BT_Selenium_Java_Maven\TestReport\screenshots\TasaTnaPorPuntosConPaqueteTest is created!
+[INFO ] 2022-07-11 22:28:54.713 [main] Log - An exception occurred while taking screenshot null
+[INFO ] 2022-07-11 22:28:54.713 [main] Log - *** Test execution TestSinPaquete failed...
+[INFO ] 2022-07-11 22:28:54.714 [main] Log - TestSinPaquete failed!
+[INFO ] 2022-07-11 22:28:54.714 [main] Log - Screen shots reports path - C:\Users\floresnes\source\repos\BT_Selenium_Java_Maven\TestReport\screenshots
+[INFO ] 2022-07-11 22:28:54.714 [main] Log - An exception occurred while taking screenshot null
+[INFO ] 2022-07-11 22:33:25.200 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 22:34:02.930 [main] Log - *** Test execution TestSinPaquete failed...
+[INFO ] 2022-07-11 22:34:02.930 [main] Log - TestSinPaquete failed!
+[INFO ] 2022-07-11 22:34:02.930 [main] Log - Screen shots reports path - C:\Users\floresnes\source\repos\BT_Selenium_Java_Maven\TestReport\screenshots
+[INFO ] 2022-07-11 22:34:02.931 [main] Log - An exception occurred while taking screenshot null
+[INFO ] 2022-07-11 22:34:02.931 [main] Log - *** Test execution TestSinPaquete failed...
+[INFO ] 2022-07-11 22:34:02.932 [main] Log - TestSinPaquete failed!
+[INFO ] 2022-07-11 22:34:02.932 [main] Log - Screen shots reports path - C:\Users\floresnes\source\repos\BT_Selenium_Java_Maven\TestReport\screenshots
+[INFO ] 2022-07-11 22:34:02.932 [main] Log - An exception occurred while taking screenshot null
+[INFO ] 2022-07-11 22:35:30.710 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 22:36:08.373 [main] Log - *** Test execution TestSinPaquete failed...
+[INFO ] 2022-07-11 22:36:08.374 [main] Log - TestSinPaquete failed!
+[INFO ] 2022-07-11 22:36:08.374 [main] Log - Screen shots reports path - C:\Users\floresnes\source\repos\BT_Selenium_Java_Maven\TestReport\screenshots
+[INFO ] 2022-07-11 22:36:08.375 [main] Log - An exception occurred while taking screenshot null
+[INFO ] 2022-07-11 22:36:08.375 [main] Log - *** Test execution TestSinPaquete failed...
+[INFO ] 2022-07-11 22:36:08.376 [main] Log - TestSinPaquete failed!
+[INFO ] 2022-07-11 22:36:08.376 [main] Log - Screen shots reports path - C:\Users\floresnes\source\repos\BT_Selenium_Java_Maven\TestReport\screenshots
+[INFO ] 2022-07-11 22:36:08.376 [main] Log - An exception occurred while taking screenshot null

@@ -1,7 +1,7 @@
 package Task;
 
 import Page.CierredeCuentasVistasPage;
-import Tools.Grid;
+import Action.Grid;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

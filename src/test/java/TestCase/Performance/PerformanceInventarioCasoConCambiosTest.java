@@ -11,11 +11,13 @@ import Task.Login;
 import Task.Menu;
 import Tools.Frame;
 import com.google.common.base.Stopwatch;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
 public class PerformanceInventarioCasoConCambiosTest extends BaseTest {
+
 
     @Test
     //Pruebas de Performance para Inventario de Legajo con Ajustes
@@ -29,7 +31,7 @@ public class PerformanceInventarioCasoConCambiosTest extends BaseTest {
         Frame frame = new Frame ( driver );
 
         //Hago el Login
-        login.Ingresar ();
+        login.Ingresar ( "QA" );
 
         //Menu Ejecutar
         menu.Ejecutar ();

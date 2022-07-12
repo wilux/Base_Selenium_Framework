@@ -42,13 +42,18 @@ public class Get {
     public String TextOnTag(By locator) {
         String value = "";
         Frame frame = new Frame ( driver );
+        final Stopwatch stopwatch = Stopwatch.createStarted ();
 
-        if ( frame.BuscarFrame ( locator ) ) {
-            value = driver.findElement ( locator ).getText ();
-            System.out.println ( "Value de " + locator + "=" + value + " length: " + value.length () );
-        }
-        else {
-            System.out.println ( "No se encontró " + locator );
+        while ((stopwatch.elapsed ( TimeUnit.SECONDS ) < 10)) {
+            if ( frame.BuscarFrame ( locator ) ) {
+                value = driver.findElement ( locator ).getText ();
+                System.out.println ( "Value de " + locator + "=" + value + " length: " + value.length () );
+                break;
+            }
+            else {
+                System.out.println ( "No se encontró " + locator );
+                continue;
+            }
         }
         return value;
     }
@@ -109,6 +114,21 @@ public class Get {
         }
         return value;
     }
+
+
+    public boolean Existe(By locator) {
+
+        Frame frame = new Frame ( driver );
+        boolean value = false;
+        if ( frame.BuscarFrame ( locator ) ) {
+            value = true;
+        }
+        else {
+            System.out.println ( "No se encontró " + locator );
+        }
+        return value;
+    }
+
 
 }
 

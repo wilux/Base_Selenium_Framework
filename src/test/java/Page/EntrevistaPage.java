@@ -1,18 +1,8 @@
 package Page;
 
 
-import Action.Choose;
-import Action.Click;
-import Action.Get;
-import Action.Write;
-import Tools.Frame;
-import Tools.Grid;
-import com.google.common.base.Stopwatch;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
-import java.util.concurrent.TimeUnit;
 
 public class EntrevistaPage {
     //Tramite

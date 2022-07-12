@@ -3,6 +3,7 @@ package TestCase;
 import Config.BaseTest;
 import Task.*;
 import Tools.SQLDatabaseConnection;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -20,7 +21,7 @@ public class EntrevistaTest extends BaseTest {
 
         //Login
         Login login = new Login ( driver );
-        login.Ingresar ();
+        login.Ingresar ( "QA" );
 
         Menu menu = new Menu ( driver );
         Ejecutar ejecutar = new Ejecutar ( driver );

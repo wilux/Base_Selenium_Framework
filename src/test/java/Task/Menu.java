@@ -24,18 +24,20 @@ public class Menu extends MenuPage {
         driver.switchTo ().window ( tabs.get ( 0 ) );
     }
 
-    public void Ejecutar() throws InterruptedException {
+    public void Ejecutar() {
 
 
         try {
 
             driver.findElement ( Accesos ).click ();
+            System.out.println ( "Menu Acceso" );
             Thread.sleep ( 200 );
             driver.findElement ( MenuEjecutar ).click ();
+            System.out.println ( "Menu Ejecutar" );
 
 
         } catch (Exception e) {
-            System.out.println ( "No se encontro elemento " + e.getMessage () );
+            System.out.println ( "No se encontro elemento Ejecutar" + e.getMessage () );
 
         }
 

@@ -1,5 +1,6 @@
-package Tools;
+package Action;
 
+import Tools.Frame;
 import com.google.common.base.Stopwatch;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
