@@ -24,7 +24,6 @@ public class Choose {
         if ( frame.BuscarFrame ( locator ) ) {
             Select select = new Select ( driver.findElement ( locator ) );
             select.selectByVisibleText ( text );
-            System.out.println ( "Se cambio " + locator + " a " + text );
         }
         else {
             System.out.println ( "No se encontró " + locator );

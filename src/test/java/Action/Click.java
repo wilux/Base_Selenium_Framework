@@ -35,14 +35,12 @@ public class Click {
         try {
 
             driver.findElement ( locator ).click ();
-            System.out.println ( "Click Avanzado en " + locator );
 
 
         } catch (Exception e) {
             System.out.println ( "No se encontró " + locator );
             try {
                 driver.findElement ( locator ).click ();
-                System.out.println ( "Click Basico en " + locator );
             } catch (Exception i) {
                 System.out.println ( "No se encontró con click basico " + locator );
 

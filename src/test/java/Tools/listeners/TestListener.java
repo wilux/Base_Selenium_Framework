@@ -3,6 +3,7 @@ package Tools.listeners;
 import Config.BaseTest;
 import Tools.extentreports.ExtentManager;
 import Tools.extentreports.ExtentTestManager;
+import Tools.logs.Log;
 import com.aventstack.extentreports.Status;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -17,9 +18,13 @@ import static Tools.extentreports.ExtentTestManager.getTest;
 
 public class TestListener implements ITestListener {
 
+    private static String getTestMethodName(ITestResult iTestResult) {
+        return iTestResult.getMethod ().getConstructorOrMethod ().getName ();
+    }
+
 
     public void onStart(ITestContext context) {
-        System.out.println ( "*** Test Suite " + context.getName () + " started ***" );
+        Log.info ( "I am in onStart method " + context.getName () );
     }
 
     public void onFinish(ITestContext context) {
@@ -29,13 +34,12 @@ public class TestListener implements ITestListener {
     }
 
     public void onTestStart(ITestResult result) {
-        System.out.println ( ("*** Running test method " + result.getMethod ().getMethodName () + "...") );
+        Log.info ( "I am in onFinish method " + result.getName () );
         ExtentTestManager.startTest ( result.getMethod ().getMethodName (), " test is starting." );
     }
 
     public void onTestSuccess(ITestResult result) {
-        System.out.println ( "*** Executed " + result.getMethod ().getMethodName () + " test successfully..." );
-        ExtentTestManager.getTest ().log ( Status.PASS, "Test passed" );
+        Log.info ( getTestMethodName ( result ) + " test is succeed." );
 
         Object testClass = result.getInstance ();
         WebDriver webDriver = ((BaseTest) testClass).getDriver ();
@@ -45,8 +49,7 @@ public class TestListener implements ITestListener {
     }
 
     public void onTestFailure(ITestResult result) {
-        System.out.println ( "*** Test execution " + result.getMethod ().getMethodName () + " failed..." );
-        ExtentTestManager.getTest ().log ( Status.FAIL, "Test Failed" );
+        Log.info ( getTestMethodName ( result ) + " test is failed." );
 
         Object testClass = result.getInstance ();
         WebDriver webDriver = ((BaseTest) testClass).getDriver ();
@@ -56,12 +59,12 @@ public class TestListener implements ITestListener {
     }
 
     public void onTestSkipped(ITestResult result) {
-        System.out.println ( "*** Test " + result.getMethod ().getMethodName () + " skipped..." );
+        Log.info ( getTestMethodName ( result ) + " test is skipped." );
         ExtentTestManager.getTest ().log ( Status.SKIP, "Test Skipped" );
     }
 
     public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-        System.out.println ( "*** Test failed but within percentage % " + result.getMethod ().getMethodName () );
+        Log.info ( "Test failed but it is in defined success ratio " + getTestMethodName ( result ) );
     }
 
 }
