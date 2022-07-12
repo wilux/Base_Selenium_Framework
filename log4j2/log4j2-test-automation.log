@@ -133,3 +133,17 @@
 [INFO ] 2022-07-11 22:36:08.376 [main] Log - TestSinPaquete failed!
 [INFO ] 2022-07-11 22:36:08.376 [main] Log - Screen shots reports path - C:\Users\floresnes\source\repos\BT_Selenium_Java_Maven\TestReport\screenshots
 [INFO ] 2022-07-11 22:36:08.376 [main] Log - An exception occurred while taking screenshot null
+[INFO ] 2022-07-11 22:40:10.055 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 22:42:04.195 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 22:46:33.996 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 22:47:08.258 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 22:48:10.893 [main] Log - Tests are ending!
+[INFO ] 2022-07-11 22:56:26.058 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 22:57:20.467 [main] Log - Tests are ending!
+[INFO ] 2022-07-11 23:02:11.003 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 23:02:57.287 [main] Log - Tests are ending!
+[INFO ] 2022-07-11 23:08:46.321 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 23:09:27.051 [main] Log - Tests are ending!
+[INFO ] 2022-07-11 23:12:37.801 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 23:22:04.505 [main] Log - Tests is starting!
+[INFO ] 2022-07-11 23:22:56.797 [main] Log - Tests are ending!

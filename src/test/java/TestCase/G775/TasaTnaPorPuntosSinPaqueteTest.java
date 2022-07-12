@@ -7,6 +7,7 @@ import Tools.Screenshot;
 import Tools.Tna;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -21,7 +22,7 @@ public class TasaTnaPorPuntosSinPaqueteTest extends BaseTest {
 
 
     @BeforeTest
-    public void IniciarSimulacion() throws InterruptedException {
+    public void IniciarSimulacion() {
 
         //Instanciamos clases que usaremos
         SQLDatabaseConnection bd = new SQLDatabaseConnection ();

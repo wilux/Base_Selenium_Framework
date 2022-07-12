@@ -18,12 +18,6 @@ import java.util.List;
 
 public class TasaTnaPorPuntosConPaqueteTest extends BaseTest {
 
-    @BeforeClass
-    public void setUp() {
-        //Get driver
-        driver = getDriver ();
-    }
-
 
     @BeforeTest
     public void IniciarSimulacion() throws InterruptedException {
@@ -54,7 +48,7 @@ public class TasaTnaPorPuntosConPaqueteTest extends BaseTest {
     @Test(priority = 0, description = "Simulacion Prestamo de un cliente con Paquete Existente, llevando un " +
             "MonoProducto sin puntos Particulares")
     public void TestSinPaquete() throws InterruptedException, IOException {
-        Thread.sleep ( 3000 );
+
         //Instanciamos clases que usaremos
         SQLDatabaseConnection bd = new SQLDatabaseConnection ();
         Accion accion = new Accion ( driver );
@@ -72,7 +66,7 @@ public class TasaTnaPorPuntosConPaqueteTest extends BaseTest {
 
         //Elegimos Paquete 0 -> CA. COMUN = Sin paquete
         accion.simulacion ().Paquete ( paquetes.get ( 0 ) );
-        Thread.sleep ( 3000 );
+        Thread.sleep ( 5000 );
 
         String sqlPuntosGrales = "select JBNYC5TABO from JBNYC5 where JBNYC5Desc='BPN PLUS'";
         String sqlPuntosParticulares = "select BNQFCD3Bon from  BNQFCD3 where BNQFCD3PQT=0 and BNQFCD3Top=201";
@@ -99,7 +93,6 @@ public class TasaTnaPorPuntosConPaqueteTest extends BaseTest {
     @Test(priority = 1, description = "Simulacion Prestamo de un cliente con Paquete Existente, llevando un " +
             "upgrade de Paquete con puntos Particulares para la linea")
     public void TestConPaqueteConPtosParticulares() throws InterruptedException, IOException {
-        Thread.sleep ( 3000 );
         //Instanciamos clases que usaremos
         SQLDatabaseConnection bd = new SQLDatabaseConnection ();
         Accion accion = new Accion ( driver );
@@ -140,12 +133,10 @@ public class TasaTnaPorPuntosConPaqueteTest extends BaseTest {
     @Test(priority = 2, description = "Simulacion Prestamo de un cliente con Paquete Existente, llevando un " +
             "upgrade de Paquete sin puntos Particulares para la linea solo Generales")
     public void TestConPaquetePuntosSinPtoParticulares() throws InterruptedException, IOException {
-        Thread.sleep ( 3000 );
         //Instanciamos clases que usaremos
         SQLDatabaseConnection bd = new SQLDatabaseConnection ();
         Accion accion = new Accion ( driver );
         Screenshot screenshot = new Screenshot ( driver );
-
         //Linea 309/201
         //TNA BASE = 73
         Tna tna = new Tna ();

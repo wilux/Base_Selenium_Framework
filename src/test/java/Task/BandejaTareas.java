@@ -15,13 +15,13 @@ public class BandejaTareas extends BandejaTareasPage {
         this.driver = driver;
     }
 
-    public void filtrar(String nroEntrevista) throws InterruptedException {
+    public void filtrar(String nroEntrevista) {
         //Buscar entrevista
         Click click = new Click ( driver );
         Write write = new Write ( driver );
         write.Js ( InputBuscarAsunto, nroEntrevista );
         click.On ( BTNFILTER_INBOX );
-        Thread.sleep ( 1000 );
+
     }
 
     public void iniciarEntrevista(String tarea) {
@@ -50,7 +50,7 @@ public class BandejaTareas extends BandejaTareasPage {
     }
 
     //Ejecutar
-    public void ejecutarEntrevista(String nroEntrevista) throws InterruptedException {
+    public void ejecutarEntrevista(String nroEntrevista) {
         //frame.BuscarFrame ( bandejaTareasPage.Grilla_Tareas );
         Click click = new Click ( driver );
         Grid grid = new Grid ( driver );

@@ -72,7 +72,7 @@ public class Login extends LoginPage {
         this.LoginButton ();
     }
 
-    public void Ingresar(String ambiente) throws InterruptedException {
+    public void Ingresar(String ambiente) {
 
         if ( ambiente.equals ( "DF" ) ) {
 
