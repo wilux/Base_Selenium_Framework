@@ -4,18 +4,41 @@ import Page.LoginPage;
 import Tools.SQLDatabaseConnection;
 import org.testng.annotations.Test;
 
+import java.sql.SQLException;
+import java.text.ParseException;
+
 
 public class DbTest {
 
 
+//    @Test
+//    //Tests google calculator
+//    public void Conection() throws InterruptedException {
+//
+//        SQLDatabaseConnection bd = new SQLDatabaseConnection ();
+//        bd.CambiarUsuario ( "BOUZASC" );
+//
+//    }
+
+
+//    @Test
+//    //Tests WC
+//    public void WC() throws InterruptedException, ParseException {
+//
+//        SQLDatabaseConnection bd = new SQLDatabaseConnection ();
+//        bd.wc ( "27350672155" );
+//
+//    }
+
+
     @Test
-    //Tests google calculator
-    public void Conection() throws InterruptedException {
+    //Tests LD
+    public void LD() throws InterruptedException, SQLException {
 
-        SQLDatabaseConnection bd = new SQLDatabaseConnection();
-        bd.CambiarUsuario("BOUZASC");
+        SQLDatabaseConnection bd = new SQLDatabaseConnection ();
+        bd.completarLD ( "27350672155" );
 
-        }
     }
+}
 
 

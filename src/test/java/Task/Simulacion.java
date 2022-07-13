@@ -3,7 +3,9 @@ package Task;
 import Action.*;
 import Page.EjecutarPage;
 import Page.SimulacionProductosPage;
+import Tools.Frame;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -47,10 +49,12 @@ public class Simulacion extends SimulacionProductosPage {
 
     }
 
-    public void Monto(String monto) {
+    public void Monto(String monto) throws InterruptedException {
 
+        Thread.sleep ( 3000 );
         Write write = new Write ( driver );
-        write.On ( InputMontoSolicitado, monto );
+        write.Js ( InputMontoSolicitado, monto );
+        Thread.sleep ( 3000 );
 
 
     }
@@ -72,11 +76,11 @@ public class Simulacion extends SimulacionProductosPage {
 
     }
 
-    public void Simular() {
+    public void Simular() throws InterruptedException {
 
         Click click = new Click ( driver );
         click.On ( BTNOPSIMULAR );
-
+        Thread.sleep ( 3000 );
 
     }
 
@@ -100,12 +104,35 @@ public class Simulacion extends SimulacionProductosPage {
 
     }
 
-    public void Confirmar() {
+    public void Confirmar() throws InterruptedException {
 
         Click click = new Click ( driver );
+        Thread.sleep ( 4000 );
+        click.On ( BTNOPSIMULAR );
         click.On ( BTNOPCONFIRMAR );
+        Thread.sleep ( 4000 );
+        click.On ( BTN_SI );
 
 
+    }
+
+
+    public void ConfirmarPlanPago() throws InterruptedException {
+
+        Frame frame = new Frame ( driver );
+        Thread.sleep ( 4000 );
+        frame.BuscarFrame ( BTNOPCOMISION );
+        driver.findElement ( BTNOPCONFIRMAR ).click ();
+    }
+
+    public void ConfirmarSimulacion() throws InterruptedException {
+        Click click = new Click ( driver );
+        Frame frame = new Frame ( driver );
+        Thread.sleep ( 4000 );
+        frame.BuscarFrame ( BTNOPCARTASIMULADOR );
+        driver.findElement ( BTNOPCONFIRMAR ).click ();
+        Thread.sleep ( 4000 );
+        click.On ( BTN_SI );
     }
 
     public void Cerrar() {

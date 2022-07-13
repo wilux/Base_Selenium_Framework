@@ -43,4 +43,44 @@ public class Menu extends MenuPage {
 
 
     }
+
+    public void WorkFlow() {
+
+
+        try {
+
+            driver.findElement ( WF ).click ();
+            System.out.println ( "Menu WorkFlow" );
+            Thread.sleep ( 200 );
+
+        } catch (Exception e) {
+            System.out.println ( "No se encontro elemento Ejecutar" + e.getMessage () );
+
+        }
+
+
+    }
+
+    public void BandejaTareas() {
+
+
+        try {
+
+            driver.findElement ( Inicio ).click ();
+            System.out.println ( "Menu Inicio" );
+            Thread.sleep ( 200 );
+            driver.findElement ( WF ).click ();
+            System.out.println ( "Sub menu WorkFlow" );
+            Thread.sleep ( 200 );
+            driver.findElement ( BandejaTareas ).click ();
+            System.out.println ( "Sub Menu Bandeja Tareas" );
+
+
+        } catch (Exception e) {
+            System.out.println ( "No se encontro elemento Ejecutar" + e.getMessage () );
+
+        }
+
+
+    }
 }

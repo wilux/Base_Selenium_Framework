@@ -1,7 +1,7 @@
 package Page;
 
 
-import Config.Accion;
+import Config.Acciones;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -28,7 +28,7 @@ public class AbmPaquetesPage {
     public AbmPaquetesPage(WebDriver driver) {
 
         this.driver = driver;
-        Accion accion = new Accion ( driver );
+        Acciones acciones = new Acciones ( driver );
 
     }
 

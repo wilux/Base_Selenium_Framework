@@ -17,7 +17,12 @@ public class Log {
 
     //Method for adding logs passed from test cases
     public static void reportLog(String message) {
-        getTest ().log ( Status.INFO, message );
+        try {
+            getTest ().log ( Status.INFO, message );
+        } catch (Exception e) {
+            System.out.println ( e );
+        }
+        
 
     }
 

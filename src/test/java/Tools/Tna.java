@@ -36,7 +36,7 @@ public class Tna {
                 "                    order by tafdes desc\n" +
                 ")and  Tamto = 99999999.00";
 
-        tna = Double.parseDouble ( bd.getValue ( sql ) );
+        tna = Double.parseDouble ( bd.getValue ( sql, "BPN_WEB_QA" ) );
 
         return tna;
     }

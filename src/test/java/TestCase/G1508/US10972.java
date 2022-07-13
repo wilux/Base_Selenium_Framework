@@ -1,6 +1,6 @@
 package TestCase.G1508;
 
-import Config.Accion;
+import Config.Acciones;
 import Config.BaseTest;
 import Page.EdicionPaquetePage;
 import Task.AbmPaquetes;
@@ -23,11 +23,11 @@ public class US10972 extends BaseTest {
         //Inicio Como usuario de Plataforma
         bd.CambiarUsuario ( "SERPILLOE" );
 
-        Accion accion = new Accion ( driver );
+        Acciones acciones = new Acciones ( driver );
         AbmPaquetes abmPaquetes = new AbmPaquetes ( driver );
         EdicionPaquetePage edicionPaquetePage = new EdicionPaquetePage ( driver );
 
-        accion.login ().Ingresar ( "QA" );
+        acciones.login ().Ingresar ( "QA" );
 
     }
 

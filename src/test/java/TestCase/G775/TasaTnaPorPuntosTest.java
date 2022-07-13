@@ -1,16 +1,14 @@
 package TestCase.G775;
 
-import Config.Accion;
+import Config.Acciones;
 import Config.BaseTest;
 import Tools.SQLDatabaseConnection;
-import Tools.Screenshot;
 import Tools.Tna;
 import Tools.logs.Log;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -27,18 +25,18 @@ public class TasaTnaPorPuntosTest extends BaseTest {
 
         //Instanciamos clases que usaremos
         SQLDatabaseConnection bd = new SQLDatabaseConnection ();
-        Accion accion = new Accion ( driver );
+        Acciones acciones = new Acciones ( driver );
 
         //Inicio Como usuario de Plataforma
         bd.CambiarUsuario ( "SERPILLOE" );
 
         //Logueamos
-        accion.login ().Ingresar ( "QA" );
+        acciones.login ().Ingresar ( "QA" );
 
         //Menu Ejecutar
-        accion.menu ().Ejecutar ();
+        acciones.menu ().Ejecutar ();
         //Abrir BandejaTareas
-        accion.ejecutar ().Programa ( "hxwf900" );
+        acciones.ejecutar ().Programa ( "hxwf900" );
 
 
     }
@@ -48,13 +46,13 @@ public class TasaTnaPorPuntosTest extends BaseTest {
     public void TestSinPaqueteExistenteLlevaSinPaquete() throws InterruptedException {
         Log.reportLog ( "Simulacion Prestamo de un cliente con Sin Paquete Existente, llevando un " +
                                 "MonoProducto sin puntos Particulares ni Generales" );
-        Thread.sleep ( 3000 );
+
         //Instanciamos clases que usaremos
         SQLDatabaseConnection bd = new SQLDatabaseConnection ();
-        Accion accion = new Accion ( driver );
+        Acciones acciones = new Acciones ( driver );
 
         //Iniciamos simulacion para entrevista generada
-        accion.bandejaTareas ().ejecutarEntrevista ( NroEntrevistaSinPaquete );
+        acciones.bandejaTareas ().ejecutarEntrevista ( NroEntrevistaSinPaquete );
 
         //Linea 309/201
         //TNA BASE = 73
@@ -67,15 +65,16 @@ public class TasaTnaPorPuntosTest extends BaseTest {
                                                 "BPN SELECTO", "BPN UNICO", "BPN UNICO +" );
 
         //Elegimos Paquete 0 -> CA. COMUN = Sin paquete
-        accion.simulacion ().Paquete ( paquetes.get ( 0 ) );
-        Thread.sleep ( 3000 );
+        acciones.simulacion ().Paquete ( paquetes.get ( 0 ) );
+        Thread.sleep ( 5000 );
 
 
-        double tnaSimulado = Double.parseDouble ( accion.simulacion ().Tna () );
+        double tnaSimulado = Double.parseDouble ( acciones.simulacion ().Tna () );
 
         Log.reportLog ( "La prueba es exitosa si la Tasa Base = TNA " );
-        Log.reportLog ( "Tasa Base = " + tnaBase );
         Log.reportLog ( "TNA Simulado = " + tnaSimulado );
+        Log.reportLog ( "TNA Esperado = " + (tnaBase) );
+
         Assert.assertTrue ( tnaBase == tnaSimulado );
 
     }
@@ -87,7 +86,7 @@ public class TasaTnaPorPuntosTest extends BaseTest {
         Thread.sleep ( 3000 );
         //Instanciamos clases que usaremos
         SQLDatabaseConnection bd = new SQLDatabaseConnection ();
-        Accion accion = new Accion ( driver );
+        Acciones acciones = new Acciones ( driver );
 
         //Linea 309/201
         //TNA BASE = 73
@@ -100,20 +99,22 @@ public class TasaTnaPorPuntosTest extends BaseTest {
                                                 "BPN SELECTO", "BPN UNICO", "BPN UNICO +" );
 
         //Elegimos Paquete 3 -> BPN SELECTO
-        accion.simulacion ().Paquete ( paquetes.get ( 3 ) );
+        acciones.simulacion ().Paquete ( paquetes.get ( 3 ) );
         Thread.sleep ( 5000 );
 
         String sqlPuntosGrales = "select JBNYC5TABO from JBNYC5 where JBNYC5Desc='" + paquetes.get ( 3 ) + "'";
         String sqlPuntosParticulares = "select BNQFCD3Bon from  BNQFCD3 where BNQFCD3PQT=3 and BNQFCD3Top=201";
 
-        double ptosGenerales = Double.parseDouble ( bd.getValue ( sqlPuntosGrales ) );
-        double ptosParticulares = Double.parseDouble ( bd.getValue ( sqlPuntosParticulares ) );
-        double tnaSimulado = Double.parseDouble ( accion.simulacion ().Tna () );
+        double ptosGenerales = Double.parseDouble ( bd.getValue ( sqlPuntosGrales, "BPN_WEB_QA" ) );
+        double ptosParticulares = Double.parseDouble ( bd.getValue ( sqlPuntosParticulares, "BPN_WEB_QA" ) );
+        double tnaSimulado = Double.parseDouble ( acciones.simulacion ().Tna () );
 
         Log.reportLog ( "La prueba es exitosa si TNA Simulado = TASA Base - Ptos Particulares " );
         Log.reportLog ( "TNA Simulado = " + tnaSimulado );
-        Log.reportLog ( "Tasa Base = " + tnaBase );
         Log.reportLog ( "Ptos Particulares = " + ptosParticulares );
+        Log.reportLog ( "TNA Simulado = " + tnaSimulado );
+        Log.reportLog ( "TNA Esperado = " + (tnaBase - ptosParticulares) );
+
         Assert.assertTrue ( tnaSimulado == tnaBase - ptosParticulares );
 
     }
@@ -125,7 +126,7 @@ public class TasaTnaPorPuntosTest extends BaseTest {
         Thread.sleep ( 3000 );
         //Instanciamos clases que usaremos
         SQLDatabaseConnection bd = new SQLDatabaseConnection ();
-        Accion accion = new Accion ( driver );
+        Acciones acciones = new Acciones ( driver );
 
         //Linea 309/201
         //TNA BASE = 73
@@ -138,40 +139,40 @@ public class TasaTnaPorPuntosTest extends BaseTest {
                                                 "BPN SELECTO", "BPN UNICO", "BPN UNICO +" );
 
         //Elegimos Paquete 4 -> BPN UNICO
-        accion.simulacion ().Paquete ( paquetes.get ( 4 ) );
+        acciones.simulacion ().Paquete ( paquetes.get ( 4 ) );
         Thread.sleep ( 5000 );
 
         String sqlPuntosGrales = "select JBNYC5TABO from JBNYC5 where JBNYC5Desc='" + paquetes.get ( 4 ) + "'";
         String sqlPuntosParticulares = "select BNQFCD3Bon from  BNQFCD3 where BNQFCD3PQT=2 and BNQFCD3Top=201";
 
-        double ptosGenerales = Double.parseDouble ( bd.getValue ( sqlPuntosGrales ) );
-        double tnaSimulado = Double.parseDouble ( accion.simulacion ().Tna () );
+        double ptosGenerales = Double.parseDouble ( bd.getValue ( sqlPuntosGrales, "BPN_WEB_QA" ) );
+        double tnaSimulado = Double.parseDouble ( acciones.simulacion ().Tna () );
 
         Log.reportLog ( "La prueba es exitosa si TNA Simulado = TASA Base - Ptos Generales " );
         Log.reportLog ( "TNA Simulado = " + tnaSimulado );
-        Log.reportLog ( "Tasa Base = " + tnaBase );
         Log.reportLog ( "Ptos Particulares = " + ptosGenerales );
+        Log.reportLog ( "TNA Simulado = " + tnaSimulado );
+        Log.reportLog ( "TNA Esperado = " + (tnaBase - ptosGenerales) );
         Assert.assertTrue ( tnaSimulado == tnaBase - ptosGenerales );
 
         //Dejo en Bandeja Tareas
-        accion.simulacion ().Cerrar ();
+        acciones.simulacion ().Cerrar ();
+        //Iniciamos Retomo otro escenario para entrevista generada
+        acciones.bandejaTareas ().ejecutarEntrevista ( NroEntrevistaConPaquete );
 
     }
 
 
     //Cliente tiene paquete BPN PLus Existente
 
-    @Test(priority = 3)
+    @Test(enabled = false) // Cambie las condiciones y no es valido el test
     public void TestConPaqueteLlevaPrestamoConMonoproductoSinPtosParticulares() throws InterruptedException {
         Log.reportLog ( "Simulacion Prestamo de un cliente con Paquete Existente, llevando un " +
                                 "MonoProducto sin puntos Particulares solo Generales" );
         //Instanciamos clases que usaremos
         SQLDatabaseConnection bd = new SQLDatabaseConnection ();
-        Accion accion = new Accion ( driver );
+        Acciones acciones = new Acciones ( driver );
 
-
-        //Iniciamos simulacion para entrevista generada
-        accion.bandejaTareas ().ejecutarEntrevista ( NroEntrevistaConPaquete );
 
         //Linea 309/201
         //TNA BASE = 73
@@ -184,27 +185,28 @@ public class TasaTnaPorPuntosTest extends BaseTest {
                                                 "BPN SELECTO", "BPN UNICO", "BPN UNICO +" );
 
         //Elegimos Paquete 0 -> CA. COMUN = Sin paquete
-        accion.simulacion ().Paquete ( paquetes.get ( 0 ) );
+        acciones.simulacion ().Paquete ( paquetes.get ( 0 ) );
         Thread.sleep ( 5000 );
 
         String sqlPuntosGrales = "select JBNYC5TABO from JBNYC5 where JBNYC5Desc='BPN PLUS'";
         String sqlPuntosParticulares = "select BNQFCD3Bon from  BNQFCD3 where BNQFCD3PQT=0 and BNQFCD3Top=201";
 
-        double ptosGenerales = Double.parseDouble ( bd.getValue ( sqlPuntosGrales ) );
+        double ptosGenerales = Double.parseDouble ( bd.getValue ( sqlPuntosGrales, "BPN_WEB_QA" ) );
         double ptosParticulares = 0.0;
         try {
-            ptosParticulares = Double.parseDouble ( bd.getValue ( sqlPuntosParticulares ) );
+            ptosParticulares = Double.parseDouble ( bd.getValue ( sqlPuntosParticulares, "BPN_WEB_QA" ) );
         } catch (Exception e) {
 
         }
-        double tnaSimulado = Double.parseDouble ( accion.simulacion ().Tna () );
+        double tnaSimulado = Double.parseDouble ( acciones.simulacion ().Tna () );
 
         Log.reportLog ( "La prueba es exitosa si TNA Simulado = TASA Base - Ptos Generales " );
         Log.reportLog ( "TNA Simulado = " + tnaSimulado );
-        Log.reportLog ( "Tasa Base = " + tnaBase );
         Log.reportLog ( "Ptos Generales = " + ptosGenerales );
+        Log.reportLog ( "TNA Simulado = " + tnaSimulado );
+        Log.reportLog ( "TNA Esperado = " + (tnaBase - ptosGenerales) );
 
-        Assert.assertTrue ( tnaSimulado == tnaBase - ptosGenerales - ptosParticulares );
+        Assert.assertTrue ( tnaSimulado == tnaBase - ptosGenerales );
 
     }
 
@@ -214,8 +216,7 @@ public class TasaTnaPorPuntosTest extends BaseTest {
                                 "upgrade de Paquete con puntos Particulares para la linea" );
         //Instanciamos clases que usaremos
         SQLDatabaseConnection bd = new SQLDatabaseConnection ();
-        Accion accion = new Accion ( driver );
-        Screenshot screenshot = new Screenshot ( driver );
+        Acciones acciones = new Acciones ( driver );
 
         //Linea 309/201
         //TNA BASE = 73
@@ -228,20 +229,21 @@ public class TasaTnaPorPuntosTest extends BaseTest {
                                                 "BPN SELECTO", "BPN UNICO", "BPN UNICO +" );
 
         //Elegimos Paquete 3 -> BPN SELECTO
-        accion.simulacion ().Paquete ( paquetes.get ( 3 ) );
+        acciones.simulacion ().Paquete ( paquetes.get ( 3 ) );
         Thread.sleep ( 5000 );
 
         String sqlPuntosGrales = "select JBNYC5TABO from JBNYC5 where JBNYC5Desc='" + paquetes.get ( 3 ) + "'";
         String sqlPuntosParticulares = "select BNQFCD3Bon from  BNQFCD3 where BNQFCD3PQT=3 and BNQFCD3Top=201";
 
-        double ptosGenerales = Double.parseDouble ( bd.getValue ( sqlPuntosGrales ) );
-        double ptosParticulares = Double.parseDouble ( bd.getValue ( sqlPuntosParticulares ) );
-        double tnaSimulado = Double.parseDouble ( accion.simulacion ().Tna () );
+        double ptosGenerales = Double.parseDouble ( bd.getValue ( sqlPuntosGrales, "BPN_WEB_QA" ) );
+        double ptosParticulares = Double.parseDouble ( bd.getValue ( sqlPuntosParticulares, "BPN_WEB_QA" ) );
+        double tnaSimulado = Double.parseDouble ( acciones.simulacion ().Tna () );
 
         Log.reportLog ( "La prueba es exitosa si TNA Simulado = TASA Base - Ptos Particulares " );
-        Log.reportLog ( "TNA Simulado = " + tnaSimulado );
         Log.reportLog ( "Tasa Base = " + tnaBase );
         Log.reportLog ( "Ptos Particulares = " + ptosParticulares );
+        Log.reportLog ( "TNA Simulado = " + tnaSimulado );
+        Log.reportLog ( "TNA Esperado = " + (tnaBase - ptosParticulares) );
 
         Assert.assertTrue ( tnaSimulado == tnaBase - ptosParticulares );
 
@@ -254,8 +256,8 @@ public class TasaTnaPorPuntosTest extends BaseTest {
 
         //Instanciamos clases que usaremos
         SQLDatabaseConnection bd = new SQLDatabaseConnection ();
-        Accion accion = new Accion ( driver );
-        Screenshot screenshot = new Screenshot ( driver );
+        Acciones acciones = new Acciones ( driver );
+
         //Linea 309/201
         //TNA BASE = 73
         Tna tna = new Tna ();
@@ -267,21 +269,74 @@ public class TasaTnaPorPuntosTest extends BaseTest {
                                                 "BPN SELECTO", "BPN UNICO", "BPN UNICO +" );
 
         //Elegimos Paquete 4 -> BPN UNICO
-        accion.simulacion ().Paquete ( paquetes.get ( 4 ) );
+        acciones.simulacion ().Paquete ( paquetes.get ( 4 ) );
         Thread.sleep ( 5000 );
 
         String sqlPuntosGrales = "select JBNYC5TABO from JBNYC5 where JBNYC5Desc='" + paquetes.get ( 4 ) + "'";
         String sqlPuntosParticulares = "select BNQFCD3Bon from  BNQFCD3 where BNQFCD3PQT=2 and BNQFCD3Top=201";
 
-        double ptosGenerales = Double.parseDouble ( bd.getValue ( sqlPuntosGrales ) );
-        double tnaSimulado = Double.parseDouble ( accion.simulacion ().Tna () );
+        double ptosGenerales = Double.parseDouble ( bd.getValue ( sqlPuntosGrales, "BPN_WEB_QA" ) );
+        double tnaSimulado = Double.parseDouble ( acciones.simulacion ().Tna () );
 
         Log.reportLog ( "La prueba es exitosa si TNA Simulado = TASA Base - Ptos Generales " );
-        Log.reportLog ( "TNA Simulado = " + tnaSimulado );
         Log.reportLog ( "Tasa Base = " + tnaBase );
         Log.reportLog ( "Ptos Generales = " + ptosGenerales );
+        Log.reportLog ( "TNA Simulado = " + tnaSimulado );
+        Log.reportLog ( "TNA Esperado = " + (tnaBase - ptosGenerales) );
 
         Assert.assertTrue ( tnaSimulado == tnaBase - ptosGenerales );
+
+    }
+
+
+    @Test(priority = 6)
+    public void TestConPaqueteCasoBug() throws InterruptedException {
+        Log.reportLog ( "Simulacion Prestamo de un cliente con Paquete Existente, llevando un " +
+                                "upgrade de Paquete sin puntos Particulares para la linea solo Generales" );
+
+        //Instanciamos clases que usaremos
+        SQLDatabaseConnection bd = new SQLDatabaseConnection ();
+        Acciones acciones = new Acciones ( driver );
+
+
+        //Linea 309/201
+        //TNA BASE = 73
+        Tna tna = new Tna ();
+        double tnaBase = tna.getTnaEntrevista ( "309", "201", NroEntrevistaConPaquete );
+
+
+        //Lista de Paquete
+        List<String> paquetes = Arrays.asList ( "CA. COMUN", "BPN CLASICO", "BPN PLUS",
+                                                "BPN SELECTO", "BPN UNICO", "BPN UNICO +" );
+
+        //Elegimos Paquete CA Comun
+        acciones.simulacion ().Paquete ( paquetes.get ( 0 ) );
+        Thread.sleep ( 5000 );
+
+        //Elegimos Paquete PLus
+        acciones.simulacion ().Paquete ( paquetes.get ( 2 ) );
+        Thread.sleep ( 5000 );
+
+        //Elegimos Ca Comun
+        acciones.simulacion ().Paquete ( paquetes.get ( 0 ) );
+        Thread.sleep ( 5000 );
+
+        String sqlPuntosGrales = "select JBNYC5TABO from JBNYC5 where JBNYC5Desc='" + paquetes.get ( 2 ) + "'";
+        String sqlPuntosParticulares = "select BNQFCD3Bon from  BNQFCD3 where BNQFCD3PQT=2 and BNQFCD3Top=201";
+
+        double ptosGenerales = Double.parseDouble ( bd.getValue ( sqlPuntosGrales, "BPN_WEB_QA" ) ); //5
+        double tnaSimulado = Double.parseDouble ( acciones.simulacion ().Tna () );
+        double ptosParticulares = Double.parseDouble ( bd.getValue ( sqlPuntosParticulares, "BPN_WEB_QA" ) ); //1
+
+        Log.reportLog ( "La prueba es exitosa si TNA Simulado = TASA Base - Ptos Generales " );
+        Log.reportLog ( "Tasa Base = " + tnaBase );
+        Log.reportLog ( "Ptos Generales = " + ptosGenerales );
+        Log.reportLog ( "Ptos Particulares = " + ptosParticulares );
+
+        Log.reportLog ( "TNA Simulado = " + tnaSimulado );
+        Log.reportLog ( "TNA Esperado = " + (tnaBase - ptosParticulares) );
+
+        Assert.assertTrue ( tnaSimulado == tnaBase - ptosParticulares );
 
     }
 }

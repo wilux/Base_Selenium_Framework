@@ -40,6 +40,13 @@ public class SimulacionProductosPage {
     public By Span_Tem = By.name ( "span__BNQFPC5TEM" );
     public By Span_Tea = By.name ( "span__BNQFPC5TEA" );
 
+    //plan de Pago
+    public By GRIDOP_BTNOPCONFIRMAR = By.id ( "GRIDOP_BTNOPCONFIRMAR" );
+    public By BTNOPCOMISION = By.id ( "BTNOPCOMISION" );
+
+    //Confirmar Simulacion
+    public By BTNOPCARTASIMULADOR = By.id ( "BTNOPCARTASIMULADOR" );
+
     //Tarjetas Disponibles
     public By CheckTC1 = By.name ( "_TCSEL_0001" );
     public By CheckTC2 = By.name ( "_TCSEL_0002" );

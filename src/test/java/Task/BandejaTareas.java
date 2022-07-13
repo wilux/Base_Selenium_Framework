@@ -2,8 +2,10 @@ package Task;
 
 import Action.Click;
 import Action.Write;
+import Config.Acciones;
 import Page.BandejaTareasPage;
 import Action.Grid;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class BandejaTareas extends BandejaTareasPage {
@@ -77,6 +79,35 @@ public class BandejaTareas extends BandejaTareasPage {
         grid.rowSelectbyFila ( Grilla_Tareas, PrimerTarea );
         click.On ( BTNOPOSIGUIENTE );
         click.On ( BTNCONFIRMATION );
+    }
+
+
+    //Avanzar (decide que accion tomar)
+    public void avanzarEntrevista(String nroEntrevista) throws InterruptedException {
+        By img = By.id ( "_ZG1_IMGESTADOIMAGE_0001" );
+
+        Click click = new Click ( driver );
+        Grid grid = new Grid ( driver );
+        Acciones acciones = new Acciones ( driver );
+        //Buscar entrevista
+        filtrar ( nroEntrevista );
+        grid.rowSelectbyFila ( Grilla_Tareas, PrimerTarea );
+
+        if ( acciones.get ().ValueOnInput ( img ).contains ( "icono_mail_inprocess.gif" ) ) {
+            click.On ( BTNOPOSIGUIENTE );
+            click.On ( BTNCONFIRMATION );
+            //Salto mensaje y no se puede Siguiente entonces Ejecutar
+            if ( acciones.get ().TextOnTag ( MsgTextArriba ) != "" ) {
+                click.On ( BTNOPOEJECUTAR );
+            }
+
+        }
+        else if ( acciones.get ().ValueOnInput ( img ).contains ( "icono_mail_assigned.gif" ) ) {
+            click.On ( BTNOPOEJECUTAR );
+        }
+        else {
+            click.On ( BTNOPOTOMAR );
+        }
     }
 
 }

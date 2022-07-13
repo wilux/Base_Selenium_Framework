@@ -1,6 +1,6 @@
 package Task;
 
-import Config.Accion;
+import Config.Acciones;
 import Page.EjecutarPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +17,7 @@ public class Ejecutar extends EjecutarPage {
 
     public void Programa(String strProgram) {
 
-        Accion accion = new Accion ( driver );
+        Acciones acciones = new Acciones ( driver );
 
 //        accion.write ().On ( _PROGRAMA, strProgram );
 //        accion.click ().On ( BTNOPCONFIRMAR );

@@ -1,9 +1,8 @@
 package TestCase;
 
 import Config.BaseTest;
-import Config.Accion;
+import Config.Acciones;
 import Tools.SQLDatabaseConnection;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -17,45 +16,45 @@ public class SimularTest extends BaseTest {
 
         //Instanciamos clases que usaremos
         SQLDatabaseConnection bd = new SQLDatabaseConnection ();
-        Accion accion = new Accion ( driver );
+        Acciones acciones = new Acciones ( driver );
 
         //Inicio Como usuario de Plataforma
         bd.CambiarUsuario ( "SERPILLOE" );
 
         //Logueamos
-        accion.login ().Ingresar ( "QA" );
+        acciones.login ().Ingresar ( "QA" );
 
         //Menu Ejecutar
-        accion.menu ().Ejecutar ();
+        acciones.menu ().Ejecutar ();
         //Abrir BandejaTareas
-        accion.ejecutar ().Programa ( "hxwf900" );
+        acciones.ejecutar ().Programa ( "hxwf900" );
 
         //Abrir Entrevista
-        accion.bandejaTareas ().iniciarEntrevista ( "Entrevista / Identificación" );
+        acciones.bandejaTareas ().iniciarEntrevista ( "Entrevista / Identificación" );
 
 
         //Ingresar Tipo y Documento
-        accion.entrevista ().IdentificacionPersona ( "C.U.I.L.", "23353071459 " );
+        acciones.entrevista ().IdentificacionPersona ( "C.U.I.L.", "23353071459 " );
         //Entrevista
-        accion.entrevista ().CompletarGenerico ();
+        acciones.entrevista ().CompletarGenerico ();
         //Guardar Nro Entrevista
-        String NroEntrevista = accion.entrevista ().NroEntrevista ();
+        String NroEntrevista = acciones.entrevista ().NroEntrevista ();
         System.out.println ( "Entrevista Nro: " + NroEntrevista );
 
 
         //Si la entrevista retorna un error detenemos sino continuamos
-        if ( accion.entrevista ().Error () ) {
+        if ( acciones.entrevista ().Error () ) {
             System.out.println ( "Existen errores con la Entrevista" );
             Assert.fail ();
         }
         else {
-            accion.entrevista ().Cerrar ();
-            accion.bandejaTareas ().siguienteEntrevista ( NroEntrevista );
-            accion.bandejaTareas ().ejecutarEntrevista ( NroEntrevista );
+            acciones.entrevista ().Cerrar ();
+            acciones.bandejaTareas ().siguienteEntrevista ( NroEntrevista );
+            acciones.bandejaTareas ().ejecutarEntrevista ( NroEntrevista );
         }
 
         //Si llegamos hasta la pantalla de simulacion la prueba fue exitosa.
-        Assert.assertTrue ( accion.simulacion ().Existe () );
+        Assert.assertTrue ( acciones.simulacion ().Existe () );
 
     }
 }

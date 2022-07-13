@@ -5,6 +5,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class BandejaTareasPage {
+    //Mensajes
+    public By MsgTextArriba = By.className ( "MsgText" );
+    public By MsgTextMedio = By.className ( "HTMLTXTTEXT1" );
+    public By MsgTextAbajo = By.className ( "HTMLTXTTEXT5" );
+
     public By Grilla_Tareas = By.id ( "GRIDINBOX" );
     public By Proceso_Tareas = By.id ( "HTMLTBLPROCESOSYTAREAS" );
     public By PrimerTarea = By.id ( "span__IDINSTANCIA_0001" );

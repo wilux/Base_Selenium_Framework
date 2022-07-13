@@ -4,11 +4,43 @@ import Action.*;
 import Task.*;
 import org.openqa.selenium.WebDriver;
 
-public class Accion {
+public class Acciones {
     WebDriver driver;
 
-    public Accion(WebDriver driver) {
+    public Acciones(WebDriver driver) {
         this.driver = driver;
+    }
+
+    public PlanPagosAmortizables planPagosAmortizables() {
+        PlanPagosAmortizables planPagosAmortizables = new PlanPagosAmortizables ( driver );
+        return planPagosAmortizables;
+    }
+
+    public RevisionParaConfirmar revisionParaConfirmar() {
+        RevisionParaConfirmar revisionParaConfirmar = new RevisionParaConfirmar ( driver );
+        return revisionParaConfirmar;
+    }
+
+    public RevisionProductos revisionProductos() {
+        RevisionProductos revisionProductos = new RevisionProductos ( driver );
+        return revisionProductos;
+    }
+
+    public MatrizRiesgo matrizRiesgo() {
+        MatrizRiesgo matrizRiesgo = new MatrizRiesgo ( driver );
+        return matrizRiesgo;
+    }
+
+
+    public Reutilizacion reutilizacion() {
+        Reutilizacion reutilizacion = new Reutilizacion ( driver );
+        return reutilizacion;
+    }
+
+
+    public CargaAvanzada cargaAvanzada() {
+        CargaAvanzada cargaAvanzada = new CargaAvanzada ( driver );
+        return cargaAvanzada;
     }
 
     public BandejaTareas bandejaTareas() {

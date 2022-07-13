@@ -1,142 +1,100 @@
-[INFO ] 2022-07-12 06:59:31.310 [main] Log - Tests is starting!
-[INFO ] 2022-07-12 07:04:39.112 [main] Log - Tests is starting!
-[INFO ] 2022-07-12 07:08:40.748 [main] Log - Tests is starting!
-[INFO ] 2022-07-12 07:26:26.455 [main] Log - Tests is starting!
-[INFO ] 2022-07-12 07:27:58.250 [main] Log - Tests are ending!
-[INFO ] 2022-07-12 08:15:19.831 [main] Log - Tests is starting!
-[INFO ] 2022-07-12 08:15:53.978 [main] Log - La prueba es exitosa si la Tasa Base = TNA 
-[INFO ] 2022-07-12 08:15:53.980 [main] Log - Tasa Base = 73.0
-[INFO ] 2022-07-12 08:15:53.981 [main] Log - TNA Simulado = 73.0
-[INFO ] 2022-07-12 08:16:05.009 [main] Log - La prueba es exitosa si TNA Simulado = TASA Base - Ptos Particulares 
-[INFO ] 2022-07-12 08:16:05.010 [main] Log - TNA Simulado = 53.0
-[INFO ] 2022-07-12 08:16:05.010 [main] Log - Tasa Base = 73.0
-[INFO ] 2022-07-12 08:16:05.010 [main] Log - Ptos Particulares = 20.0
-[INFO ] 2022-07-12 08:16:15.847 [main] Log - La prueba es exitosa si TNA Simulado = TASA Base - Ptos Generales 
-[INFO ] 2022-07-12 08:16:15.847 [main] Log - TNA Simulado = 66.0
-[INFO ] 2022-07-12 08:16:15.847 [main] Log - Tasa Base = 73.0
-[INFO ] 2022-07-12 08:16:15.848 [main] Log - Ptos Particulares = 7.0
-[INFO ] 2022-07-12 08:16:36.419 [main] Log - La prueba es exitosa si TNA Simulado = TASA Base - Ptos Generales 
-[INFO ] 2022-07-12 08:16:36.420 [main] Log - TNA Simulado = 63.0
-[INFO ] 2022-07-12 08:16:36.420 [main] Log - Tasa Base = 73.0
-[INFO ] 2022-07-12 08:16:36.421 [main] Log - Ptos Generales = 5.0
-[INFO ] 2022-07-12 08:16:44.365 [main] Log - La prueba es exitosa si TNA Simulado = TASA Base - Ptos Particulares 
-[INFO ] 2022-07-12 08:16:44.366 [main] Log - TNA Simulado = 53.0
-[INFO ] 2022-07-12 08:16:44.366 [main] Log - Tasa Base = 73.0
-[INFO ] 2022-07-12 08:16:44.367 [main] Log - Ptos Particulares = 20.0
-[INFO ] 2022-07-12 08:16:52.345 [main] Log - La prueba es exitosa si TNA Simulado = TASA Base - Ptos Generales 
-[INFO ] 2022-07-12 08:16:52.346 [main] Log - TNA Simulado = 66.0
-[INFO ] 2022-07-12 08:16:52.346 [main] Log - Tasa Base = 73.0
-[INFO ] 2022-07-12 08:16:52.347 [main] Log - Ptos Generales = 7.0
-[INFO ] 2022-07-12 08:16:53.222 [main] Log - Tests are ending!
-[INFO ] 2022-07-12 08:36:31.715 [main] Log - Tests is starting!
-[INFO ] 2022-07-12 09:07:23.241 [main] Log - Tests is starting!
-[INFO ] 2022-07-12 09:07:25.470 [main] Log - I am in onStart method GDEM 775
-[INFO ] 2022-07-12 09:07:38.452 [main] Log - I am in onFinish method TestSinPaqueteExistente
-[INFO ] 2022-07-12 09:07:58.553 [main] Log - TestSinPaqueteExistente test is succeed.
-[INFO ] 2022-07-12 09:07:58.666 [main] Log - I am in onFinish method TestSinPaqueteConPtosParticulares
-[INFO ] 2022-07-12 09:08:09.530 [main] Log - TestSinPaqueteConPtosParticulares test is succeed.
-[INFO ] 2022-07-12 09:08:09.638 [main] Log - I am in onFinish method TestSinPaquetePuntosSinPtoParticulares
-[INFO ] 2022-07-12 09:08:22.211 [main] Log - TestSinPaquetePuntosSinPtoParticulares test is succeed.
-[INFO ] 2022-07-12 09:08:22.281 [main] Log - I am in onFinish method TestConPaqueteCbioSinPaquete
-[INFO ] 2022-07-12 09:08:40.194 [main] Log - TestConPaqueteCbioSinPaquete test is failed.
-[INFO ] 2022-07-12 09:08:40.312 [main] Log - I am in onFinish method TestConPaqueteConPtosParticulares
-[INFO ] 2022-07-12 09:08:48.199 [main] Log - TestConPaqueteConPtosParticulares test is succeed.
-[INFO ] 2022-07-12 09:08:48.311 [main] Log - I am in onFinish method TestConPaquetePuntosSinPtoParticulares
-[INFO ] 2022-07-12 09:08:56.209 [main] Log - TestConPaquetePuntosSinPtoParticulares test is succeed.
-[INFO ] 2022-07-12 09:08:57.049 [main] Log - Tests are ending!
-[INFO ] 2022-07-12 09:13:01.345 [main] Log - Tests is starting!
-[INFO ] 2022-07-12 09:13:03.672 [main] Log - I am in onStart method GDEM 775
-[INFO ] 2022-07-12 09:13:15.546 [main] Log - I am in onFinish method TestSinPaqueteExistente
-[INFO ] 2022-07-12 09:13:34.709 [main] Log - TestSinPaqueteExistente test is failed.
-[INFO ] 2022-07-12 09:13:34.838 [main] Log - I am in onFinish method TestSinPaqueteConPtosParticulares
-[INFO ] 2022-07-12 09:13:47.521 [main] Log - TestSinPaqueteConPtosParticulares test is succeed.
-[INFO ] 2022-07-12 09:13:47.625 [main] Log - I am in onFinish method TestSinPaquetePuntosSinPtoParticulares
-[INFO ] 2022-07-12 09:14:00.446 [main] Log - TestSinPaquetePuntosSinPtoParticulares test is succeed.
-[INFO ] 2022-07-12 09:14:00.536 [main] Log - I am in onFinish method TestConPaqueteCbioSinPaquete
-[INFO ] 2022-07-12 09:14:18.796 [main] Log - TestConPaqueteCbioSinPaquete test is failed.
-[INFO ] 2022-07-12 09:14:18.904 [main] Log - I am in onFinish method TestConPaqueteConPtosParticulares
-[INFO ] 2022-07-12 09:14:26.765 [main] Log - TestConPaqueteConPtosParticulares test is succeed.
-[INFO ] 2022-07-12 09:14:26.862 [main] Log - I am in onFinish method TestConPaquetePuntosSinPtoParticulares
-[INFO ] 2022-07-12 09:14:34.735 [main] Log - TestConPaquetePuntosSinPtoParticulares test is succeed.
-[INFO ] 2022-07-12 09:14:35.543 [main] Log - Tests are ending!
-[INFO ] 2022-07-12 09:17:33.659 [main] Log - Tests is starting!
-[INFO ] 2022-07-12 09:17:35.844 [main] Log - I am in onStart method GDEM 775
-[INFO ] 2022-07-12 09:17:46.210 [main] Log - I am in onFinish method TestSinPaqueteExistente
-[INFO ] 2022-07-12 09:18:05.235 [main] Log - TestSinPaqueteExistente test is succeed.
-[INFO ] 2022-07-12 09:18:05.362 [main] Log - Simulacion Prestamo de un cliente con Sin Paquete Existente, llevando un MonoProducto sin puntos Particulares test is succeed.
-[INFO ] 2022-07-12 09:18:05.366 [main] Log - I am in onFinish method TestSinPaqueteConPtosParticulares
-[INFO ] 2022-07-12 09:18:16.237 [main] Log - TestSinPaqueteConPtosParticulares test is succeed.
-[INFO ] 2022-07-12 09:18:16.345 [main] Log - Simulacion Prestamo de un cliente con SinPaquete Existente, llevando un Paquete Con puntos Particulares test is succeed.
-[INFO ] 2022-07-12 09:18:16.347 [main] Log - I am in onFinish method TestSinPaquetePuntosSinPtoParticulares
-[INFO ] 2022-07-12 09:18:29.347 [main] Log - TestSinPaquetePuntosSinPtoParticulares test is succeed.
-[INFO ] 2022-07-12 09:18:29.444 [main] Log - Simulacion Prestamo de un cliente con Sin Paquete Existente, llevando un Prestamo con paquete Sin puntos Particulares test is succeed.
-[INFO ] 2022-07-12 09:18:29.446 [main] Log - I am in onFinish method TestConPaqueteCbioSinPaquete
-[INFO ] 2022-07-12 09:18:47.851 [main] Log - TestConPaqueteCbioSinPaquete test is failed.
-[INFO ] 2022-07-12 09:18:47.958 [main] Log - Simulacion Prestamo de un cliente con Paquete Existente, llevando un MonoProducto sin puntos Particulares test is failed.
-[INFO ] 2022-07-12 09:18:47.964 [main] Log - I am in onFinish method TestConPaqueteConPtosParticulares
-[INFO ] 2022-07-12 09:18:55.732 [main] Log - TestConPaqueteConPtosParticulares test is succeed.
-[INFO ] 2022-07-12 09:18:55.824 [main] Log - Simulacion Prestamo de un cliente con Paquete Existente, llevando un upgrade de Paquete con puntos Particulares para la linea test is succeed.
-[INFO ] 2022-07-12 09:18:55.825 [main] Log - I am in onFinish method TestConPaquetePuntosSinPtoParticulares
-[INFO ] 2022-07-12 09:19:03.711 [main] Log - TestConPaquetePuntosSinPtoParticulares test is succeed.
-[INFO ] 2022-07-12 09:19:03.803 [main] Log - Simulacion Prestamo de un cliente con Paquete Existente, llevando un upgrade de Paquete sin puntos Particulares para la linea solo Generales test is succeed.
-[INFO ] 2022-07-12 09:19:04.435 [main] Log - Tests are ending!
-[INFO ] 2022-07-12 09:29:18.633 [main] Log - Tests is starting!
-[INFO ] 2022-07-12 09:29:20.970 [main] Log - I am in onStart method GDEM 775
-[INFO ] 2022-07-12 09:29:34.971 [main] Log - I am in onFinish method TestSinPaqueteExistente
-[INFO ] 2022-07-12 09:29:56.483 [main] Log - TestSinPaqueteExistente test is succeed.
-[INFO ] 2022-07-12 09:29:56.609 [main] Log - I am in onFinish method TestSinPaqueteConPtosParticulares
-[INFO ] 2022-07-12 09:30:07.342 [main] Log - TestSinPaqueteConPtosParticulares test is succeed.
-[INFO ] 2022-07-12 09:30:07.443 [main] Log - I am in onFinish method TestSinPaquetePuntosSinPtoParticulares
-[INFO ] 2022-07-12 09:30:20.115 [main] Log - TestSinPaquetePuntosSinPtoParticulares test is succeed.
-[INFO ] 2022-07-12 09:30:20.194 [main] Log - I am in onFinish method TestConPaqueteCbioSinPaquete
-[INFO ] 2022-07-12 09:30:39.564 [main] Log - TestConPaqueteCbioSinPaquete test is failed.
-[INFO ] 2022-07-12 09:30:39.689 [main] Log - I am in onFinish method TestConPaqueteConPtosParticulares
-[INFO ] 2022-07-12 09:30:47.418 [main] Log - TestConPaqueteConPtosParticulares test is succeed.
-[INFO ] 2022-07-12 09:30:47.520 [main] Log - I am in onFinish method TestConPaquetePuntosSinPtoParticulares
-[INFO ] 2022-07-12 09:30:55.163 [main] Log - TestConPaquetePuntosSinPtoParticulares test is succeed.
-[INFO ] 2022-07-12 09:30:56.022 [main] Log - Tests are ending!
-[INFO ] 2022-07-12 09:38:39.594 [main] Log - Tests is starting!
-[INFO ] 2022-07-12 09:38:41.801 [main] Log - I am in onStart method GDEM 775
-[INFO ] 2022-07-12 09:38:51.780 [main] Log - I am in onFinish method TestSinPaqueteExistenteLlevaSinPaquete
-[INFO ] 2022-07-12 09:39:11.706 [main] Log - TestSinPaqueteExistenteLlevaSinPaquete test is succeed.
-[INFO ] 2022-07-12 09:39:11.831 [main] Log - I am in onFinish method TestSinPaqueteLlevaPaqConPtosParticulares
-[INFO ] 2022-07-12 09:39:22.757 [main] Log - TestSinPaqueteLlevaPaqConPtosParticulares test is succeed.
-[INFO ] 2022-07-12 09:39:22.859 [main] Log - I am in onFinish method TestSinPaqueteLlevaPaqConPuntosGralesSinPtoParticulares
-[INFO ] 2022-07-12 09:39:35.496 [main] Log - TestSinPaqueteLlevaPaqConPuntosGralesSinPtoParticulares test is succeed.
-[INFO ] 2022-07-12 09:39:35.577 [main] Log - I am in onFinish method TestConPaqueteLlevaPrestamoConMonoproductoSinPtosParticulares
-[INFO ] 2022-07-12 09:39:53.744 [main] Log - TestConPaqueteLlevaPrestamoConMonoproductoSinPtosParticulares test is failed.
-[INFO ] 2022-07-12 09:39:53.867 [main] Log - I am in onFinish method TestConPaqueteConPtosParticularesHaceUpgradeConPtosParticulares
-[INFO ] 2022-07-12 09:40:01.635 [main] Log - TestConPaqueteConPtosParticularesHaceUpgradeConPtosParticulares test is succeed.
-[INFO ] 2022-07-12 09:40:01.745 [main] Log - I am in onFinish method TestConPaqueteConPuntosHaceUpgradePaqSinPtoParticulares
-[INFO ] 2022-07-12 09:40:09.646 [main] Log - TestConPaqueteConPuntosHaceUpgradePaqSinPtoParticulares test is succeed.
-[INFO ] 2022-07-12 09:40:10.472 [main] Log - Tests are ending!
-[INFO ] 2022-07-12 09:52:50.023 [main] Log - Tests is starting!
-[INFO ] 2022-07-12 09:52:52.516 [main] Log - I am in onStart method GDEM 775
-[INFO ] 2022-07-12 09:53:07.241 [main] Log - I am in onFinish method TestSinPaqueteExistenteLlevaSinPaquete
-[INFO ] 2022-07-12 09:53:26.613 [main] Log - TestSinPaqueteExistenteLlevaSinPaquete test is succeed.
-[INFO ] 2022-07-12 09:53:26.733 [main] Log - I am in onFinish method TestSinPaqueteLlevaPaqConPtosParticulares
-[INFO ] 2022-07-12 09:53:37.575 [main] Log - TestSinPaqueteLlevaPaqConPtosParticulares test is succeed.
-[INFO ] 2022-07-12 09:53:37.683 [main] Log - I am in onFinish method TestSinPaqueteLlevaPaqConPuntosGralesSinPtoParticulares
-[INFO ] 2022-07-12 09:53:46.270 [main] Log - TestSinPaqueteLlevaPaqConPuntosGralesSinPtoParticulares test is failed.
-[INFO ] 2022-07-12 09:53:46.366 [main] Log - I am in onFinish method TestConPaqueteLlevaPrestamoConMonoproductoSinPtosParticulares
-[INFO ] 2022-07-12 09:54:01.270 [main] Log - TestConPaqueteLlevaPrestamoConMonoproductoSinPtosParticulares test is failed.
-[INFO ] 2022-07-12 09:54:01.378 [main] Log - I am in onFinish method TestConPaqueteConPtosParticularesHaceUpgradeConPtosParticulares
-[INFO ] 2022-07-12 09:54:09.255 [main] Log - TestConPaqueteConPtosParticularesHaceUpgradeConPtosParticulares test is succeed.
-[INFO ] 2022-07-12 09:54:09.353 [main] Log - I am in onFinish method TestConPaqueteConPuntosHaceUpgradePaqSinPtoParticulares
-[INFO ] 2022-07-12 09:54:14.999 [main] Log - TestConPaqueteConPuntosHaceUpgradePaqSinPtoParticulares test is failed.
-[INFO ] 2022-07-12 09:54:15.919 [main] Log - Tests are ending!
-[INFO ] 2022-07-12 09:58:47.778 [main] Log - Tests is starting!
-[INFO ] 2022-07-12 09:58:49.968 [main] Log - I am in onStart method GDEM 775
-[INFO ] 2022-07-12 09:59:00.051 [main] Log - I am in onFinish method TestSinPaqueteExistenteLlevaSinPaquete
-[INFO ] 2022-07-12 09:59:19.673 [main] Log - TestSinPaqueteExistenteLlevaSinPaquete test is succeed.
-[INFO ] 2022-07-12 09:59:19.772 [main] Log - I am in onFinish method TestSinPaqueteLlevaPaqConPtosParticulares
-[INFO ] 2022-07-12 09:59:30.637 [main] Log - TestSinPaqueteLlevaPaqConPtosParticulares test is succeed.
-[INFO ] 2022-07-12 09:59:30.743 [main] Log - I am in onFinish method TestSinPaqueteLlevaPaqConPuntosGralesSinPtoParticulares
-[INFO ] 2022-07-12 09:59:43.389 [main] Log - TestSinPaqueteLlevaPaqConPuntosGralesSinPtoParticulares test is succeed.
-[INFO ] 2022-07-12 09:59:43.456 [main] Log - I am in onFinish method TestConPaqueteLlevaPrestamoConMonoproductoSinPtosParticulares
-[INFO ] 2022-07-12 09:59:59.132 [main] Log - TestConPaqueteLlevaPrestamoConMonoproductoSinPtosParticulares test is succeed.
-[INFO ] 2022-07-12 09:59:59.214 [main] Log - I am in onFinish method TestConPaqueteConPtosParticularesHaceUpgradeConPtosParticulares
-[INFO ] 2022-07-12 10:00:07.088 [main] Log - TestConPaqueteConPtosParticularesHaceUpgradeConPtosParticulares test is succeed.
-[INFO ] 2022-07-12 10:00:07.195 [main] Log - I am in onFinish method TestConPaqueteConPuntosHaceUpgradePaqSinPtoParticulares
-[INFO ] 2022-07-12 10:00:14.888 [main] Log - TestConPaqueteConPuntosHaceUpgradePaqSinPtoParticulares test is succeed.
-[INFO ] 2022-07-12 10:00:15.615 [main] Log - Tests are ending!
+[INFO ] 2022-07-13 07:11:17.874 [main] Log - Tests is starting!
+[INFO ] 2022-07-13 07:11:21.277 [main] Log - I am in onStart method Circuito Ventas WF
+[INFO ] 2022-07-13 07:11:34.662 [main] Log - I am in onFinish method CargaAvanzada
+[INFO ] 2022-07-13 07:11:41.321 [main] Log - CargaAvanzada test is succeed.
+[INFO ] 2022-07-13 08:07:47.932 [main] Log - Tests is starting!
+[INFO ] 2022-07-13 08:10:29.846 [main] Log - Tests is starting!
+[INFO ] 2022-07-13 08:10:31.978 [main] Log - I am in onStart method Circuito Ventas WF
+[INFO ] 2022-07-13 08:10:41.622 [main] Log - I am in onFinish method CargaAvanzada
+[INFO ] 2022-07-13 08:10:57.076 [main] Log - CargaAvanzada test is failed.
+[INFO ] 2022-07-13 08:27:18.798 [main] Log - Tests is starting!
+[INFO ] 2022-07-13 08:34:27.577 [main] Log - Tests is starting!
+[INFO ] 2022-07-13 08:34:29.694 [main] Log - I am in onStart method Circuito Ventas WF
+[INFO ] 2022-07-13 08:34:42.043 [main] Log - I am in onFinish method CargaAvanzada
+[INFO ] 2022-07-13 08:35:21.903 [main] Log - CargaAvanzada test is succeed.
+[INFO ] 2022-07-13 09:16:48.258 [main] Log - Tests is starting!
+[INFO ] 2022-07-13 09:16:50.379 [main] Log - I am in onStart method Circuito Ventas WF
+[INFO ] 2022-07-13 09:17:00.220 [main] Log - I am in onFinish method Reutilizacion
+[INFO ] 2022-07-13 09:17:11.005 [main] Log - Reutilizacion test is succeed.
+[INFO ] 2022-07-13 09:30:44.490 [main] Log - Tests is starting!
+[INFO ] 2022-07-13 09:30:46.676 [main] Log - I am in onStart method Circuito Ventas WF
+[INFO ] 2022-07-13 09:30:56.330 [main] Log - I am in onFinish method Reutilizacion
+[INFO ] 2022-07-13 09:31:22.654 [main] Log - Reutilizacion test is succeed.
+[INFO ] 2022-07-13 09:37:03.821 [main] Log - Tests is starting!
+[INFO ] 2022-07-13 09:37:06.058 [main] Log - I am in onStart method Circuito Ventas WF
+[INFO ] 2022-07-13 09:37:18.545 [main] Log - I am in onFinish method Reutilizacion
+[INFO ] 2022-07-13 09:37:43.651 [main] Log - Reutilizacion test is succeed.
+[INFO ] 2022-07-13 09:37:43.756 [main] Log - I am in onFinish method MatrizRiesgo
+[INFO ] 2022-07-13 09:37:53.074 [main] Log - MatrizRiesgo test is succeed.
+[INFO ] 2022-07-13 09:43:44.486 [main] Log - Tests is starting!
+[INFO ] 2022-07-13 09:43:46.674 [main] Log - I am in onStart method Circuito Ventas WF
+[INFO ] 2022-07-13 09:43:58.610 [main] Log - I am in onFinish method Reutilizacion
+[INFO ] 2022-07-13 10:52:19.002 [main] Log - Tests is starting!
+[INFO ] 2022-07-13 10:52:22.012 [main] Log - I am in onStart method Circuito Ventas WF
+[INFO ] 2022-07-13 10:52:34.905 [main] Log - I am in onFinish method RevisionGerente
+[INFO ] 2022-07-13 10:52:51.270 [main] Log - RevisionGerente test is succeed.
+[INFO ] 2022-07-13 11:01:07.453 [main] Log - Tests is starting!
+[INFO ] 2022-07-13 11:01:09.919 [main] Log - I am in onStart method Circuito Ventas WF
+[INFO ] 2022-07-13 11:01:20.471 [main] Log - I am in onFinish method RevisionGerente
+[INFO ] 2022-07-13 11:02:18.888 [main] Log - RevisionGerente test is succeed.
+[INFO ] 2022-07-13 11:05:13.826 [main] Log - Tests is starting!
+[INFO ] 2022-07-13 11:05:16.119 [main] Log - I am in onStart method Circuito Ventas WF
+[INFO ] 2022-07-13 11:05:28.561 [main] Log - I am in onFinish method RevisionGerente
+[INFO ] 2022-07-13 11:05:48.335 [main] Log - RevisionGerente test is succeed.
+[INFO ] 2022-07-13 11:06:31.649 [main] Log - Tests is starting!
+[INFO ] 2022-07-13 11:06:33.773 [main] Log - I am in onStart method Circuito Ventas WF
+[INFO ] 2022-07-13 11:06:44.062 [main] Log - I am in onFinish method RevisionGerente
+[INFO ] 2022-07-13 11:07:09.933 [main] Log - RevisionGerente test is succeed.
+[INFO ] 2022-07-13 11:11:23.971 [main] Log - Tests is starting!
+[INFO ] 2022-07-13 11:11:26.076 [main] Log - I am in onStart method Circuito Ventas WF
+[INFO ] 2022-07-13 11:11:36.216 [main] Log - I am in onFinish method RevisionCreditos
+[INFO ] 2022-07-13 11:12:30.753 [main] Log - RevisionCreditos test is succeed.
+[INFO ] 2022-07-13 11:25:51.979 [main] Log - Tests is starting!
+[INFO ] 2022-07-13 11:25:54.125 [main] Log - I am in onStart method Circuito Ventas WF
+[INFO ] 2022-07-13 11:26:06.773 [main] Log - I am in onFinish method RevisionCreditos
+[INFO ] 2022-07-13 11:27:14.121 [main] Log - RevisionCreditos test is succeed.
+[INFO ] 2022-07-13 11:27:14.213 [main] Log - I am in onFinish method Liquidacion
+[INFO ] 2022-07-13 11:27:24.979 [main] Log - Liquidacion test is failed.
+[INFO ] 2022-07-13 11:33:00.715 [main] Log - Tests is starting!
+[INFO ] 2022-07-13 11:33:02.838 [main] Log - I am in onStart method Circuito Ventas WF
+[INFO ] 2022-07-13 11:33:12.796 [main] Log - I am in onFinish method RevisionCreditos
+[INFO ] 2022-07-13 11:33:20.115 [main] Log - RevisionCreditos test is failed.
+[INFO ] 2022-07-13 11:33:20.234 [main] Log - I am in onFinish method Liquidacion
+[INFO ] 2022-07-13 11:33:27.073 [main] Log - Liquidacion test is failed.
+[INFO ] 2022-07-13 11:35:06.460 [main] Log - Tests is starting!
+[INFO ] 2022-07-13 11:35:08.788 [main] Log - I am in onStart method Circuito Ventas WF
+[INFO ] 2022-07-13 11:35:23.199 [main] Log - I am in onFinish method RevisionCreditos
+[INFO ] 2022-07-13 11:35:49.186 [main] Log - RevisionCreditos test is succeed.
+[INFO ] 2022-07-13 11:35:49.306 [main] Log - I am in onFinish method Liquidacion
+[INFO ] 2022-07-13 11:43:36.422 [main] Log - Tests is starting!
+[INFO ] 2022-07-13 11:43:38.568 [main] Log - I am in onStart method Circuito Ventas WF
+[INFO ] 2022-07-13 11:43:48.441 [main] Log - I am in onFinish method Liquidacion
+[INFO ] 2022-07-13 11:52:07.431 [main] Log - Tests is starting!
+[INFO ] 2022-07-13 11:52:09.587 [main] Log - I am in onStart method Circuito Ventas WF
+[INFO ] 2022-07-13 11:52:21.321 [main] Log - I am in onFinish method Liquidacion
+[INFO ] 2022-07-13 11:52:55.284 [main] Log - Liquidacion test is succeed.
+[INFO ] 2022-07-13 12:01:40.452 [main] Log - Tests is starting!
+[INFO ] 2022-07-13 12:08:18.561 [main] Log - Tests is starting!
+[INFO ] 2022-07-13 12:08:20.666 [main] Log - I am in onStart method Circuito Ventas WF
+[INFO ] 2022-07-13 12:08:32.085 [main] Log - I am in onFinish method Liquidacion
+[INFO ] 2022-07-13 12:09:03.408 [main] Log - Liquidacion test is succeed.
+[INFO ] 2022-07-13 12:09:03.498 [main] Log - I am in onFinish method PlandePagos
+[INFO ] 2022-07-13 12:09:55.544 [main] Log - PlandePagos test is succeed.
+[INFO ] 2022-07-13 12:16:40.688 [main] Log - Tests is starting!
+[INFO ] 2022-07-13 12:16:42.835 [main] Log - I am in onStart method Circuito Ventas WF
+[INFO ] 2022-07-13 12:16:53.262 [main] Log - I am in onFinish method Liquidacion
+[INFO ] 2022-07-13 12:17:21.808 [main] Log - Liquidacion test is succeed.
+[INFO ] 2022-07-13 12:17:21.917 [main] Log - I am in onFinish method PlandePagos
+[INFO ] 2022-07-13 12:18:16.207 [main] Log - PlandePagos test is succeed.
+[INFO ] 2022-07-13 12:19:16.306 [main] Log - Tests is starting!
+[INFO ] 2022-07-13 12:19:18.422 [main] Log - I am in onStart method Circuito Ventas WF
+[INFO ] 2022-07-13 12:19:28.840 [main] Log - I am in onFinish method Liquidacion
+[INFO ] 2022-07-13 12:19:56.813 [main] Log - Liquidacion test is succeed.
+[INFO ] 2022-07-13 12:19:56.898 [main] Log - I am in onFinish method PlandePagos
+[INFO ] 2022-07-13 12:20:39.927 [main] Log - PlandePagos test is succeed.
+[INFO ] 2022-07-13 12:22:26.753 [main] Log - Tests is starting!
+[INFO ] 2022-07-13 12:22:28.835 [main] Log - I am in onStart method Circuito Ventas WF
+[INFO ] 2022-07-13 12:22:40.963 [main] Log - I am in onFinish method Liquidacion
+[INFO ] 2022-07-13 12:23:08.809 [main] Log - Liquidacion test is succeed.
+[INFO ] 2022-07-13 12:23:08.906 [main] Log - I am in onFinish method PlandePagos
+[INFO ] 2022-07-13 12:24:05.345 [main] Log - PlandePagos test is succeed.

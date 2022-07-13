@@ -1,6 +1,6 @@
 package Task;
 
-import Config.Accion;
+import Config.Acciones;
 import Page.AbmPaquetesPage;
 import org.openqa.selenium.WebDriver;
 
@@ -16,54 +16,54 @@ public class AbmPaquetes extends AbmPaquetesPage {
 
     public void Iniciar() {
         System.out.println ( "Iniciando ABM Paquetes" );
-        Accion accion = new Accion ( driver );
-        accion.menu ().Ejecutar ();
-        accion.ejecutar ().Programa ( "HBNQFCB2" );
+        Acciones acciones = new Acciones ( driver );
+        acciones.menu ().Ejecutar ();
+        acciones.ejecutar ().Programa ( "HBNQFCB2" );
     }
 
 
     public void Filtrar(String codigoPaquete) {
         System.out.println ( "Filtrando" );
-        Accion accion = new Accion ( driver );
-        accion.write ().On ( input_JBNYC5PQTE_FILTRO, codigoPaquete );
-        accion.click ().On ( BTNFILTER_GRDPAQUETES );
+        Acciones acciones = new Acciones ( driver );
+        acciones.write ().On ( input_JBNYC5PQTE_FILTRO, codigoPaquete );
+        acciones.click ().On ( BTNFILTER_GRDPAQUETES );
     }
 
     public void SeleccionarFila() {
         System.out.println ( "Seleccionado Fila" );
-        Accion accion = new Accion ( driver );
-        accion.grid ().rowSelectbyFila ( GRIDGRDPAQUETES, fila_JBNYC5DESC_0001 );
+        Acciones acciones = new Acciones ( driver );
+        acciones.grid ().rowSelectbyFila ( GRIDGRDPAQUETES, fila_JBNYC5DESC_0001 );
     }
 
 
     public void Alta() {
-        Accion accion = new Accion ( driver );
-        accion.click ().On ( BTNOPALTA_PAQUETE );
+        Acciones acciones = new Acciones ( driver );
+        acciones.click ().On ( BTNOPALTA_PAQUETE );
     }
 
     public void Baja() {
-        Accion accion = new Accion ( driver );
-        accion.click ().On ( BTNOPBAJA_PAQUETE );
+        Acciones acciones = new Acciones ( driver );
+        acciones.click ().On ( BTNOPBAJA_PAQUETE );
     }
 
     public void Edicion() {
-        Accion accion = new Accion ( driver );
-        accion.click ().On ( BTNOPMODIFICA_PAQUETE );
+        Acciones acciones = new Acciones ( driver );
+        acciones.click ().On ( BTNOPMODIFICA_PAQUETE );
     }
 
     public void NuevaVersion() {
-        Accion accion = new Accion ( driver );
-        accion.click ().On ( BTNOPCLONA_PAQUETE );
+        Acciones acciones = new Acciones ( driver );
+        acciones.click ().On ( BTNOPCLONA_PAQUETE );
     }
 
     public void Detalle() {
-        Accion accion = new Accion ( driver );
-        accion.click ().On ( BTNOPDETALLE_PAQUETE );
+        Acciones acciones = new Acciones ( driver );
+        acciones.click ().On ( BTNOPDETALLE_PAQUETE );
     }
 
     public void Estado(String value) {
         System.out.println ( "Estado del Paquete" );
-        Accion accion = new Accion ( driver );
+        Acciones acciones = new Acciones ( driver );
         int index = 0;
         switch (value) {
             case "P":
@@ -81,6 +81,6 @@ public class AbmPaquetes extends AbmPaquetesPage {
             default:
                 index = 0;
         }
-        accion.radio ().On ( radio_JBNYC5ESTA_FILTRO, index );
+        acciones.radio ().On ( radio_JBNYC5ESTA_FILTRO, index );
     }
 }
