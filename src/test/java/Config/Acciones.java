@@ -100,6 +100,11 @@ public class Acciones {
         return click;
     }
 
+    public Keyboard keyboard() {
+        Keyboard keyboard = new Keyboard ( driver );
+        return keyboard;
+    }
+
     public Get get() {
         Get get = new Get ( driver );
         return get;
