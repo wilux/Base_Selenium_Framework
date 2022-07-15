@@ -157,7 +157,7 @@ public class SQLDatabaseConnection {
             System.out.println ( "Cambio no efectuado" );
         }
         else {
-            System.out.println ( "Cambio realizado" );
+//            System.out.println ( "Cambio realizado" );
         }
     }
 

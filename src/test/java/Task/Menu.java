@@ -31,12 +31,12 @@ public class Menu {
 
         try {
             MenuPage menuPage = new MenuPage ( driver );
-            System.out.println ( "Driver cuando quiero hacer click en Menu Accesos " + driver.toString () );
+//            System.out.println ( "Driver cuando quiero hacer click en Menu Accesos " + driver.toString () );
             driver.findElement ( menuPage.Accesos ).click ();
-            System.out.println ( "Menu Acceso" );
+//            System.out.println ( "Menu Acceso" );
             Thread.sleep ( 200 );
             driver.findElement ( menuPage.MenuEjecutar ).click ();
-            System.out.println ( "Menu Ejecutar" );
+//            System.out.println ( "Menu Ejecutar" );
 
 
         } catch (Exception e) {
@@ -54,7 +54,7 @@ public class Menu {
         try {
 
             driver.findElement ( menuPage.WF ).click ();
-            System.out.println ( "Menu WorkFlow" );
+//            System.out.println ( "Menu WorkFlow" );
             Thread.sleep ( 200 );
 
         } catch (Exception e) {
@@ -71,13 +71,13 @@ public class Menu {
         try {
 
             driver.findElement ( menuPage.Inicio ).click ();
-            System.out.println ( "Menu Inicio" );
+//            System.out.println ( "Menu Inicio" );
             Thread.sleep ( 200 );
             driver.findElement ( menuPage.WF ).click ();
-            System.out.println ( "Sub menu WorkFlow" );
+//            System.out.println ( "Sub menu WorkFlow" );
             Thread.sleep ( 200 );
             driver.findElement ( menuPage.BandejaTareas ).click ();
-            System.out.println ( "Sub Menu Bandeja Tareas" );
+//            System.out.println ( "Sub Menu Bandeja Tareas" );
 
 
         } catch (Exception e) {

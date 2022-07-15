@@ -7,7 +7,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.List;
@@ -35,7 +37,7 @@ public class Login {
 
     public void loginButton() throws AWTException, InterruptedException {
         LoginPage loginPage = new LoginPage ( driver );
-        System.out.println ( "Driver cuando quiero hacer click en LoginButton " + driver.toString () );
+//        System.out.println ( "Driver cuando quiero hacer click en LoginButton " + driver.toString () );
         driver.findElement ( loginPage.LoginButton ).click ();
 //        Robot robot = new Robot ();
 
@@ -70,7 +72,7 @@ public class Login {
 
         // To handle child window
         Set<String> s1 = driver.getWindowHandles ();
-        System.out.println ( "Child window handle is" + s1 );
+//        System.out.println ( "Child window handle is" + s1 );
         for (String ChildWindow : s1) {
             if ( !MainWindow.equalsIgnoreCase ( ChildWindow ) ) {
                 driver.switchTo ().window ( ChildWindow );
@@ -104,7 +106,7 @@ public class Login {
     public void Ingresar(String ambiente) throws InterruptedException, AWTException {
 
         Credenciales credenciales = new Credenciales ();
-        System.out.println ( "Driver en Login " + driver.toString () );
+//        System.out.println ( "Driver en Login " + driver.toString () );
         if ( ambiente.equals ( "DF" ) ) {
 
             driver.get ( "http://btdesafuncional.ar.bpn/BTWeb/hlogin.aspx" );
@@ -115,7 +117,7 @@ public class Login {
         }
         else {
             System.out.println ( "El Ambiente elegido " + ambiente + " no es valido, se asume QA" );
-            System.out.println ( "El Ambientes validos QA o DF" );
+            System.out.println ( "Ambientes validos QA o DF" );
             driver.get ( "http://btwebqa.ar.bpn/BTWeb/hlogin.aspx" );
         }
 
@@ -127,5 +129,53 @@ public class Login {
         cambiarVentana ();
 
     }
+
+
+    public void IngresarManual(String ambiente) throws InterruptedException, AWTException {
+
+
+        JTextField usuario = new JTextField ( 10 );
+        JTextField password = new JPasswordField ( 10 );
+
+        JPanel myPanel = new JPanel ();
+        myPanel.add ( new JLabel ( "Usuario:" ) );
+        myPanel.add ( usuario );
+        myPanel.add ( Box.createHorizontalStrut ( 15 ) ); // a spacer
+        myPanel.add ( new JLabel ( "Password:" ) );
+        myPanel.add ( password );
+
+        int result = JOptionPane.showConfirmDialog ( null, myPanel,
+                                                     "Ingresa tus credenciales de BT para iniciar " +
+                                                             "Prueba Automatizada", JOptionPane.OK_CANCEL_OPTION );
+        if ( result == JOptionPane.OK_OPTION ) {
+
+
+            if ( ambiente.equals ( "DF" ) ) {
+
+                driver.get ( "http://btdesafuncional.ar.bpn/BTWeb/hlogin.aspx" );
+            }
+            else if ( ambiente.equals ( "QA" ) ) {
+
+                driver.get ( "http://btwebqa.ar.bpn/BTWeb/hlogin.aspx" );
+            }
+            else {
+                System.out.println ( "El Ambiente elegido " + ambiente + " no es valido, se asume QA" );
+                System.out.println ( "Ambientes validos QA o DF" );
+                driver.get ( "http://btwebqa.ar.bpn/BTWeb/hlogin.aspx" );
+            }
+
+            setUserName ( usuario.getText () );
+            setPassword ( password.getText () );
+
+
+            loginButton ();
+            cambiarVentana ();
+        }
+        else {
+            Assert.fail ( "Prueba no iniciada por falta de credenciales" );
+        }
+
+    }
+
 
 }
