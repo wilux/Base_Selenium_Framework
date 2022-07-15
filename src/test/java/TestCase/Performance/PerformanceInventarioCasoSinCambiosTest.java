@@ -14,6 +14,7 @@ import com.google.common.base.Stopwatch;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
+import java.awt.*;
 import java.util.concurrent.TimeUnit;
 
 public class PerformanceInventarioCasoSinCambiosTest extends BaseTest {
@@ -21,7 +22,7 @@ public class PerformanceInventarioCasoSinCambiosTest extends BaseTest {
 
     @Test
     //Pruebas de Performance para Inventario de Legajo sin Ajustes
-    public void SinCambios() throws InterruptedException {
+    public void SinCambios() throws InterruptedException, AWTException {
         System.out.println ( "Pruebas de Performance para Inventario de Legajo sin Ajustes" );
         //Instancio Objectos
         Login login = new Login ( driver );

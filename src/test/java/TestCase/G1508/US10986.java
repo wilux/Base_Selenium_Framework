@@ -8,6 +8,7 @@ import Tools.SQLDatabaseConnection;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.awt.*;
 import java.lang.reflect.Method;
 
 import static Tools.extentreports.ExtentTestManager.startTest;
@@ -17,7 +18,7 @@ public class US10986 extends BaseTest {
 
 
     @Test(priority = 1, description = "TASK 10972 - Agregar 3 campos  a ABM paquetes")
-    public void IniciarAbmPaquetes(Method method) throws InterruptedException {
+    public void IniciarAbmPaquetes(Method method) throws InterruptedException, AWTException {
 
         SQLDatabaseConnection bd = new SQLDatabaseConnection ();
         //Inicio Como usuario de Plataforma

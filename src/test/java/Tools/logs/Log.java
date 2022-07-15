@@ -1,8 +1,12 @@
 package Tools.logs;
 
+import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 
 import static Tools.extentreports.ExtentTestManager.getTest;
 
@@ -22,7 +26,24 @@ public class Log {
         } catch (Exception e) {
             System.out.println ( e );
         }
-        
+
+
+    }
+
+    public static void reportLogScreen(WebDriver driver) {
+        try {
+            String base64Screenshot = "data:image/png;base64," + ((TakesScreenshot) driver).getScreenshotAs ( OutputType.BASE64 );
+
+            int i = getTest ().addScreenCaptureFromBase64String ( base64Screenshot ).getModel ().getMedia ().size ();
+
+            getTest ().log ( Status.INFO, "Manual Screenshot",
+                             getTest ().addScreenCaptureFromBase64String ( base64Screenshot ).getModel ().getMedia ().get ( i ) );
+
+
+        } catch (Exception e) {
+            System.out.println ( e );
+        }
+
 
     }
 

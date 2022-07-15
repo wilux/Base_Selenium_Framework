@@ -2,6 +2,7 @@ package TestCase;
 
 import Page.LoginPage;
 import Tools.SQLDatabaseConnection;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.sql.SQLException;
@@ -31,12 +32,27 @@ public class DbTest {
 //    }
 
 
+//    @Test
+//    //Tests LD
+//    public void LD() throws InterruptedException, SQLException {
+//
+//        SQLDatabaseConnection bd = new SQLDatabaseConnection ();
+//        bd.completarLD ( "27350672155" );
+//
+//    }
+
+
     @Test
     //Tests LD
-    public void LD() throws InterruptedException, SQLException {
+    public void VerificarFirmasDisponibles() throws InterruptedException, SQLException {
 
         SQLDatabaseConnection bd = new SQLDatabaseConnection ();
-        bd.completarLD ( "27350672155" );
+        if ( bd.esperarFormularios ( "27350672155" ) != false ) {
+            Assert.assertTrue ( bd.esperarFormularios ( "27350672155" ) );
+        }
+        else {
+            Assert.assertFalse ( bd.esperarFormularios ( "27350672155" ) );
+        }
 
     }
 }

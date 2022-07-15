@@ -2,12 +2,15 @@ package Task;
 
 import Action.Click;
 import Action.Get;
+import Action.Keyboard;
 import Action.Write;
+import Config.Acciones;
 import Page.RevisionParaConfirmarPage;
 import Page.RevisionProductosPage;
 import com.google.common.base.Stopwatch;
 import org.openqa.selenium.WebDriver;
 
+import java.awt.*;
 import java.util.concurrent.TimeUnit;
 
 public class RevisionParaConfirmar extends RevisionParaConfirmarPage {
@@ -30,19 +33,21 @@ public class RevisionParaConfirmar extends RevisionParaConfirmarPage {
 
     }
 
-    public void PerfilRiesgo() throws InterruptedException {
+    public void PerfilRiesgo() throws InterruptedException, AWTException {
         Click click = new Click ( driver );
         Get get = new Get ( driver );
+        Keyboard keyboard = new Keyboard ();
         final Stopwatch stopwatch = Stopwatch.createStarted ();
 
         if ( get.Habilitado ( BTNOPPERFILDERIESGO ) ) {
-            click.On ( BTNOPPERFILDERIESGO );
+            keyboard.Ctrl ( 'r' );
         }
         else {
-            while (!get.Habilitado ( BTNOPPERFILDERIESGO ) || (stopwatch.elapsed ( TimeUnit.SECONDS ) < 10)) {
+            while (!get.Habilitado ( BTNOPPERFILDERIESGO ) || (stopwatch.elapsed ( TimeUnit.SECONDS ) < 20)) {
                 Thread.sleep ( 1000 );
             }
-            click.On ( BTNOPPERFILDERIESGO );
+//            click.On ( BTNOPPERFILDERIESGO );
+            keyboard.Ctrl ( 'r' );
         }
     }
 

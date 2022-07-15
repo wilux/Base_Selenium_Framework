@@ -52,10 +52,13 @@ public class TestListener implements ITestListener {
         Log.info ( getTestMethodName ( result ) + " test is failed." );
 
         Object testClass = result.getInstance ();
-        WebDriver webDriver = ((BaseTest) testClass).getDriver ();
-        String base64Screenshot = "data:image/png;base64," + ((TakesScreenshot) webDriver).getScreenshotAs ( OutputType.BASE64 );
-        getTest ().log ( Status.FAIL, "Test Failed",
-                         getTest ().addScreenCaptureFromBase64String ( base64Screenshot ).getModel ().getMedia ().get ( 0 ) );
+        try {
+            WebDriver webDriver = ((BaseTest) testClass).getDriver ();
+            String base64Screenshot = "data:image/png;base64," + ((TakesScreenshot) webDriver).getScreenshotAs ( OutputType.BASE64 );
+            getTest ().log ( Status.FAIL, "Test Failed",
+                             getTest ().addScreenCaptureFromBase64String ( base64Screenshot ).getModel ().getMedia ().get ( 0 ) );
+        } catch (Exception e) {
+        }
     }
 
     public void onTestSkipped(ITestResult result) {

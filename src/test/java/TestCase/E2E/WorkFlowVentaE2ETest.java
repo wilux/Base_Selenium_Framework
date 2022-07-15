@@ -2,23 +2,27 @@ package TestCase.E2E;
 
 import Config.Acciones;
 import Config.BaseTest;
+import Tools.Restart;
 import Tools.SQLDatabaseConnection;
 import Tools.logs.Log;
+import com.google.common.base.Stopwatch;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import java.awt.*;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 
 public class WorkFlowVentaE2ETest extends BaseTest {
 
     //Datos del caso
     String cuil = "27350672155 ";
-    String NroEntrevista = "1283731";
+    String NroEntrevista = "1283763";
     String usuarioPlataforma = "SERPILLOE";
     String usuarioGerencia = "RODRIGUA";
     String usuarioCreditos = "PIANCIOLAG";
@@ -26,7 +30,7 @@ public class WorkFlowVentaE2ETest extends BaseTest {
 
 
     @BeforeTest
-    public void IniciarSimulacion() {
+    public void IniciarSimulacion() throws InterruptedException, AWTException {
 
         //Instanciamos clases que usaremos
         SQLDatabaseConnection bd = new SQLDatabaseConnection ();
@@ -43,7 +47,7 @@ public class WorkFlowVentaE2ETest extends BaseTest {
         acciones.menu ().Ejecutar ();
         //Abrir BandejaTareas
         acciones.ejecutar ().Programa ( "hxwf900" );
-
+        System.out.println ( "Driver Inicial " + driver.toString () );
 
     }
 
@@ -58,6 +62,7 @@ public class WorkFlowVentaE2ETest extends BaseTest {
 
 
         //Ingresar Tipo y Documento
+        Log.reportLogScreen ( driver );
         acciones.entrevista ().IdentificacionPersona ( "C.U.I.L.", cuil );
         //Entrevista
         acciones.entrevista ().CompletarGenerico ();
@@ -100,10 +105,10 @@ public class WorkFlowVentaE2ETest extends BaseTest {
         acciones.simulacion ().Linea ( "309201" );
 
         //Monto
-        acciones.simulacion ().Monto ( "10000" );
+        acciones.simulacion ().Monto ( "1000" );
 
         //Plazo
-        acciones.simulacion ().Plazo ( "24" );
+        acciones.simulacion ().Plazo ( "12" );
 
         //Destino
         acciones.simulacion ().DestinoFondos ( "1" );
@@ -113,11 +118,11 @@ public class WorkFlowVentaE2ETest extends BaseTest {
 
         //Simular
         acciones.simulacion ().Simular ();
-
+        Log.reportLogScreen ( driver );
         //Confirmar
         acciones.simulacion ().Confirmar ();
 
-        Assert.assertTrue ( true );
+        Assert.assertTrue ( acciones.get ().Existe ( acciones.simulacion ().BTNOPCOMISION ) );
 
     }
 
@@ -125,16 +130,18 @@ public class WorkFlowVentaE2ETest extends BaseTest {
     public void ConfirmarPlanDePagos() throws InterruptedException {
         Log.reportLog ( "Step 3 - Confirmar Plan de Pagos Amortizable" );
         Acciones acciones = new Acciones ( driver );
+        Log.reportLogScreen ( driver );
         acciones.simulacion ().ConfirmarPlanPago ();
-        Assert.assertTrue ( true );
+        Assert.assertTrue ( acciones.get ().Existe ( acciones.simulacion ().BTNOPCARTASIMULADOR ) );
     }
 
     @Test(priority = 3, enabled = true)
     public void ConfirmarSimulacion() throws InterruptedException {
         Log.reportLog ( "Step 4 - Confirmar Simulacion" );
         Acciones acciones = new Acciones ( driver );
+        Log.reportLogScreen ( driver );
         acciones.simulacion ().ConfirmarSimulacion ();
-        Assert.assertTrue ( true );
+        Assert.assertTrue ( acciones.get ().Existe ( acciones.bandejaTareas ().BTNOPOEJECUTAR ) );
     }
 
     @Test(priority = 4, enabled = true)
@@ -146,15 +153,18 @@ public class WorkFlowVentaE2ETest extends BaseTest {
         SQLDatabaseConnection bd = new SQLDatabaseConnection ();
 
         //Remotar tramite
-        acciones.bandejaTareas ().avanzarEntrevista ( NroEntrevista );
+        //acciones.bandejaTareas ().avanzarEntrevista ( NroEntrevista );
+        acciones.bandejaTareas ().tomarEntrevista ( NroEntrevista );
+
 
         //Hacer World Complement
         bd.wc ( cuil );
 
         //Confirmar
+        Log.reportLogScreen ( driver );
         acciones.cargaAvanzada ().Aceptar ();
 
-        Assert.assertTrue ( true );
+        Assert.assertTrue ( acciones.get ().Existe ( acciones.bandejaTareas ().BTNOPOEJECUTAR ) );
     }
 
     @Test(priority = 5, enabled = true)
@@ -169,111 +179,153 @@ public class WorkFlowVentaE2ETest extends BaseTest {
 
         //Aceptar TD
         acciones.reutilizacion ().AceptarTarjetaDebito ();
+        Log.reportLogScreen ( driver );
 
         //Entrar a Perfil Riesgo
         acciones.reutilizacion ().PerfilRiesgo ();
 
-        Assert.assertTrue ( true );
+        Assert.assertTrue ( acciones.get ().Existe ( acciones.matrizRiesgo ().GRIDSUBINTEGRANTES ) );
     }
 
     @Test(priority = 6, enabled = true)
-    public void MatrizRiesgo() throws InterruptedException {
+    public void MatrizRiesgo() throws InterruptedException, AWTException, SQLException {
 
         Log.reportLog ( "Step 7 - Confirmar Matriz Riesgo" );
 
         Acciones acciones = new Acciones ( driver );
+        SQLDatabaseConnection bd = new SQLDatabaseConnection ();
 
         //Aceptar Perfil Riesgo
         acciones.matrizRiesgo ().Confirmar ();
-
+        Log.reportLogScreen ( driver );
+        //Esperar que los formularios esten para completar
+        final Stopwatch stopwatch = Stopwatch.createStarted ();
+        while ((stopwatch.elapsed ( TimeUnit.SECONDS ) < 10)) {
+            System.out.print ( "Esperando generacion de formularios..." );
+            do {
+                System.out.println ( "." );
+            } while (bd.esperarFormularios ( "27350672155" ) != true || (stopwatch.elapsed ( TimeUnit.SECONDS ) < 360));
+            System.out.println ( "Tiempo transcurrido: " + stopwatch.elapsed ( TimeUnit.SECONDS ) );
+            System.out.print ( "Legajo creado, empezando a firmar..." );
+            //Firmamos LD
+            bd.completarLD ( cuil );
+        }
         Assert.assertTrue ( true );
     }
 
-    @Test(priority = 7, enabled = true)
-    public void RevisionGerente() throws InterruptedException, SQLException {
+    @Test(priority = 7, enabled = true, dependsOnMethods = "MatrizRiesgo")
+    public void RevisionGerente() throws InterruptedException, SQLException, AWTException {
 
         Log.reportLog ( "Step 8 - Confirmar desde Gerente" );
 
+        //Cerrar y entrar como nuevo usuario
+        Restart restart = new Restart ( driver );
+        driver = restart.As ( usuarioGerencia );
+
+        System.out.println ( "Driver Gerencia " + driver.toString () );
         //Instanciamos clases que usaremos
-        SQLDatabaseConnection bd = new SQLDatabaseConnection ();
         Acciones acciones = new Acciones ( driver );
 
-        //Firmamos LD
-        bd.completarLD ( cuil );
+        //Menu Ejecutar
+        acciones.menu ().Ejecutar ();
+        //Abrir BandejaTareas
+        acciones.ejecutar ().Programa ( "hxwf900" );
 
-        //Inicio Como usuario de Gerencia
-        bd.CambiarUsuario ( usuarioGerencia );
 
         //Remotar tramite
         acciones.bandejaTareas ().avanzarEntrevista ( NroEntrevista );
-
+        Log.reportLogScreen ( driver );
         //Confirmo Revision de Productos
         acciones.revisionProductos ().Confirmar ();
+
 
         Assert.assertTrue ( true );
     }
 
 
     //Solo cuando excede Limite sino se saltar paso
-    @Test(priority = 8, enabled = false)
-    public void RevisionCreditos() throws InterruptedException, SQLException {
+    @Test(priority = 8, enabled = false, dependsOnMethods = "RevisionGerente")
+    public void RevisionCreditos() throws InterruptedException, SQLException, AWTException {
 
         Log.reportLog ( "Step 9 - Confirmar desde Creditos" );
+        System.out.println ( "Driver Creditos " + driver.toString () );
+
+        Thread.sleep ( 5000 );
+        //Reiniciamos con nuevo usuario
+        Restart restart = new Restart ( driver );
+        driver = restart.As ( usuarioCreditos );
 
         //Instanciamos clases que usaremos
         SQLDatabaseConnection bd = new SQLDatabaseConnection ();
         Acciones acciones = new Acciones ( driver );
 
-        //Inicio Como usuario de Gerencia
-        bd.CambiarUsuario ( usuarioCreditos );
+        //Menu Ejecutar
+        acciones.menu ().Ejecutar ();
+        //Abrir BandejaTareas
+        acciones.ejecutar ().Programa ( "hxwf900" );
 
         //Remotar tramite
         acciones.bandejaTareas ().avanzarEntrevista ( NroEntrevista );
-
+        Log.reportLogScreen ( driver );
         //Confirmo Revision de Productos
         acciones.revisionProductos ().Confirmar ();
+
 
         Assert.assertTrue ( true );
     }
 
-    @Test(priority = 9, enabled = true)
-    public void Liquidacion() throws InterruptedException, SQLException {
+    @Test(priority = 9, enabled = true, dependsOnMethods = "RevisionGerente")
+    public void Liquidacion() throws InterruptedException, SQLException, AWTException {
 
         Log.reportLog ( "Step 10 - Liquidar producto" );
 
+
+        //Reiniciamos con nuevo usuario
+        Thread.sleep ( 5000 );
+        Restart restart = new Restart ( driver );
+        driver = restart.As ( usuarioCentral );
+        Thread.sleep ( 5000 );
+        System.out.println ( "Driver Central " + driver.toString () );
         //Instanciamos clases que usaremos
         SQLDatabaseConnection bd = new SQLDatabaseConnection ();
         Acciones acciones = new Acciones ( driver );
 
-        //Inicio Como usuario de Gerencia
-        bd.CambiarUsuario ( usuarioCentral );
+        //Menu Ejecutar
+        acciones.menu ().Ejecutar ();
+        //Abrir BandejaTareas
+        acciones.ejecutar ().Programa ( "hxwf900" );
 
         //Remotar tramite
         acciones.bandejaTareas ().avanzarEntrevista ( NroEntrevista );
-
+        Log.reportLogScreen ( driver );
         //Confirmo Revision de Productos
         acciones.revisionParaConfirmar ().Confirmar ();
 
         //Perfil Riesgo
+        Log.reportLogScreen ( driver );
         acciones.revisionParaConfirmar ().PerfilRiesgo ();
 
         //Confirmar Matriz Final
+        Log.reportLogScreen ( driver );
         acciones.matrizRiesgo ().ConfirmarFinal ();
 
         //Liquidar
+        Log.reportLogScreen ( driver );
         acciones.revisionParaConfirmar ().Liquidar ();
 
         Assert.assertTrue ( true );
     }
 
-    @Test(priority = 10, enabled = true)
+    @Test(priority = 10, enabled = true, dependsOnMethods = "Liquidacion")
     public void PlandePagos() throws InterruptedException, SQLException {
         Log.reportLog ( "Step 11 - Plan de Pagos Amortizable" );
         Acciones acciones = new Acciones ( driver );
 
         acciones.planPagosAmortizables ().Confirmar ();
+        Log.reportLogScreen ( driver );
 
         acciones.planPagosAmortizables ().VinculaGarantia ();
+        Log.reportLogScreen ( driver );
 
         Assert.assertTrue ( true );
     }

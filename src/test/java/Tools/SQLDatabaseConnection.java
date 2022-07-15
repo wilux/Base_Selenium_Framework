@@ -94,7 +94,8 @@ public class SQLDatabaseConnection {
                 value = resultSet.getString ( 1 );
             }
         } catch (SQLException e) {
-            e.printStackTrace ();
+//            e.printStackTrace ();
+            System.out.println ( "No hay registros en la consulta" );
         }
         return value;
     }
@@ -126,7 +127,8 @@ public class SQLDatabaseConnection {
                 }
             }
         } catch (SQLException ex) {
-            ex.printStackTrace ();
+//            ex.printStackTrace ();
+            System.out.println ( "No hay registros en la consulta" );
         }
         return value;
     }
@@ -213,6 +215,14 @@ public class SQLDatabaseConnection {
         //FirmaDigital
         String sql_updateFirma = "update Tramite set activo = 0 where CuitCuil = '" + cuil + "'";
         update ( sql_updateFirma, db_Firma );
+    }
+
+    public boolean esperarFormularios(String cuil) throws SQLException {
+        String db_Firma = "FirmaGrafometrica_QA";
+
+        //FirmaDigital
+        String sql_updateFirma = "select *  from TRAMITE where CuitCuil = '" + cuil + "' and activo = 1";
+        return (!getValue ( sql_updateFirma, db_Firma ).equals ( "" ));
     }
 
 

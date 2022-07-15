@@ -4,11 +4,13 @@ import Action.Click;
 import Action.Get;
 import Action.Grid;
 import Action.Radio;
+import Config.Acciones;
 import Page.MatrizRiesgoPage;
 import Page.ReutilizacionABMProductosPage;
 import com.google.common.base.Stopwatch;
 import org.openqa.selenium.WebDriver;
 
+import java.awt.*;
 import java.util.concurrent.TimeUnit;
 
 public class MatrizRiesgo extends MatrizRiesgoPage {
@@ -21,42 +23,39 @@ public class MatrizRiesgo extends MatrizRiesgoPage {
     }
 
 
-    public void Confirmar() throws InterruptedException {
-        Click click = new Click ( driver );
-        Get get = new Get ( driver );
-        final Stopwatch stopwatch = Stopwatch.createStarted ();
-        click.On ( BTNOPCONFIRMAR );
-
-        while ((stopwatch.elapsed ( TimeUnit.SECONDS ) < 10)) {
-            if ( !get.Habilitado ( BTNOPCONFIRMAR ) ) {
-                break;
-            }
-            else {
-                click.On ( BTNOPCONFIRMAR );
-            }
-        }
-        click.On ( BTNOPCERRAR );
+    public void Confirmar() throws InterruptedException, AWTException {
+        Acciones acciones = new Acciones ( driver );
+        Thread.sleep ( 1000 );
+        //confirmar
+        acciones.keyboard ().Ctrl ( 'o' );
+        Thread.sleep ( 3000 );
+        //cerrar
+        acciones.keyboard ().Ctrl ( 'e' );
     }
 
 
-    public void ConfirmarFinal() throws InterruptedException {
-        Click click = new Click ( driver );
-        Get get = new Get ( driver );
+    public void ConfirmarFinal() throws InterruptedException, AWTException {
+        Acciones acciones = new Acciones ( driver );
+//        Click click = new Click ( driver );
+//        Get get = new Get ( driver );
         Radio radio = new Radio ( driver );
         final Stopwatch stopwatch = Stopwatch.createStarted ();
 
         radio.On ( Radio_Si, 0 );
-        click.On ( BTNOPCONFIRMAR );
-
-        while ((stopwatch.elapsed ( TimeUnit.SECONDS ) < 10)) {
-            if ( !get.Habilitado ( BTNOPCONFIRMAR ) ) {
-                break;
-            }
-            else {
-                click.On ( BTNOPCONFIRMAR );
-            }
-        }
-        click.On ( BTNOPCERRAR );
+        //confirmar
+        acciones.keyboard ().CtrlEnter ();
+        Thread.sleep ( 3000 );
+//        while ((stopwatch.elapsed ( TimeUnit.SECONDS ) < 10)) {
+//            if ( !get.Habilitado ( BTNOPCONFIRMAR ) ) {
+//                break;
+//            }
+//            else {
+//                click.On ( BTNOPCONFIRMAR );
+//            }
+//        }
+        //cerrar
+        acciones.keyboard ().Ctrl ( 'e' );
+        Thread.sleep ( 3000 );
     }
 
 

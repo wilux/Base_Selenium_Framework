@@ -6,13 +6,15 @@ import Tools.SQLDatabaseConnection;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.awt.*;
+
 
 public class SimularTest extends BaseTest {
 
 
     @Test
     //Tests google calculator
-    public void Simular() throws InterruptedException {
+    public void Simular() throws InterruptedException, AWTException {
 
         //Instanciamos clases que usaremos
         SQLDatabaseConnection bd = new SQLDatabaseConnection ();

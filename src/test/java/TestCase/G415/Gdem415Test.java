@@ -2,6 +2,7 @@ package TestCase.G415;
 
 import Config.BaseTest;
 import Task.*;
+import Task.Menu;
 import Tools.Frame;
 import Action.Grid;
 import Tools.SQLDatabaseConnection;
@@ -9,6 +10,7 @@ import Tools.Screenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
+import java.awt.*;
 import java.io.IOException;
 
 
@@ -17,7 +19,7 @@ public class Gdem415Test extends BaseTest {
 
     @Test
     //Tests google calculator
-    public void CierreNoContractual() throws InterruptedException, IOException {
+    public void CierreNoContractual() throws InterruptedException, IOException, AWTException {
 
         SQLDatabaseConnection bd = new SQLDatabaseConnection ();
         //Inicio Como usuario de Plataforma

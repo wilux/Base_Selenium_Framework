@@ -26,13 +26,11 @@ public class MenuPage {
     public By Logout = BandejaTareas = By.xpath ( "//a[.='Salir']" );
     WebDriver driver;
 
-
     public MenuPage(WebDriver driver) {
 
         this.driver = driver;
 
     }
-
 
 }
 

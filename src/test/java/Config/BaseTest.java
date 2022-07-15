@@ -26,6 +26,10 @@ public abstract class BaseTest {
         return driver;
     }
 
+    public void setDriver(WebDriver newDriver) {
+        driver = newDriver;
+    }
+
 
     @BeforeSuite
     public void before() {
@@ -38,27 +42,27 @@ public abstract class BaseTest {
     @AfterSuite
     public void after() throws IOException, URISyntaxException {
 
-
-        //Desktop.getDesktop ().open ( new File ( "C:\\Users\\floresnes\\source\\repos\\BT_Selenium_Java_Maven" +
-        //   "\\TestReport\\Test-Automaton-Report.html" ) );
-//        Log.info ( "Tests are ending!" );
-//        if ( driver != null ) {
-//            driver.quit ();
-//        }
-//        }
-        JFrame jf = new JFrame ();
-        jf.setAlwaysOnTop ( true );
-        int reply = JOptionPane.showConfirmDialog ( jf, "¿Queres Cerrar Navegador?", "Test Terminado",
-                                                    JOptionPane.YES_NO_OPTION );
-
-        if ( reply == JOptionPane.YES_OPTION ) {
+//
+        Desktop.getDesktop ().open ( new File ( "C:\\Users\\floresnes\\source\\repos\\BT_Selenium_Java_Maven" +
+                                                        "\\TestReport\\Test-Automaton-Report.html" ) );
+        Log.info ( "Tests are ending!" );
+        if ( driver != null ) {
             driver.quit ();
-
-        }
-        else {
-            System.exit ( 0 );
         }
     }
+//        JFrame jf = new JFrame ();
+//        jf.setAlwaysOnTop ( true );
+//        int reply = JOptionPane.showConfirmDialog ( jf, "¿Queres Cerrar Navegador?", "Test Terminado",
+//                                                    JOptionPane.YES_NO_OPTION );
+//
+//        if ( reply == JOptionPane.YES_OPTION ) {
+//            driver.quit ();
+//
+//        }
+//        else {
+//            System.exit ( 0 );
+//        }
+//}
 
 
 }

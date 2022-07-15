@@ -5,10 +5,9 @@
         <listener class-name="Tools.listeners.TestListener"/>
         <listener class-name="Tools.listeners.AnnotationTransformer"/>
     </listeners>
-    <test name="GDEM 775" preserve-order="true">
+    <test name="Test Genericos" preserve-order="true">
         <classes>
-            <class name="TestCase.G775.TasaTnaPorPuntosConPaqueteTest"/>
-            <!--            <class name="TestCase.G775.TasaTnaPorPuntosSinPaqueteTest"/>-->
+            <class name="TestCase.RestarTest"/>
         </classes>
     </test>
 </suite>

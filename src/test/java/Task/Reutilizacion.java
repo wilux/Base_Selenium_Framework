@@ -24,9 +24,13 @@ public class Reutilizacion extends ReutilizacionABMProductosPage {
         Click click = new Click ( driver );
         Grid grid = new Grid ( driver );
         Get get = new Get ( driver );
-        grid.rowSelectbyFila ( GRID_TarjetasDebito, PrimerTarjeta );
+
         if ( get.Existe ( BTNOPACEPTARTExistente ) ) {
+            grid.rowSelectbyFila ( GRID_TarjetasDebito, PrimerTarjeta );
             click.On ( BTNOPACEPTARTExistente );
+        }
+        else {
+            click.On ( BTNOPACEPTARTDNUEVA );
         }
     }
 

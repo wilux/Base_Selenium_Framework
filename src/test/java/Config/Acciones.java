@@ -2,7 +2,10 @@ package Config;
 
 import Action.*;
 import Task.*;
+import Task.Menu;
 import org.openqa.selenium.WebDriver;
+
+import java.awt.*;
 
 public class Acciones {
     WebDriver driver;
@@ -100,8 +103,8 @@ public class Acciones {
         return click;
     }
 
-    public Keyboard keyboard() {
-        Keyboard keyboard = new Keyboard ( driver );
+    public Keyboard keyboard() throws AWTException {
+        Keyboard keyboard = new Keyboard ();
         return keyboard;
     }
 

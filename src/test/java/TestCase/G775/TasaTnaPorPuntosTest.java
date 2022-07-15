@@ -9,6 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import java.awt.*;
 import java.util.Arrays;
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class TasaTnaPorPuntosTest extends BaseTest {
     String NroEntrevistaConPaquete = "1283722";
 
     @BeforeTest
-    public void IniciarSimulacion() {
+    public void IniciarSimulacion() throws InterruptedException, AWTException {
 
         //Instanciamos clases que usaremos
         SQLDatabaseConnection bd = new SQLDatabaseConnection ();

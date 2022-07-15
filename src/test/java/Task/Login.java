@@ -1,17 +1,26 @@
 package Task;
 
+import Config.Credenciales;
 import Page.LoginPage;
+import com.google.common.base.Stopwatch;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.util.List;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 
-public class Login extends LoginPage {
+public class Login {
     WebDriver driver;
 
 
     public Login(WebDriver driver) {
-        super ( driver );
+
         this.driver = driver;
     }
 
@@ -19,21 +28,40 @@ public class Login extends LoginPage {
     //Set user name in textbox
 
     public void setUserName(String strUserName) {
-
-        driver.findElement ( UserInput ).sendKeys ( strUserName );
+        LoginPage loginPage = new LoginPage ( driver );
+        driver.findElement ( loginPage.UserInput ).sendKeys ( strUserName );
 
     }
 
+    public void loginButton() throws AWTException, InterruptedException {
+        LoginPage loginPage = new LoginPage ( driver );
+        System.out.println ( "Driver cuando quiero hacer click en LoginButton " + driver.toString () );
+        driver.findElement ( loginPage.LoginButton ).click ();
+//        Robot robot = new Robot ();
+
+
+//
+//        robot.keyPress ( KeyEvent.VK_CONTROL );
+//        Thread.sleep ( 200 );
+//        robot.keyPress ( KeyEvent.VK_SUBTRACT );
+
+
+//        robot.keyPress ( KeyEvent.VK_TAB );
+//        robot.keyPress ( KeyEvent.VK_ENTER );
+//        robot.keyRelease ( KeyEvent.VK_TAB );
+//        robot.keyRelease ( KeyEvent.VK_ENTER );
+
+    }
 
     public void setPassword(String strPassword) {
-
-        driver.findElement ( PasswordInput ).sendKeys ( strPassword );
+        LoginPage loginPage = new LoginPage ( driver );
+        driver.findElement ( loginPage.PasswordInput ).sendKeys ( strPassword );
 
     }
 
-    public void LoginButton() {
-
-        driver.findElement ( LoginButton ).click ();
+    public void cambiarVentana() {
+//        LoginPage loginPage = new LoginPage ( driver );
+//        driver.findElement ( loginPage.LoginButton ).click ();
 
 
         // To handle parent window
@@ -57,7 +85,7 @@ public class Login extends LoginPage {
     }
 
 
-    public void loginToBT(String strUserName, String strPassword) throws InterruptedException {
+    public void loginToBT(String strUserName, String strPassword) throws InterruptedException, AWTException {
 
         //Fill user name
 
@@ -68,12 +96,15 @@ public class Login extends LoginPage {
         this.setPassword ( strPassword );
 
         //Click Login button
-
-        this.LoginButton ();
+        loginButton ();
+        Thread.sleep ( 2000 );
+        cambiarVentana ();
     }
 
-    public void Ingresar(String ambiente) {
+    public void Ingresar(String ambiente) throws InterruptedException, AWTException {
 
+        Credenciales credenciales = new Credenciales ();
+        System.out.println ( "Driver en Login " + driver.toString () );
         if ( ambiente.equals ( "DF" ) ) {
 
             driver.get ( "http://btdesafuncional.ar.bpn/BTWeb/hlogin.aspx" );
@@ -88,9 +119,13 @@ public class Login extends LoginPage {
             driver.get ( "http://btwebqa.ar.bpn/BTWeb/hlogin.aspx" );
         }
 
-        setUserName ( username );
-        setPassword ( password );
-        LoginButton ();
+        setUserName ( credenciales.username );
+        setPassword ( credenciales.password );
+
+
+        loginButton ();
+        cambiarVentana ();
 
     }
+
 }

@@ -8,6 +8,7 @@ import Tools.SQLDatabaseConnection;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.awt.*;
 import java.lang.reflect.Method;
 import java.sql.SQLException;
 
@@ -17,7 +18,7 @@ public class US10972 extends BaseTest {
 
 
     // @Test(priority = 0, description = "Prueba de existencia de nuevas columna JBNYC5TCA en jbnyc5")
-    public void Inicio(Method method) throws InterruptedException {
+    public void Inicio(Method method) throws InterruptedException, AWTException {
 
         SQLDatabaseConnection bd = new SQLDatabaseConnection ();
         //Inicio Como usuario de Plataforma
