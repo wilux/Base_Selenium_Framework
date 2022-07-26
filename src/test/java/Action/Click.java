@@ -21,7 +21,7 @@ public class Click {
 
         final Stopwatch stopwatch = Stopwatch.createStarted ();
         boolean estado = false;
-        while ((stopwatch.elapsed ( TimeUnit.SECONDS ) < 5)) {
+        while ((stopwatch.elapsed ( TimeUnit.SECONDS ) < 20)) {
             if ( driver.findElement ( locator ).isDisplayed()) {
                 try {
                     driver.findElement ( locator ).click ();

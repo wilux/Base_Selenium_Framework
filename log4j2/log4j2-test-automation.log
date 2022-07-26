@@ -1,0 +1,23 @@
+[INFO ] 2022-07-26 02:33:12.320 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 02:33:14.062 [main] Log - I am in onStart method Test Genericos
+[INFO ] 2022-07-26 02:33:14.075 [main] Log - I am in onFinish method Login
+[INFO ] 2022-07-26 02:33:14.571 [main] Log - Login test is failed.
+[INFO ] 2022-07-26 02:33:15.281 [main] Log - Tests are ending!
+[INFO ] 2022-07-26 02:42:38.637 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 02:42:43.856 [main] Log - Tests are ending!
+[INFO ] 2022-07-26 02:43:33.388 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 02:45:23.087 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 02:53:01.421 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 07:09:49.829 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 07:10:43.835 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 07:12:11.009 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 07:12:53.554 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 07:21:58.094 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 07:25:05.518 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 07:25:06.912 [main] Log - I am in onStart method Test Genericos
+[INFO ] 2022-07-26 07:25:06.932 [main] Log - I am in onFinish method randmon
+[INFO ] 2022-07-26 07:25:13.047 [main] Log - randmon test is succeed.
+[INFO ] 2022-07-26 07:28:46.583 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 07:28:48.234 [main] Log - I am in onStart method Test Genericos
+[INFO ] 2022-07-26 07:28:48.249 [main] Log - I am in onFinish method randmon
+[INFO ] 2022-07-26 07:28:54.459 [main] Log - randmon test is succeed.

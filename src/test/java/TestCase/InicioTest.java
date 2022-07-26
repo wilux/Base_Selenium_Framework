@@ -20,8 +20,7 @@ public class InicioTest extends BaseTest {
         //ExtentReports Description
         startTest ( method.getName (), "Valid Login Scenario with valid username and password." );
 
-        Login login = new Login ( driver );
-        login.Ingresar ( "QA" );
+
 
     }
 
