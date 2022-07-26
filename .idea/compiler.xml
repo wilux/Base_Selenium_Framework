@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Base_Selenium_Framework" />
+        <module name="BT_Selenium_Java_Maven" />
       </profile>
     </annotationProcessing>
   </component>

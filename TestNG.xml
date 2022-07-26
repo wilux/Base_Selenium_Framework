@@ -7,7 +7,7 @@
     </listeners>
     <test name="Test Genericos" preserve-order="true">
         <classes>
-            <class name="TestCase.RestarTest"/>
+            <class name="TestCase.InicioTest"/>
         </classes>
     </test>
 </suite>

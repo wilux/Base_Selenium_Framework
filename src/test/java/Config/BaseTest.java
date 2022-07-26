@@ -34,7 +34,7 @@ public abstract class BaseTest {
 //        System.setProperty ( "webdriver.ie.driver", "C:\\webdriver\\IEDriverServer_back.exe" );
 //        System.setProperty ( "webdriver.msedge.driver", "C:\\webdriver\\msedgedriver.exe" );
 //        System.setProperty ( "webdriver.gecko.driver", "C:\\webdriver\\geckodriver.exe" );
-        System.setProperty("webdriver.chrome.driver", "C:\\webdriver\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "webdriver/chromedriver.exe");
         driver = new ChromeDriver ();
     }
 
