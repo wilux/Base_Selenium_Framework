@@ -16,9 +16,7 @@ public class KeyboardsTest extends BaseTest {
     @Test
     public void Completar() throws InterruptedException, AWTException {
 
-        SQLDatabaseConnection bd = new SQLDatabaseConnection ();
-        //Inicio Como usuario de Plataforma
-        bd.CambiarUsuario ( "SERPILLOE" );
+
 
         //Login
         Login login = new Login ( driver );
@@ -26,10 +24,6 @@ public class KeyboardsTest extends BaseTest {
 
         Acciones acciones = new Acciones ( driver );
 
-        //Menu Ejecutar
-        acciones.menu ().Ejecutar ();
-        //Abrir BandejaTareas
-        acciones.ejecutar ().Programa ( "hxwf900" );
 
         //Probar Ctrol + Enter
         acciones.keyboard ().Ctrl ( 's' );

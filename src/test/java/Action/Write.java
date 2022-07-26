@@ -16,11 +16,11 @@ public class Write {
     }
 
     public void On(By locator, String text) {
-        Frame frame = new Frame ( driver );
 
-        if ( frame.BuscarFrame ( locator ) ) {
+
+        if ( driver.findElement ( locator ).isDisplayed() ) {
             try {
-                frame.BuscarFrame ( locator );
+
                 driver.findElement ( locator ).clear ();
                 driver.findElement ( locator ).sendKeys ( text );
                 Thread.sleep ( 200 );
@@ -32,9 +32,9 @@ public class Write {
     }
 
     public void Js(By locator, String text) {
-        Frame frame = new Frame ( driver );
 
-        frame.BuscarFrame ( locator );
+
+
         WebElement i = driver.findElement ( locator );
         JavascriptExecutor j = (JavascriptExecutor) driver;
         j.executeScript ( "arguments[0].value='" + text + "';", i );
@@ -42,9 +42,8 @@ public class Write {
     }
 
     public void Clear(By locator) {
-        Frame frame = new Frame ( driver );
 
-        if ( frame.BuscarFrame ( locator ) ) {
+        if ( driver.findElement ( locator ).isDisplayed() ) {
             try {
                 driver.findElement ( locator ).clear ();
 

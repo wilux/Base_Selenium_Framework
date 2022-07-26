@@ -14,9 +14,9 @@ public class Radio {
     }
 
     public void On(By locator, int index) {
-        Frame frame = new Frame ( driver );
 
-        if ( frame.BuscarFrame ( locator ) ) {
+
+        if ( driver.findElement ( locator ).isDisplayed()  ) {
             try {
 
                 int a = driver.findElements ( locator ).size ();
