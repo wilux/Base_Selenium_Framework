@@ -21,3 +21,77 @@
 [INFO ] 2022-07-26 07:28:48.234 [main] Log - I am in onStart method Test Genericos
 [INFO ] 2022-07-26 07:28:48.249 [main] Log - I am in onFinish method randmon
 [INFO ] 2022-07-26 07:28:54.459 [main] Log - randmon test is succeed.
+[INFO ] 2022-07-26 07:38:32.349 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 07:42:23.468 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 07:42:31.062 [main] Log - Tests are ending!
+[INFO ] 2022-07-26 07:44:03.336 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 07:44:10.895 [main] Log - Tests are ending!
+[INFO ] 2022-07-26 07:45:40.817 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 07:45:48.323 [main] Log - Tests are ending!
+[INFO ] 2022-07-26 10:24:16.351 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 10:26:46.948 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 10:29:08.570 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 10:30:33.073 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 10:32:30.543 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 10:32:53.763 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 10:41:27.101 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 10:43:07.850 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 10:46:52.051 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 10:47:50.389 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 10:48:30.062 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 10:49:44.845 [main] Log - I am in onStart method Test Genericos
+[INFO ] 2022-07-26 10:49:44.867 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 10:49:46.592 [main] Log - I am in onFinish method Login
+[INFO ] 2022-07-26 10:49:50.833 [main] Log - Login test is succeed.
+[INFO ] 2022-07-26 10:49:51.093 [main] Log - I am in onFinish method LoginIncorrect
+[INFO ] 2022-07-26 10:49:53.787 [main] Log - LoginIncorrect test is failed.
+[INFO ] 2022-07-26 10:49:54.183 [main] Log - Tests are ending!
+[INFO ] 2022-07-26 10:54:04.809 [main] Log - I am in onStart method Test Genericos
+[INFO ] 2022-07-26 10:54:04.829 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 10:54:06.264 [main] Log - I am in onFinish method Login
+[INFO ] 2022-07-26 10:54:10.325 [main] Log - Login test is succeed.
+[INFO ] 2022-07-26 10:54:10.573 [main] Log - I am in onFinish method LoginIncorrect
+[INFO ] 2022-07-26 10:54:13.217 [main] Log - LoginIncorrect test is succeed.
+[INFO ] 2022-07-26 10:54:13.226 [main] Log - LoginIncorrect test is failed.
+[INFO ] 2022-07-26 10:54:13.651 [main] Log - Tests are ending!
+[INFO ] 2022-07-26 10:58:20.696 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 10:58:29.410 [main] Log - Tests are ending!
+[INFO ] 2022-07-26 10:58:48.397 [main] Log - I am in onStart method Test Genericos
+[INFO ] 2022-07-26 10:58:48.413 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 10:58:50.098 [main] Log - I am in onFinish method Login
+[INFO ] 2022-07-26 10:58:54.228 [main] Log - Login test is succeed.
+[INFO ] 2022-07-26 10:58:54.493 [main] Log - I am in onFinish method LoginIncorrect
+[INFO ] 2022-07-26 10:58:57.177 [main] Log - LoginIncorrect test is succeed.
+[INFO ] 2022-07-26 10:58:57.553 [main] Log - Tests are ending!
+[INFO ] 2022-07-26 11:00:33.401 [main] Log - I am in onStart method Test Genericos
+[INFO ] 2022-07-26 11:00:33.416 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 11:00:35.130 [main] Log - I am in onFinish method Login
+[INFO ] 2022-07-26 11:00:39.572 [main] Log - Login test is succeed.
+[INFO ] 2022-07-26 11:00:39.849 [main] Log - I am in onFinish method LoginIncorrect
+[INFO ] 2022-07-26 11:00:42.613 [main] Log - LoginIncorrect test is succeed.
+[INFO ] 2022-07-26 11:00:43.634 [main] Log - Tests are ending!
+[INFO ] 2022-07-26 11:06:36.689 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 11:06:36.689 [main] Log - I am in onStart method Test Genericos
+[INFO ] 2022-07-26 11:06:38.045 [main] Log - I am in onFinish method Login
+[INFO ] 2022-07-26 11:06:42.450 [main] Log - Login test is succeed.
+[INFO ] 2022-07-26 11:06:42.450 [main] Log - I am in onFinish method LoginIncorrect
+[INFO ] 2022-07-26 11:06:45.043 [main] Log - LoginIncorrect test is failed.
+[INFO ] 2022-07-26 11:06:45.903 [main] Log - Tests are ending!
+[INFO ] 2022-07-26 11:10:32.757 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 11:10:32.772 [main] Log - I am in onStart method Test Genericos
+[INFO ] 2022-07-26 11:10:34.499 [main] Log - I am in onFinish method Login
+[INFO ] 2022-07-26 11:10:38.914 [main] Log - Login test is succeed.
+[INFO ] 2022-07-26 11:10:38.914 [main] Log - I am in onFinish method LoginIncorrect
+[INFO ] 2022-07-26 11:10:41.761 [main] Log - LoginIncorrect test is succeed.
+[INFO ] 2022-07-26 11:10:42.641 [main] Log - Tests are ending!
+[INFO ] 2022-07-26 11:14:35.713 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 11:14:35.718 [main] Log - I am in onStart method Test Genericos
+[INFO ] 2022-07-26 11:14:37.130 [main] Log - I am in onFinish method Login
+[INFO ] 2022-07-26 11:14:41.509 [main] Log - Login test is succeed.
+[INFO ] 2022-07-26 11:14:41.773 [main] Log - I am in onFinish method LoginIncorrect
+[INFO ] 2022-07-26 11:14:44.393 [main] Log - LoginIncorrect test is failed.
+[INFO ] 2022-07-26 11:14:45.213 [main] Log - Tests are ending!
+[INFO ] 2022-07-26 11:16:02.296 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 11:16:07.901 [main] Log - Tests are ending!
+[INFO ] 2022-07-26 11:17:57.179 [main] Log - Tests is starting!
+[INFO ] 2022-07-26 11:18:06.337 [main] Log - Tests are ending!

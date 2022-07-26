@@ -40,7 +40,7 @@ public class TestListener implements ITestListener {
 
     public void onTestSuccess(ITestResult result) {
         Log.info ( getTestMethodName ( result ) + " test is succeed." );
-
+//        ExtentTestManager.getTest ().log ( Status.PASS, "Test Passed" );
         Object testClass = result.getInstance ();
         WebDriver webDriver = ((BaseTest) testClass).getDriver ();
         String base64Screenshot = "data:image/png;base64," + ((TakesScreenshot) webDriver).getScreenshotAs ( OutputType.BASE64 );

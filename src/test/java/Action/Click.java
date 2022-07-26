@@ -33,7 +33,7 @@ public class Click {
                 }
             }
             else {
-                System.out.println ( "Reintentando busqueda de Frame para " + locator );
+                System.out.println ( "Reintentando busqueda de Elemento  " + locator );
                 System.out.println ( "Tiempo " + stopwatch.elapsed ( TimeUnit.SECONDS ) );
                 continue;
             }

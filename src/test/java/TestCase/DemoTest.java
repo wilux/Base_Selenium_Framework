@@ -14,20 +14,20 @@ public class DemoTest extends BaseTest {
     @Test(description = "Prueba de Randon Demo")
     public void randmon()  throws InterruptedException {
         //ExtentReports Description
-        Log.reportLog ( "Prueba Random - Test en un Demo Site" );
+        //Log.reportLog ( "Prueba Random - Test en un Demo Site" );
 
-        Acciones acciones = new Acciones(driver);
         HomePage homePage = new HomePage(driver);
         driver.get("https://www.demoblaze.com/");
         driver.manage().window().maximize();
 
-        acciones.click().On(homePage.menuPhones);
+        driver.findElement(homePage.menuPhones).click();
         Thread.sleep(2000);
-        acciones.click().On(homePage.menuLaptos);
+        driver.findElement(homePage.menuLaptos).click();
         Thread.sleep(2000);
-        acciones.click().On(homePage.menuMonitors);
+        driver.findElement(homePage.menuMonitors).click();
 
-        String elemento = acciones.get().TextOnTag(By.xpath("//a[.='Apple monitor 24']"));
+
+        String elemento = driver.findElement(By.xpath("//a[.='Apple monitor 24']")).getText();
         Assert.assertEquals(elemento,"Apple monitor 24");
 
     }
