@@ -36,16 +36,22 @@ public abstract class BaseTest {
 //        Log.info ( "Tests is starting!" );
         System.setProperty("webdriver.chrome.driver", "webdriver/chromedriver.exe");
 
+
+        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--headless");
+        driver = new ChromeDriver (options);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS) ;
+
     }
 
 
 @BeforeTest
     public void beforeTest() {
 
-        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--headless");
-        driver = new ChromeDriver (options);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS) ;
+//        ChromeOptions options = new ChromeOptions();
+////        options.addArguments("--headless");
+//        driver = new ChromeDriver (options);
+//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS) ;
     }
 
 
@@ -53,10 +59,10 @@ public abstract class BaseTest {
     @AfterTest
     public void afterTest() throws IOException {
 
-
-        if ( driver != null ) {
-            driver.quit ();
-        }
+//
+//        if ( driver != null ) {
+//            driver.quit ();
+//        }
     }
 
 

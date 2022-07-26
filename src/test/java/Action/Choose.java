@@ -14,11 +14,13 @@ public class Choose {
 
     }
 
-    public void byText(By locator, String text) {
-
-
-            Select select = new Select ( driver.findElement ( locator ) );
-            select.selectByVisibleText ( text );
+    public void byText(By locator, String text) throws InterruptedException {
+   
+        driver.findElement(locator).click();
+        Thread.sleep(200);
+        Select select = new Select(driver.findElement(locator));
+        select.selectByVisibleText(text);
+        Thread.sleep(200);
 
 
     }
@@ -26,12 +28,8 @@ public class Choose {
     public void byValue(By locator, String value) {
 
 
-
-
-                Select select = new Select ( driver.findElement ( locator ) );
-                select.selectByValue ( value );
-
-
+        Select select = new Select(driver.findElement(locator));
+        select.selectByValue(value);
 
 
     }

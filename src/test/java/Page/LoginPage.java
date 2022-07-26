@@ -5,14 +5,11 @@ import org.openqa.selenium.WebDriver;
 
 
 public class LoginPage {
-    public By username = By.xpath ( "//input[@id='loginusername']" );
-    public By password = By.xpath ( "//input[@id='loginpassword']" );
-    public By LoginButton = By.xpath ( "//button[.='Log in']" );
-
-    public By CloseButton = By.xpath ( "//div[@id='logInModal']//button[@class='btn btn-secondary']" );
+    public By username = By.xpath ( "//input[@id='username']" );
+    public By password = By.xpath ( "//input[@id='password']" );
+    public By LoginButton = By.cssSelector ( ".loginButton" );
 
 
-    public By welcome = By.cssSelector ( "#nameofuser" );
 
     WebDriver driver;
 
