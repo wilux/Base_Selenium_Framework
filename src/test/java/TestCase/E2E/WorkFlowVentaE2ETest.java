@@ -2,7 +2,6 @@ package TestCase.E2E;
 
 import Config.Acciones;
 import Config.BaseTest;
-import Tools.Restart;
 import Tools.SQLDatabaseConnection;
 import Tools.logs.Log;
 import com.google.common.base.Stopwatch;

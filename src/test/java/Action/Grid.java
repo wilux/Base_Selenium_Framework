@@ -1,12 +1,8 @@
 package Action;
 
-import Tools.Frame;
-import com.google.common.base.Stopwatch;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import java.util.concurrent.TimeUnit;
 
 public class Grid {
     WebDriver driver;
@@ -19,8 +15,8 @@ public class Grid {
 
     public void rowSelectbyText(By locator, String valor) {
 
-        Frame frame = new Frame ( driver );
-        if ( frame.BuscarFrame ( locator ) ) {
+
+        if ( driver.findElement ( locator ).isDisplayed()) {
 
             try {
                 WebElement webElement = driver.findElement ( locator );
@@ -42,8 +38,8 @@ public class Grid {
 
     public void rowSelectbyFila(By locator, By fila) {
 
-        Frame frame = new Frame ( driver );
-        if ( frame.BuscarFrame ( locator ) ) {
+
+        if (  driver.findElement ( locator ).isDisplayed()) {
 
             try {
                 WebElement webElement = driver.findElement ( locator );

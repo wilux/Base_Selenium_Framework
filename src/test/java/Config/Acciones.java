@@ -14,58 +14,6 @@ public class Acciones {
         this.driver = driver;
     }
 
-    public PlanPagosAmortizables planPagosAmortizables() {
-        PlanPagosAmortizables planPagosAmortizables = new PlanPagosAmortizables ( driver );
-        return planPagosAmortizables;
-    }
-
-    public RevisionParaConfirmar revisionParaConfirmar() {
-        RevisionParaConfirmar revisionParaConfirmar = new RevisionParaConfirmar ( driver );
-        return revisionParaConfirmar;
-    }
-
-    public RevisionProductos revisionProductos() {
-        RevisionProductos revisionProductos = new RevisionProductos ( driver );
-        return revisionProductos;
-    }
-
-    public MatrizRiesgo matrizRiesgo() {
-        MatrizRiesgo matrizRiesgo = new MatrizRiesgo ( driver );
-        return matrizRiesgo;
-    }
-
-
-    public Reutilizacion reutilizacion() {
-        Reutilizacion reutilizacion = new Reutilizacion ( driver );
-        return reutilizacion;
-    }
-
-
-    public CargaAvanzada cargaAvanzada() {
-        CargaAvanzada cargaAvanzada = new CargaAvanzada ( driver );
-        return cargaAvanzada;
-    }
-
-    public BandejaTareas bandejaTareas() {
-        BandejaTareas bandejaTareas = new BandejaTareas ( driver );
-        return bandejaTareas;
-    }
-
-    public CierreCuentas cierreCuentas() {
-        CierreCuentas cierreCuentas = new CierreCuentas ( driver );
-        return cierreCuentas;
-    }
-
-    public Ejecutar ejecutar() {
-        Ejecutar ejecutar = new Ejecutar ( driver );
-        return ejecutar;
-    }
-
-
-    public Entrevista entrevista() {
-        Entrevista entrevista = new Entrevista ( driver );
-        return entrevista;
-    }
 
 
     public Login login() {
@@ -73,15 +21,6 @@ public class Acciones {
         return login;
     }
 
-    public Menu menu() {
-        Menu menu = new Menu ( driver );
-        return menu;
-    }
-
-    public Simulacion simulacion() {
-        Simulacion simulacion = new Simulacion ( driver );
-        return simulacion;
-    }
 
     public CheckBox checkBox() {
         CheckBox checkBox = new CheckBox ( driver );

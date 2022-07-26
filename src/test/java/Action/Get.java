@@ -1,6 +1,5 @@
 package Action;
 
-import Tools.Frame;
 import com.google.common.base.Stopwatch;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -20,10 +19,10 @@ public class Get {
 
     public String ValueOnInput(By locator) {
         String value = "";
-        Frame frame = new Frame ( driver );
+
 
         try {
-            if ( frame.BuscarFrame ( locator ) ) {
+            if (  driver.findElement ( locator ).isDisplayed()) {
                 value = driver.findElement ( locator ).getAttribute ( "value" );
 
             }
@@ -41,11 +40,11 @@ public class Get {
 
     public String TextOnTag(By locator) {
         String value = "";
-        Frame frame = new Frame ( driver );
+
         final Stopwatch stopwatch = Stopwatch.createStarted ();
 
         while ((stopwatch.elapsed ( TimeUnit.SECONDS ) < 10)) {
-            if ( frame.BuscarFrame ( locator ) ) {
+            if (  driver.findElement ( locator ).isDisplayed()) {
                 value = driver.findElement ( locator ).getText ();
                 break;
             }
@@ -60,9 +59,9 @@ public class Get {
     public String ValueJS(By locator, String id) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         String value = "";
-        Frame frame = new Frame ( driver );
 
-        if ( frame.BuscarFrame ( locator ) ) {
+
+        if (  driver.findElement ( locator ).isDisplayed()) {
             value = (String) js.executeScript ( "return document.getElementById('" + id + "').innerHTML" );
         }
         else {
@@ -73,9 +72,9 @@ public class Get {
 
     public boolean Visible(By locator) {
 
-        Frame frame = new Frame ( driver );
+
         boolean value = false;
-        if ( frame.BuscarFrame ( locator ) ) {
+        if (  driver.findElement ( locator ).isDisplayed()) {
             value = driver.findElement ( locator ).isDisplayed ();
 
         }
@@ -87,9 +86,9 @@ public class Get {
 
     public boolean Seleccionado(By locator) {
 
-        Frame frame = new Frame ( driver );
+
         boolean value = false;
-        if ( frame.BuscarFrame ( locator ) ) {
+        if (  driver.findElement ( locator ).isDisplayed()) {
             value = driver.findElement ( locator ).isSelected ();
 
         }
@@ -101,9 +100,9 @@ public class Get {
 
     public boolean Habilitado(By locator) {
 
-        Frame frame = new Frame ( driver );
+
         boolean value = false;
-        if ( frame.BuscarFrame ( locator ) ) {
+        if ( driver.findElement ( locator ).isDisplayed()) {
             value = driver.findElement ( locator ).isEnabled ();
 
         }
@@ -116,9 +115,9 @@ public class Get {
 
     public boolean Existe(By locator) {
 
-        Frame frame = new Frame ( driver );
+
         boolean value = false;
-        if ( frame.BuscarFrame ( locator ) ) {
+        if ( driver.findElement ( locator ).isDisplayed()) {
             value = true;
         }
         else {

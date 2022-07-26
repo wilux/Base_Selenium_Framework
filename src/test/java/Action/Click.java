@@ -1,12 +1,9 @@
 package Action;
 
-import Tools.Frame;
 import com.google.common.base.Stopwatch;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 
 import java.util.concurrent.TimeUnit;
 
@@ -21,11 +18,11 @@ public class Click {
     }
 
     public void On(By locator) {
-        Frame frame = new Frame ( driver );
+
         final Stopwatch stopwatch = Stopwatch.createStarted ();
         boolean estado = false;
         while ((stopwatch.elapsed ( TimeUnit.SECONDS ) < 5)) {
-            if ( frame.BuscarFrame ( locator ) ) {
+            if ( driver.findElement ( locator ).isDisplayed()) {
                 try {
                     driver.findElement ( locator ).click ();
                     estado = true;
@@ -49,13 +46,13 @@ public class Click {
 
 
     public void Js(By locator) {
-        Frame frame = new Frame ( driver );
+
         JavascriptExecutor executor = (JavascriptExecutor) driver;
 
         final Stopwatch stopwatch = Stopwatch.createStarted ();
 
         while ((stopwatch.elapsed ( TimeUnit.SECONDS ) < 10)) {
-            if ( frame.BuscarFrame ( locator ) ) {
+            if (  driver.findElement ( locator ).isDisplayed() ) {
                 try {
                     executor.executeScript ( "arguments[0].click();", driver.findElement ( locator ) );
                     break;

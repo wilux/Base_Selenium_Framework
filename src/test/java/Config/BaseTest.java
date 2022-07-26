@@ -3,11 +3,8 @@ package Config;
 
 import Tools.logs.Log;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.testng.ITestResult;
+import org.openqa.selenium.chrome.*;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 
 import javax.swing.*;
@@ -34,15 +31,18 @@ public abstract class BaseTest {
     @BeforeSuite
     public void before() {
         Log.info ( "Tests is starting!" );
-        System.setProperty ( "webdriver.ie.driver", "C:\\webdriver\\IEDriverServer_back.exe" );
-        driver = new InternetExplorerDriver ();
+//        System.setProperty ( "webdriver.ie.driver", "C:\\webdriver\\IEDriverServer_back.exe" );
+//        System.setProperty ( "webdriver.msedgedriver.driver", "C:\\webdriver\\msedgedriver.exe" );
+//        System.setProperty ( "webdriver.geckodriver.driver", "C:\\webdriver\\geckodriver.exe" );
+        System.setProperty ( "webdriver.chromedriver.driver", "C:\\webdriver\\chromedriver.exe" );
+        driver = new ChromeDriver ();
     }
 
 
     @AfterSuite
     public void after() throws IOException, URISyntaxException {
 
-//
+
         Desktop.getDesktop ().open ( new File ( "C:\\Users\\floresnes\\source\\repos\\BT_Selenium_Java_Maven" +
                                                         "\\TestReport\\Test-Automaton-Report.html" ) );
         Log.info ( "Tests are ending!" );
@@ -50,19 +50,6 @@ public abstract class BaseTest {
             driver.quit ();
         }
     }
-//        JFrame jf = new JFrame ();
-//        jf.setAlwaysOnTop ( true );
-//        int reply = JOptionPane.showConfirmDialog ( jf, "¿Queres Cerrar Navegador?", "Test Terminado",
-//                                                    JOptionPane.YES_NO_OPTION );
-//
-//        if ( reply == JOptionPane.YES_OPTION ) {
-//            driver.quit ();
-//
-//        }
-//        else {
-//            System.exit ( 0 );
-//        }
-//}
 
 
 }

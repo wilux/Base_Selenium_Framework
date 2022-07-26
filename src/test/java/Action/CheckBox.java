@@ -1,6 +1,6 @@
 package Action;
 
-import Tools.Frame;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,9 +18,7 @@ public class CheckBox {
 
 
     public void Check(By locator) {
-        Frame frame = new Frame(driver);
 
-        if (frame.BuscarFrame(locator)) {
             WebElement checkBoxSelected = driver.findElement(locator);
             WebElement checkBoxDisplayed = driver.findElement(locator);
 
@@ -30,18 +28,15 @@ public class CheckBox {
             if (!isSelected && isDisplayed) {
                 checkBoxSelected.click();
             }
-        }else{
-            System.out.println("No se encontro " + locator);
-        }
 
         }
 
 
 
     public void UnCheck (By locator) {
-        Frame frame = new Frame(driver);
 
-        if (frame.BuscarFrame(locator)) {
+
+
             WebElement checkBoxSelected = driver.findElement(locator);
             WebElement checkBoxDisplayed = driver.findElement(locator);
 
@@ -51,9 +46,6 @@ public class CheckBox {
             if (isSelected && isDisplayed) {
                 checkBoxSelected.click();
             }
-        }else{
-            System.out.println("No se encontro " + locator);
-        }
-    }
+   }
     }
 
