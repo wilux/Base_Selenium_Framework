@@ -8,15 +8,11 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.lang.reflect.Method;
 
-import static Tools.extentreports.ExtentTestManager.startTest;
+public class DemoTest extends BaseTest {
 
-
-public class demoSite extends BaseTest {
-
-    @Test(priority = 0, description = "Prueba de Randon Demo")
-    public void randmon(Method method)  throws InterruptedException {
+    @Test(description = "Prueba de Randon Demo")
+    public void randmon()  throws InterruptedException {
         //ExtentReports Description
         Log.reportLog ( "Prueba Random - Test en un Demo Site" );
 
@@ -32,7 +28,7 @@ public class demoSite extends BaseTest {
         acciones.click().On(homePage.menuMonitors);
 
         String elemento = acciones.get().TextOnTag(By.xpath("//a[.='Apple monitor 24']"));
-        Assert.assertTrue(elemento.equals("Apple monitor 24"));
+        Assert.assertEquals(elemento,"Apple monitor 24");
 
     }
 }
