@@ -1,5 +1,9 @@
 package Action;
 
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
+
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
@@ -27,14 +31,12 @@ public class Keyboard {
         }
     }
 
-    public void CtrlEnter() {
-
-
-        robot.keyPress ( KeyEvent.VK_CONTROL );
-        robot.keyPress ( KeyEvent.VK_ENTER );
-        robot.keyRelease ( KeyEvent.VK_ENTER );
-        robot.keyRelease ( KeyEvent.VK_CONTROL );
+    public void enter(WebDriver driver) {
+        Actions builder = new Actions(driver);
+        builder.sendKeys(Keys.RETURN).perform();
     }
+
+
 
     public void Ctrl(char character) {
         switch (character) {
@@ -341,11 +343,11 @@ public class Keyboard {
     private void doType(int[] keyCodes, int offset, int length) {
         if ( length == 0 )
             return;
-        robot.keyPress ( KeyEvent.VK_CONTROL );
+
         robot.keyPress ( keyCodes[offset] );
         doType ( keyCodes, offset + 1, length - 1 );
         robot.keyRelease ( keyCodes[offset] );
-        robot.keyRelease ( KeyEvent.VK_CONTROL );
+
     }
 
 }

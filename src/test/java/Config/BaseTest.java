@@ -1,51 +1,61 @@
 package Config;
 
 
-import Tools.logs.Log;
-import org.checkerframework.checker.units.qual.A;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.*;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 
-import javax.swing.*;
-import java.awt.*;
-import java.io.File;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 
 public abstract class BaseTest {
 
     public WebDriver driver;
+    public JavascriptExecutor js;
+    public Map<String, Object> vars;
+
     public WebDriver getDriver() {
         return driver;
     }
+
     public void setDriver(WebDriver newDriver) {
         driver = newDriver;
+    }
+
+    public String waitForWindow(int timeout) {
+        try {
+            Thread.sleep(timeout);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Set<String> whNow = driver.getWindowHandles();
+        Set<String> whThen = (Set<String>) vars.get("window_handles");
+        if (whNow.size() > whThen.size()) {
+            whNow.removeAll(whThen);
+        }
+        return whNow.iterator().next();
     }
 
 
     @BeforeSuite
     public void beforeAll() {
-//        Log.info ( "Tests is starting!" );
         System.setProperty("webdriver.chrome.driver", "webdriver/chromedriver.exe");
-
-
-        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--headless");
-        driver = new ChromeDriver (options);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS) ;
-
+        driver = new ChromeDriver();
+        js = (JavascriptExecutor) driver;
+        vars = new HashMap<String, Object>();
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     }
 
 
-@BeforeTest
+    @BeforeTest
     public void beforeTest() {
 
 //        ChromeOptions options = new ChromeOptions();
@@ -53,7 +63,6 @@ public abstract class BaseTest {
 //        driver = new ChromeDriver (options);
 //        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS) ;
     }
-
 
 
     @AfterTest

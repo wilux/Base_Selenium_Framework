@@ -1,9 +1,8 @@
 package Action;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
+
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import java.awt.*;
 
 public class Write {
     WebDriver driver;
@@ -15,42 +14,14 @@ public class Write {
 
     }
 
-    public void On(By locator, String text) {
+    public void byKeys( WebDriver driver, String text) throws AWTException, InterruptedException {
 
+        Keyboard keyboard = new Keyboard();
+        keyboard.type(text);
+        Thread.sleep(200);
+        keyboard.enter(driver);
+        Thread.sleep(200);
 
-        if ( driver.findElement ( locator ).isDisplayed() ) {
-            try {
-
-                driver.findElement ( locator ).clear ();
-                driver.findElement ( locator ).sendKeys ( text );
-                Thread.sleep ( 200 );
-
-
-            } catch (Exception e) {
-            }
-        }
-    }
-
-    public void Js(By locator, String text) {
-
-
-
-        WebElement i = driver.findElement ( locator );
-        JavascriptExecutor j = (JavascriptExecutor) driver;
-        j.executeScript ( "arguments[0].value='" + text + "';", i );
-
-    }
-
-    public void Clear(By locator) {
-
-        if ( driver.findElement ( locator ).isDisplayed() ) {
-            try {
-                driver.findElement ( locator ).clear ();
-
-            } catch (Exception e) {
-
-            }
-        }
     }
 
 }
