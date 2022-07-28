@@ -112,7 +112,7 @@ public class KsmsChallengeTest extends BaseTest {
         driver.findElement(By.id("cadenaBuroTestTradicional")).click();
         driver.findElement(By.id("cadenaBuroTestTradicional")).sendKeys(Cadena.cadenaBuro);
         driver.findElement(By.cssSelector(".cbct-btn")).click();
-        Thread.sleep(5000);
+        Thread.sleep(1000);
         driver.findElement(By.xpath("//*[@id='barraIconos']/div[12]/div[7]/div/button")).click();
         driver.findElement(By.xpath("//*[@id='continuarConsultaBCTrad']/button")).click();
         Thread.sleep(5000);
@@ -148,7 +148,7 @@ public class KsmsChallengeTest extends BaseTest {
         driver.findElement(By.id("referenciaCliente_referencia1SegundoNombre")).sendKeys("Daniel");
         driver.findElement(By.id("referenciaCliente_referencia1ApellidoPaterno")).sendKeys("Flores");
         driver.findElement(By.id("referenciaCliente_referencia1ApellidoMaterno")).sendKeys("Alvarez");
-        driver.findElement(By.id("telefonoCliente_telefonoCelular")).click();
+        driver.findElement(By.id("referenciaCliente_referencia1TelefonoCasa")).click();
         Thread.sleep(500);
         driver.findElement(By.id("referenciaCliente_referencia1TelefonoCasa")).sendKeys("22222222222");
         driver.findElement(By.id("referenciaCliente_referencia1TelefonoCel")).click();
@@ -183,7 +183,7 @@ public class KsmsChallengeTest extends BaseTest {
         choose.byText ( By.id ( "empleoCliente_colonia" ), "Agua Clara" );
         choose.byText ( By.id ( "empleoCliente_estado" ), "AGUASCALIENTES" );
         choose.byText ( By.id ( "empleoCliente_delegacion" ), "Aguascalientes" );
-        driver.findElement(By.id("referenciaCliente_referencia2TelefonoCel")).click();
+        driver.findElement(By.id("empleoCliente_telefono")).click();
         Thread.sleep(500);
         driver.findElement(By.id("empleoCliente_telefono")).sendKeys("22222222222");
         choose.byText ( By.id ( "empleoCliente_delegacion" ), "Aguascalientes" );
@@ -233,9 +233,9 @@ public class KsmsChallengeTest extends BaseTest {
         Thread.sleep(2000);
         driver.findElement(By.id("siguiente")).click();
 
-        //7
+        // 7 - Carga Documentos
 
-        driver.findElement(By.id("terminarSolicitud")).click();
+
     }
 
 
