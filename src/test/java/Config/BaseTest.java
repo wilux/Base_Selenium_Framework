@@ -1,13 +1,13 @@
 package Config;
 
 
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -22,13 +22,6 @@ public abstract class BaseTest {
     public JavascriptExecutor js;
     public Map<String, Object> vars;
 
-    public WebDriver getDriver() {
-        return driver;
-    }
-
-    public void setDriver(WebDriver newDriver) {
-        driver = newDriver;
-    }
 
     public String waitForWindow(int timeout) {
         try {
@@ -52,17 +45,7 @@ public abstract class BaseTest {
         js = (JavascriptExecutor) driver;
         vars = new HashMap<String, Object>();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        driver.manage().window().fullscreen();
-    }
-
-
-    @BeforeTest
-    public void beforeTest() {
-
-//        ChromeOptions options = new ChromeOptions();
-////        options.addArguments("--headless");
-//        driver = new ChromeDriver (options);
-//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS) ;
+        driver.manage().window().setSize(new Dimension(1072, 1020));
     }
 
 

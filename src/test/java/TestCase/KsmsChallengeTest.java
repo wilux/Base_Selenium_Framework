@@ -6,18 +6,17 @@ import Action.Write;
 import Config.BaseTest;
 import Tools.Cadena;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
-
-import java.awt.*;
 
 
 public class KsmsChallengeTest extends BaseTest {
 
 
     @Test
-    public void Test() throws InterruptedException, AWTException {
+    public void Test() throws InterruptedException {
         Choose choose = new Choose(driver);
         Write write = new Write(driver);
         driver.get("http://ksms.mx/libertadqa/login/auth?format=");
@@ -27,13 +26,14 @@ public class KsmsChallengeTest extends BaseTest {
         driver.findElement(By.id("password")).sendKeys("Mexico.2081");
         driver.findElement(By.cssSelector(".loginButton")).click();
         driver.findElement(By.cssSelector("li:nth-child(2) img")).click();
+        driver.manage().window().setSize(new Dimension(1072, 1020));
         driver.findElement(By.id("clienteNo")).click();
         driver.findElement(By.id("tipoDeDocumento")).click();
         choose.byText(By.id("tipoDeDocumento"), "Recibos de nómina con CFDI");
         driver.findElement(By.id("avanzarPerfilador")).click();
 
         // 1 - Datos Personales
-
+        driver.manage().window().fullscreen();
         driver.findElement(By.id("cliente_nombre")).click();
         driver.findElement(By.id("cliente_nombre")).sendKeys("Test1");
         driver.findElement(By.id("cliente_segundoNombre")).sendKeys("Test1");
@@ -65,7 +65,7 @@ public class KsmsChallengeTest extends BaseTest {
 
 
         // 2 - Vivienda
-
+        driver.manage().window().setSize(new Dimension(1072, 1020));
         driver.findElement(By.cssSelector(".row:nth-child(4) .form-group:nth-child(1)")).click();
         driver.findElement(By.id("direccionCliente_calle")).click();
         driver.findElement(By.id("direccionCliente_calle")).sendKeys("Montevideo 165");
@@ -115,12 +115,16 @@ public class KsmsChallengeTest extends BaseTest {
 
         // 5 - Ofertas
         driver.findElement(By.linkText("5 - Ofertas")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.linkText("5 - Ofertas")).click();
         //View
         driver.findElement(By.xpath("//*[@id='wrapper_bu']/div[2]/div/div/div[1]/div[6]/a")).click();
         //Aplicar
-        driver.findElement(By.xpath("//*[@id='collapse0']/div[2]/p")).click();
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+        driver.findElement(By.xpath("/html/body/div[5]/div[3]/div/div[5]/form/div/div/div/div/div/div[2]/div/div/div[2]/div[2]/p")).click();
         //Si
-        driver.findElement(By.xpath("//*[@id='barraIconos']/div[12]/div[7]/div/button")).click();
+        driver.findElement(By.xpath("//button[text()='Si']")).click();
+
         Thread.sleep(10000);
         //Continuar
         driver.findElement(By.xpath("//*[@id='cerrarModalConfirmacion']")).click();
@@ -292,7 +296,7 @@ public class KsmsChallengeTest extends BaseTest {
         driver.findElement(By.cssSelector("#idDropzone > .dz-message")).click();
         vars.put("window_handles", driver.getWindowHandles());
         driver.findElement(By.cssSelector("#idDropzone > .dz-message")).click();
-        vars.put("win8761", waitForWindow(2000));
+//        vars.put("win8761", waitForWindow(2000));
         driver.switchTo().window(vars.get("win8761").toString());
         driver.close();
         driver.switchTo().window(vars.get("root").toString());
