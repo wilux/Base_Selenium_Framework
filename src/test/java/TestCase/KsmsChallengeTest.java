@@ -148,8 +148,11 @@ public class KsmsChallengeTest extends BaseTest {
         driver.findElement(By.id("referenciaCliente_referencia1SegundoNombre")).sendKeys("Daniel");
         driver.findElement(By.id("referenciaCliente_referencia1ApellidoPaterno")).sendKeys("Flores");
         driver.findElement(By.id("referenciaCliente_referencia1ApellidoMaterno")).sendKeys("Alvarez");
+        Thread.sleep(5000);
         driver.findElement(By.id("referenciaCliente_referencia1TelefonoCasa")).sendKeys("22222222222");
+        Thread.sleep(5000);
         driver.findElement(By.id("referenciaCliente_referencia1TelefonoCel")).sendKeys("22222222222");
+        Thread.sleep(5000);
         choose.byText(By.id("referenciaCliente_referencia1TipoDeReferencia"), "AMISTAD");
         choose.byText(By.id("referenciaCliente_referencia1AntiguedadDeRelacionMes"), "Marzo");
         choose.byText(By.id("referenciaCliente_referencia1AntiguedadDeRelacionAnio"), "2019");
@@ -159,8 +162,11 @@ public class KsmsChallengeTest extends BaseTest {
         driver.findElement(By.id("referenciaCliente_referencia2SegundoNombre")).sendKeys("Daniel");
         driver.findElement(By.id("referenciaCliente_referencia2ApellidoPaterno")).sendKeys("Flores");
         driver.findElement(By.id("referenciaCliente_referencia2ApellidoMaterno")).sendKeys("Alvarez");
+        Thread.sleep(5000);
         driver.findElement(By.id("referenciaCliente_referencia2TelefonoCasa")).sendKeys("22222222222");
+        Thread.sleep(5000);
         driver.findElement(By.id("referenciaCliente_referencia2TelefonoCel")).sendKeys("22222222222");
+        Thread.sleep(5000);
         choose.byText(By.id("referenciaCliente_referencia2TipoDeReferencia"), "AMISTAD");
         choose.byText(By.id("referenciaCliente_referencia2AntiguedadDeRelacionMes"), "Marzo");
         choose.byText(By.id("referenciaCliente_referencia2AntiguedadDeRelacionAnio"), "2019");
@@ -175,8 +181,12 @@ public class KsmsChallengeTest extends BaseTest {
         choose.byText ( By.id ( "empleoCliente_colonia" ), "Agua Clara" );
         choose.byText ( By.id ( "empleoCliente_estado" ), "AGUASCALIENTES" );
         choose.byText ( By.id ( "empleoCliente_delegacion" ), "Aguascalientes" );
+        Thread.sleep(5000);
         driver.findElement(By.id("empleoCliente_telefono")).sendKeys("22222222222");
+        Thread.sleep(5000);
         choose.byText ( By.id ( "empleoCliente_delegacion" ), "Aguascalientes" );
+
+        //Garantía Automotriz
 
         //Actividad económica
         driver.findElement(By.xpath ("//*[@id='empleoCliente_actividadEconomica_chosen']/a")).click();
@@ -187,16 +197,26 @@ public class KsmsChallengeTest extends BaseTest {
         driver.findElement(By.xpath ("//*[@id='empleoCliente_sectorEconomico_chosen']/a")).click();
         driver.findElement ( By.xpath ( "//*[@id='empleoCliente_sectorEconomico_chosen']/div/div/input" )).sendKeys ( "AGRICULTURA" );
         keyboard.enter ( driver );
-
         choose.byText ( By.id ( "empleoCliente_periodicidadEmpleo" ), "Catorcenal" );
 
+
+        //Garantía Automotriz
+        choose.byText ( By.id ( "garantiaAutomotriz_anio" ), "2016" );
+        choose.byText ( By.id ( "garantiaAutomotriz_marcaAutomovil" ), "ACURA" );
+        choose.byText ( By.id ( "garantiaAutomotriz_modeloAutomovil" ), "TLX ADVANCE CA CE CD CQ CB PIEL AUT 6 Cil. 4 Pts. 2016" );
+        driver.findElement(By.id("garantiaAutomotriz_numeroDeSerie")).sendKeys("234234");
+        driver.findElement(By.id("garantiaAutomotriz_tarjetaDeCirculacion")).sendKeys("234234");
+        driver.findElement(By.id("garantiaAutomotriz_tenencia")).sendKeys("34234");
+        driver.findElement(By.id("garantiaAutomotriz_valorFactura")).sendKeys("23424");
 
         //Generales Beneficiario #1
         driver.findElement(By.id("beneficiario1_nombre")).sendKeys("Nestor");
         driver.findElement(By.id("beneficiario1_segundoNombre")).sendKeys("Daniel");
         driver.findElement(By.id("beneficiario1_apellidoPaterno")).sendKeys("Flores");
         driver.findElement(By.id("beneficiario1_codigoPostal")).sendKeys("20263");
+        Thread.sleep(5000);
         driver.findElement(By.id("beneficiario1_telefono")).sendKeys("33333333333");
+        Thread.sleep(5000);
         driver.findElement(By.id("beneficiario1_apellidoMaterno")).sendKeys("Alvarez");
         driver.findElement(By.id("beneficiario1_calle")).sendKeys("Avenida Siempre");
         driver.findElement(By.id("beneficiario1_numeroExterior")).sendKeys("123123");
@@ -213,10 +233,7 @@ public class KsmsChallengeTest extends BaseTest {
 
         //7
 
-//        driver.findElement(By.id("garantiaAutomotriz_numeroDeSerie")).sendKeys("234234");
-//        driver.findElement(By.id("garantiaAutomotriz_tarjetaDeCirculacion")).sendKeys("234234");
-//        driver.findElement(By.id("garantiaAutomotriz_tenencia")).sendKeys("34234");
-//        driver.findElement(By.id("garantiaAutomotriz_valorFactura")).sendKeys("23424");
+
 
         choose.byText ( By.id("empleoCliente_periodicidadEmpleo"), "Catorcenal" );
         driver.findElement(By.id("empleoCliente_numeroDeSeguroSocial")).click();
