@@ -5,6 +5,7 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
@@ -41,11 +42,15 @@ public abstract class BaseTest {
     @BeforeSuite
     public void beforeAll() {
         System.setProperty("webdriver.chrome.driver", "webdriver/chromedriver.exe");
-        driver = new ChromeDriver();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--window-size=1920,1080");
+        //chromeOptions.setHeadless(true);
+        driver = new ChromeDriver(chromeOptions);
+        driver.manage().window().maximize();
         js = (JavascriptExecutor) driver;
         vars = new HashMap<String, Object>();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        driver.manage().window().setSize(new Dimension(1072, 1020));
+
     }
 
 

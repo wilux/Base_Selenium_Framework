@@ -2,6 +2,7 @@ package TestCase;
 
 
 import Action.Choose;
+import Action.Keyboard;
 import Action.Write;
 import Config.BaseTest;
 import Tools.Cadena;
@@ -11,14 +12,18 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
+import java.awt.*;
+
 
 public class KsmsChallengeTest extends BaseTest {
 
 
     @Test
-    public void Test() throws InterruptedException {
+    public void Test() throws InterruptedException, AWTException {
         Choose choose = new Choose(driver);
-        Write write = new Write(driver);
+        Write write = new Write (driver);
+        Keyboard keyboard = new Keyboard ();
+
         driver.get("http://ksms.mx/libertadqa/login/auth?format=");
         driver.findElement(By.id("username")).click();
         driver.findElement(By.id("username")).sendKeys("tester");
@@ -26,7 +31,6 @@ public class KsmsChallengeTest extends BaseTest {
         driver.findElement(By.id("password")).sendKeys("Mexico.2081");
         driver.findElement(By.cssSelector(".loginButton")).click();
         driver.findElement(By.cssSelector("li:nth-child(2) img")).click();
-        driver.manage().window().setSize(new Dimension(1072, 1020));
         driver.findElement(By.id("clienteNo")).click();
         driver.findElement(By.id("tipoDeDocumento")).click();
         choose.byText(By.id("tipoDeDocumento"), "Recibos de nómina con CFDI");
@@ -65,7 +69,7 @@ public class KsmsChallengeTest extends BaseTest {
 
 
         // 2 - Vivienda
-        driver.manage().window().setSize(new Dimension(1072, 1020));
+
         driver.findElement(By.cssSelector(".row:nth-child(4) .form-group:nth-child(1)")).click();
         driver.findElement(By.id("direccionCliente_calle")).click();
         driver.findElement(By.id("direccionCliente_calle")).sendKeys("Montevideo 165");
@@ -120,14 +124,18 @@ public class KsmsChallengeTest extends BaseTest {
         //View
         driver.findElement(By.xpath("//*[@id='wrapper_bu']/div[2]/div/div/div[1]/div[6]/a")).click();
         //Aplicar
-        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-        driver.findElement(By.xpath("/html/body/div[5]/div[3]/div/div[5]/form/div/div/div/div/div/div[2]/div/div/div[2]/div[2]/p")).click();
+        js.executeScript("confirmarSeleccion(0,'8')");
+//        driver.findElement(By.xpath("/html/body/div[5]/div[3]/div/div[5]/form/div/div/div/div/div/div[2]/div/div/div[2]/div[2]/p")).click();
         //Si
-        driver.findElement(By.xpath("//button[text()='Si']")).click();
-
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//*[@id='barraIconos']/div[12]/div[7]/div/button")).click();
         Thread.sleep(10000);
+
+
         //Continuar
-        driver.findElement(By.xpath("//*[@id='cerrarModalConfirmacion']")).click();
+        js.executeScript("cerrarModalConfirmacion()");
+//        driver.findElement(By.xpath("//*[@id='cerrarModalConfirmacion']")).click();
+        Thread.sleep(5000);
 
         //6 / Datos Complementarios
 
@@ -135,156 +143,82 @@ public class KsmsChallengeTest extends BaseTest {
         choose.byText(By.id("cliente_finalidad"), "Compra");
         choose.byText(By.id("cliente_uso"), "Personal");
 
-        driver.findElement(By.id("referenciaCliente_referencia1SegundoNombre")).sendKeys("Néstor");
+        //Referencia 1
+        driver.findElement(By.id("referenciaCliente_referencia1Nombre")).sendKeys("Néstor");
+        driver.findElement(By.id("referenciaCliente_referencia1SegundoNombre")).sendKeys("Daniel");
         driver.findElement(By.id("referenciaCliente_referencia1ApellidoPaterno")).sendKeys("Flores");
-        driver.findElement(By.id("referenciaCliente_referencia1TelefonoCasa")).sendKeys("22222222222");
-        driver.findElement(By.cssSelector("fieldset:nth-child(1) > .form-group:nth-child(5)")).click();
-        driver.findElement(By.id("referenciaCliente_referencia1ApellidoMaterno")).click();
-        driver.findElement(By.id("referenciaCliente_referencia1ApellidoMaterno")).sendKeys("sdfdf");
-        driver.findElement(By.id("referenciaCliente_referencia1TelefonoCel")).click();
-        driver.findElement(By.id("referenciaCliente_referencia1TelefonoCel")).sendKeys("22222222222");
+        driver.findElement(By.id("referenciaCliente_referencia1ApellidoMaterno")).sendKeys("Alvarez");
         driver.findElement(By.id("referenciaCliente_referencia1TelefonoCasa")).sendKeys("22222222222");
         driver.findElement(By.id("referenciaCliente_referencia1TelefonoCel")).sendKeys("22222222222");
-        driver.findElement(By.id("referenciaCliente_referencia1TelefonoCasa")).sendKeys("22222222222");
-
         choose.byText(By.id("referenciaCliente_referencia1TipoDeReferencia"), "AMISTAD");
         choose.byText(By.id("referenciaCliente_referencia1AntiguedadDeRelacionMes"), "Marzo");
         choose.byText(By.id("referenciaCliente_referencia1AntiguedadDeRelacionAnio"), "2019");
 
+        //Referencia 2
+        driver.findElement(By.id("referenciaCliente_referencia2Nombre")).sendKeys("Néstor");
+        driver.findElement(By.id("referenciaCliente_referencia2SegundoNombre")).sendKeys("Daniel");
+        driver.findElement(By.id("referenciaCliente_referencia2ApellidoPaterno")).sendKeys("Flores");
+        driver.findElement(By.id("referenciaCliente_referencia2ApellidoMaterno")).sendKeys("Alvarez");
+        driver.findElement(By.id("referenciaCliente_referencia2TelefonoCasa")).sendKeys("22222222222");
+        driver.findElement(By.id("referenciaCliente_referencia2TelefonoCel")).sendKeys("22222222222");
+        choose.byText(By.id("referenciaCliente_referencia2TipoDeReferencia"), "AMISTAD");
+        choose.byText(By.id("referenciaCliente_referencia2AntiguedadDeRelacionMes"), "Marzo");
+        choose.byText(By.id("referenciaCliente_referencia2AntiguedadDeRelacionAnio"), "2019");
 
-        driver.findElement(By.id("garantiaAutomotriz_numeroDeSerie")).click();
-        driver.findElement(By.id("garantiaAutomotriz_numeroDeSerie")).sendKeys("234234");
-        driver.findElement(By.id("garantiaAutomotriz_tarjetaDeCirculacion")).click();
-        driver.findElement(By.id("garantiaAutomotriz_tarjetaDeCirculacion")).sendKeys("234234");
-        driver.findElement(By.id("garantiaAutomotriz_tenencia")).click();
-        driver.findElement(By.id("garantiaAutomotriz_tenencia")).sendKeys("34234");
-        driver.findElement(By.id("garantiaAutomotriz_valorFactura")).click();
-        driver.findElement(By.id("garantiaAutomotriz_valorFactura")).sendKeys("23424");
-        driver.findElement(By.id("beneficiario1_nombre")).click();
-        driver.findElement(By.id("beneficiario1_nombre")).sendKeys("werwerwer");
-        driver.findElement(By.id("beneficiario1_segundoNombre")).click();
-        driver.findElement(By.id("beneficiario1_segundoNombre")).sendKeys("Néstor");
+        //Generales
+        choose.byText(By.id("cliente_nivelEducativo"), "Secundaria");
+
+        //Domicilio del Trabajo
+        driver.findElement(By.id("empleoCliente_calle")).sendKeys("Avenida Siempre Viva");
+        driver.findElement(By.id("empleoCliente_numeroExterior")).sendKeys("12322");
+        driver.findElement(By.id("empleoCliente_codigoPostal")).sendKeys("20263");
+        choose.byText ( By.id ( "empleoCliente_colonia" ), "Agua Clara" );
+        choose.byText ( By.id ( "empleoCliente_estado" ), "AGUASCALIENTES" );
+        choose.byText ( By.id ( "empleoCliente_delegacion" ), "Aguascalientes" );
+        driver.findElement(By.id("empleoCliente_telefono")).sendKeys("22222222222");
+        choose.byText ( By.id ( "empleoCliente_delegacion" ), "Aguascalientes" );
+
+        //Actividad económica
+        driver.findElement(By.xpath ("//*[@id='empleoCliente_actividadEconomica_chosen']/a")).click();
+        driver.findElement ( By.xpath ( "//*[@id='empleoCliente_actividadEconomica_chosen']/div/div/input" )).sendKeys ( "CULTIVO DE ALPISTE" );
+        keyboard.enter ( driver );
+
+        //Sector económico
+        driver.findElement(By.xpath ("//*[@id='empleoCliente_sectorEconomico_chosen']/a")).click();
+        driver.findElement ( By.xpath ( "//*[@id='empleoCliente_sectorEconomico_chosen']/div/div/input" )).sendKeys ( "AGRICULTURA" );
+        keyboard.enter ( driver );
+
+        choose.byText ( By.id ( "empleoCliente_periodicidadEmpleo" ), "Catorcenal" );
+
+
+        //Generales Beneficiario #1
+        driver.findElement(By.id("beneficiario1_nombre")).sendKeys("Nestor");
+        driver.findElement(By.id("beneficiario1_segundoNombre")).sendKeys("Daniel");
         driver.findElement(By.id("beneficiario1_apellidoPaterno")).sendKeys("Flores");
-        driver.findElement(By.id("beneficiario1_codigoPostal")).sendKeys("8300");
-        driver.findElement(By.id("beneficiario1_telefono")).sendKeys("+5492994725555");
-        driver.findElement(By.cssSelector(".apartado:nth-child(18) > .row:nth-child(5) .form-group:nth-child(1)")).click();
-        driver.findElement(By.id("beneficiario1_apellidoMaterno")).click();
-        driver.findElement(By.id("beneficiario1_apellidoMaterno")).sendKeys("wwerwer");
-        driver.findElement(By.id("beneficiario1_calle")).click();
-        driver.findElement(By.id("beneficiario1_calle")).sendKeys("werwer");
-        driver.findElement(By.id("beneficiario1_numeroExterior")).click();
+        driver.findElement(By.id("beneficiario1_codigoPostal")).sendKeys("20263");
+        driver.findElement(By.id("beneficiario1_telefono")).sendKeys("33333333333");
+        driver.findElement(By.id("beneficiario1_apellidoMaterno")).sendKeys("Alvarez");
+        driver.findElement(By.id("beneficiario1_calle")).sendKeys("Avenida Siempre");
         driver.findElement(By.id("beneficiario1_numeroExterior")).sendKeys("123123");
-        driver.findElement(By.id("beneficiario1_numeroInterior")).click();
         driver.findElement(By.id("beneficiario1_numeroInterior")).sendKeys("123123");
         driver.findElement(By.id("beneficiario1_codigoPostal")).sendKeys("20263");
-
         choose.byText(By.id("beneficiario1_fechaDeNacimiento_dia"), "1");
         choose.byText(By.id("beneficiario1_fechaDeNacimiento_mes"), "Mayo");
         choose.byText(By.id("beneficiario1_fechaDeNacimiento_anio"), "1958");
-        choose.byText(By.cssSelector(".apartado:nth-child(18) > .row:nth-child(8) .form-group:nth-child(1)"), "AGUASCALIENTES");
+        choose.byText(By.id("beneficiario1_estadoDeNacimiento"), "AGUASCALIENTES");
         choose.byText(By.id("beneficiario1_parentescoPregunta3"), "AMISTAD");
         choose.byText(By.id("selectSucursal"), "Sucursal 0003 - Hidalgo");
-        driver.findElement(By.cssSelector(".center:nth-child(25)")).click();
+        Thread.sleep(2000);
         driver.findElement(By.id("siguiente")).click();
 
-        // 7
-        driver.findElement(By.cssSelector("fieldset:nth-child(2) > .form-group:nth-child(2) > .input-error")).click();
-        driver.findElement(By.cssSelector("fieldset:nth-child(2) > .form-group:nth-child(2) > .input-error")).click();
-        driver.findElement(By.cssSelector("fieldset:nth-child(2) > .form-group:nth-child(2)")).click();
-        driver.findElement(By.id("referenciaCliente_referencia2Nombre")).click();
-        driver.findElement(By.id("referenciaCliente_referencia2Nombre")).sendKeys("sdfsdf");
-        driver.findElement(By.cssSelector("fieldset:nth-child(2) > .form-group:nth-child(4) > .input-error")).click();
-        driver.findElement(By.id("referenciaCliente_referencia2ApellidoPaterno")).click();
-        driver.findElement(By.id("referenciaCliente_referencia2ApellidoPaterno")).sendKeys("asdasd");
-        driver.findElement(By.cssSelector("fieldset:nth-child(2) > .form-group:nth-child(5) > .input-error")).click();
-        driver.findElement(By.cssSelector("fieldset:nth-child(2) > .form-group:nth-child(5) > .input-error")).click();
-        driver.findElement(By.id("referenciaCliente_referencia2ApellidoMaterno")).click();
-        driver.findElement(By.id("referenciaCliente_referencia2ApellidoMaterno")).sendKeys("asdad");
-        driver.findElement(By.id("referenciaCliente_referencia2TelefonoCasa")).click();
-        driver.findElement(By.id("referenciaCliente_referencia2TelefonoCasa")).click();
-        driver.findElement(By.cssSelector("fieldset:nth-child(2) > .form-group:nth-child(7) > .input-error")).click();
-        driver.findElement(By.cssSelector("fieldset:nth-child(2) > .form-group:nth-child(7) > .input-error")).click();
-        driver.findElement(By.id("referenciaCliente_referencia2TelefonoCel")).click();
-        driver.findElement(By.id("referenciaCliente_referencia2TipoDeReferencia")).click();
-        {
-            WebElement dropdown = driver.findElement(By.id("referenciaCliente_referencia2TipoDeReferencia"));
-            dropdown.findElement(By.xpath("//option[. = 'AMISTAD']")).click();
-        }
-        driver.findElement(By.id("referenciaCliente_referencia2AntiguedadDeRelacionMes")).click();
-        {
-            WebElement dropdown = driver.findElement(By.id("referenciaCliente_referencia2AntiguedadDeRelacionMes"));
-            dropdown.findElement(By.xpath("//option[. = 'Febrero']")).click();
-        }
-        driver.findElement(By.id("referenciaCliente_referencia2AntiguedadDeRelacionAnio")).click();
-        {
-            WebElement dropdown = driver.findElement(By.id("referenciaCliente_referencia2AntiguedadDeRelacionAnio"));
-            dropdown.findElement(By.xpath("//option[. = '2019']")).click();
-        }
-        driver.findElement(By.cssSelector(".apartado:nth-child(14) > .title-section")).click();
-        driver.findElement(By.cssSelector(".apartado:nth-child(14)")).click();
-        driver.findElement(By.cssSelector("fieldset:nth-child(2)")).click();
-        driver.findElement(By.cssSelector(".apartado:nth-child(14) > .title-section")).click();
-        driver.findElement(By.cssSelector("fieldset:nth-child(2) > .form-group:nth-child(9)")).click();
-        driver.findElement(By.cssSelector("fieldset:nth-child(2) > .form-group:nth-child(9)")).click();
-        driver.findElement(By.id("referenciaCliente_referencia2AntiguedadDeRelacionMes")).click();
-        {
-            WebElement dropdown = driver.findElement(By.id("referenciaCliente_referencia2AntiguedadDeRelacionMes"));
-            dropdown.findElement(By.xpath("//option[. = 'Junio']")).click();
-        }
-        driver.findElement(By.cssSelector(".apartado:nth-child(14)")).click();
-        driver.findElement(By.cssSelector("fieldset:nth-child(2)")).click();
-        driver.findElement(By.cssSelector(".apartado:nth-child(14) > .title-section")).click();
-        driver.findElement(By.cssSelector(".apartado:nth-child(14)")).click();
-        driver.findElement(By.cssSelector(".apartado:nth-child(14)")).click();
-        driver.findElement(By.cssSelector(".apartado:nth-child(14) > .title-section")).click();
-        driver.findElement(By.id("content-paso-6")).click();
-        driver.findElement(By.cssSelector(".apartado:nth-child(14)")).click();
-        driver.findElement(By.cssSelector("fieldset:nth-child(2) > .form-group:nth-child(9)")).click();
-        driver.findElement(By.cssSelector(".apartado:nth-child(14) > .title-section")).click();
-        driver.findElement(By.cssSelector(".apartado:nth-child(14) > .row > .col-xs-12")).click();
-        driver.findElement(By.cssSelector(".apartado:nth-child(14)")).click();
-        driver.findElement(By.cssSelector(".apartado:nth-child(14) > .row > .col-xs-12")).click();
-        driver.findElement(By.cssSelector(".apartado:nth-child(14) .input-error")).click();
-        driver.findElement(By.id("cliente_nivelEducativo")).click();
-        {
-            WebElement dropdown = driver.findElement(By.id("cliente_nivelEducativo"));
-            dropdown.findElement(By.xpath("//option[. = 'Secundaria']")).click();
-        }
-        driver.findElement(By.cssSelector(".apartado:nth-child(15) > .row:nth-child(4) .form-group:nth-child(1) > .input-error")).click();
-        driver.findElement(By.id("empleoCliente_calle")).click();
-        driver.findElement(By.id("empleoCliente_calle")).sendKeys("aerwerwer");
-        driver.findElement(By.id("empleoCliente_numeroExterior")).click();
-        driver.findElement(By.id("empleoCliente_numeroExterior")).sendKeys("werwer");
-        driver.findElement(By.id("empleoCliente_numeroExterior")).click();
-        driver.findElement(By.id("empleoCliente_numeroExterior")).click();
-        {
-            WebElement element = driver.findElement(By.id("empleoCliente_numeroExterior"));
-            Actions builder = new Actions(driver);
-            builder.doubleClick(element).perform();
-        }
-        driver.findElement(By.id("empleoCliente_numeroExterior")).sendKeys("34234234");
-        driver.findElement(By.id("empleoCliente_codigoPostal")).click();
-        driver.findElement(By.id("empleoCliente_codigoPostal")).click();
-        driver.findElement(By.id("barraIconos")).click();
-        driver.findElement(By.id("empleoCliente_codigoPostal")).sendKeys("20263");
-        driver.findElement(By.id("empleoCliente_colonia")).click();
-        driver.findElement(By.id("empleoCliente_estado")).click();
-        driver.findElement(By.id("empleoCliente_estado")).click();
-        driver.findElement(By.id("empleoCliente_delegacion")).click();
-        driver.findElement(By.id("empleoCliente_telefono")).click();
-        driver.findElement(By.id("empleoCliente_telefono")).click();
-        driver.findElement(By.cssSelector("#empleoCliente_actividadEconomica_chosen span")).click();
-        driver.findElement(By.cssSelector(".active-result:nth-child(2)")).click();
-        js.executeScript("window.scrollTo(0,1792)");
-        driver.findElement(By.cssSelector("#empleoCliente_sectorEconomico_chosen span")).click();
-        driver.findElement(By.cssSelector("#empleoCliente_sectorEconomico_chosen .active-result:nth-child(2)")).click();
-        driver.findElement(By.id("empleoCliente_extension")).click();
-        driver.findElement(By.cssSelector(".row:nth-child(7) .form-group:nth-child(3) > .input-error")).click();
-        driver.findElement(By.id("empleoCliente_periodicidadEmpleo")).click();
-        {
-            WebElement dropdown = driver.findElement(By.id("empleoCliente_periodicidadEmpleo"));
-            dropdown.findElement(By.xpath("//option[. = 'Catorcenal']")).click();
-        }
+        //7
+
+//        driver.findElement(By.id("garantiaAutomotriz_numeroDeSerie")).sendKeys("234234");
+//        driver.findElement(By.id("garantiaAutomotriz_tarjetaDeCirculacion")).sendKeys("234234");
+//        driver.findElement(By.id("garantiaAutomotriz_tenencia")).sendKeys("34234");
+//        driver.findElement(By.id("garantiaAutomotriz_valorFactura")).sendKeys("23424");
+
+        choose.byText ( By.id("empleoCliente_periodicidadEmpleo"), "Catorcenal" );
         driver.findElement(By.id("empleoCliente_numeroDeSeguroSocial")).click();
         driver.findElement(By.id("siguiente")).click();
         js.executeScript("window.scrollTo(0,4351)");
