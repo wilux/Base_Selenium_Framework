@@ -17,11 +17,10 @@ public class KsmsChallengeTest extends BaseTest {
 
 
     @Test
-    public void test() throws InterruptedException, AWTException {
+    public void Test() throws InterruptedException, AWTException {
         Choose choose = new Choose(driver);
         Write write = new Write(driver);
         driver.get("http://ksms.mx/libertadqa/login/auth?format=");
-        driver.manage().window().fullscreen();
         driver.findElement(By.id("username")).click();
         driver.findElement(By.id("username")).sendKeys("tester");
         driver.findElement(By.id("password")).click();
@@ -94,17 +93,10 @@ public class KsmsChallengeTest extends BaseTest {
         driver.findElement(By.id("siguiente")).click();
 
         // 3 - Empleo
-        driver.findElement(By.cssSelector("#empleoCliente_profesion_chosen span")).click();
-        driver.findElement(By.cssSelector(".active-result:nth-child(2)")).click();
-        driver.findElement(By.cssSelector("#empleoCliente_ocupacion_chosen span")).click();
-        Thread.sleep(200);
-
-        driver.findElement(By.cssSelector("#empleoCliente_ocupacion_chosen > a")).click();
-        Thread.sleep(200);
-        write.byKeys(driver, "ABOGADO");
-        driver.findElement(By.id("empleoCliente_empresa")).click();
+        choose.byText(By.name("empleoCliente_profesion"), "ABOGADO");
+        choose.byText(By.name("empleoCliente_ocupacion"), "ABOGADO");
+//        write.byKeys(driver, "ABOGADO");
         driver.findElement(By.id("empleoCliente_empresa")).sendKeys("asdasd");
-        driver.findElement(By.id("empleoCliente_antiguedad")).click();
         choose.byText(By.id("empleoCliente_antiguedad"), "Abril");
         choose.byText(By.name("empleoCliente_antiguedad_anio"), "2014");
         driver.findElement(By.id("empleoCliente_ingresosFijos")).sendKeys("50000");
@@ -117,36 +109,39 @@ public class KsmsChallengeTest extends BaseTest {
         driver.findElement(By.id("cadenaBuroTestTradicional")).sendKeys(Cadena.cadenaBuro);
         driver.findElement(By.cssSelector(".cbct-btn")).click();
         Thread.sleep(5000);
+        driver.findElement(By.xpath("//*[@id='barraIconos']/div[12]/div[7]/div/button")).click();
+        driver.findElement(By.xpath("//*[@id='continuarConsultaBCTrad']/button")).click();
+        Thread.sleep(5000);
 
         // 5 - Ofertas
         driver.findElement(By.linkText("5 - Ofertas")).click();
-        driver.findElement(By.cssSelector(".border-bottom-offer-1 .fa")).click();
-        driver.findElement(By.id("checkDropzone1")).click();
-        driver.findElement(By.cssSelector(".panel-footer > .background-color-offer-1")).click();
-        driver.findElement(By.cssSelector(".confirm")).click();
-        driver.findElement(By.id("cerrarModalConfirmacion")).click();
-        driver.findElement(By.id("cliente_clasificacion")).click();
+        //View
+        driver.findElement(By.xpath("//*[@id='wrapper_bu']/div[2]/div/div/div[1]/div[6]/a")).click();
+        //Aplicar
+        driver.findElement(By.xpath("//*[@id='collapse0']/div[2]/p")).click();
+        //Si
+        driver.findElement(By.xpath("//*[@id='barraIconos']/div[12]/div[7]/div/button")).click();
+        Thread.sleep(10000);
+        //Continuar
+        driver.findElement(By.xpath("//*[@id='cerrarModalConfirmacion']")).click();
+
+        //6 / Datos Complementarios
 
         choose.byText(By.id("cliente_clasificacion"), "Compra de bienes");
+        choose.byText(By.id("cliente_finalidad"), "Compra");
+        choose.byText(By.id("cliente_uso"), "Personal");
 
-        driver.findElement(By.id("cliente_finalidad")).click();
-        driver.findElement(By.cssSelector(".apartado:nth-child(13) .col-xs-12 > .form-group:nth-child(3)")).click();
-        driver.findElement(By.id("cliente_uso")).click();
-        driver.findElement(By.cssSelector("fieldset:nth-child(1) > .form-group:nth-child(2)")).click();
-        driver.findElement(By.id("referenciaCliente_referencia1Nombre")).click();
-        driver.findElement(By.id("referenciaCliente_referencia1Nombre")).sendKeys("sfs");
-        driver.findElement(By.id("referenciaCliente_referencia1SegundoNombre")).click();
         driver.findElement(By.id("referenciaCliente_referencia1SegundoNombre")).sendKeys("Néstor");
         driver.findElement(By.id("referenciaCliente_referencia1ApellidoPaterno")).sendKeys("Flores");
-        driver.findElement(By.id("referenciaCliente_referencia1TelefonoCasa")).sendKeys("+5492994725555");
+        driver.findElement(By.id("referenciaCliente_referencia1TelefonoCasa")).sendKeys("22222222222");
         driver.findElement(By.cssSelector("fieldset:nth-child(1) > .form-group:nth-child(5)")).click();
         driver.findElement(By.id("referenciaCliente_referencia1ApellidoMaterno")).click();
         driver.findElement(By.id("referenciaCliente_referencia1ApellidoMaterno")).sendKeys("sdfdf");
         driver.findElement(By.id("referenciaCliente_referencia1TelefonoCel")).click();
-        driver.findElement(By.id("referenciaCliente_referencia1TelefonoCel")).sendKeys("+5492994725555");
-        driver.findElement(By.id("referenciaCliente_referencia1TelefonoCasa")).sendKeys("+5492994725555");
-        driver.findElement(By.id("referenciaCliente_referencia1TelefonoCel")).sendKeys("+5492994725555");
-        driver.findElement(By.id("referenciaCliente_referencia1TelefonoCasa")).sendKeys("+5492994725555");
+        driver.findElement(By.id("referenciaCliente_referencia1TelefonoCel")).sendKeys("22222222222");
+        driver.findElement(By.id("referenciaCliente_referencia1TelefonoCasa")).sendKeys("22222222222");
+        driver.findElement(By.id("referenciaCliente_referencia1TelefonoCel")).sendKeys("22222222222");
+        driver.findElement(By.id("referenciaCliente_referencia1TelefonoCasa")).sendKeys("22222222222");
 
         choose.byText(By.id("referenciaCliente_referencia1TipoDeReferencia"), "AMISTAD");
         choose.byText(By.id("referenciaCliente_referencia1AntiguedadDeRelacionMes"), "Marzo");
@@ -188,7 +183,7 @@ public class KsmsChallengeTest extends BaseTest {
         driver.findElement(By.cssSelector(".center:nth-child(25)")).click();
         driver.findElement(By.id("siguiente")).click();
 
-        // 6
+        // 7
         driver.findElement(By.cssSelector("fieldset:nth-child(2) > .form-group:nth-child(2) > .input-error")).click();
         driver.findElement(By.cssSelector("fieldset:nth-child(2) > .form-group:nth-child(2) > .input-error")).click();
         driver.findElement(By.cssSelector("fieldset:nth-child(2) > .form-group:nth-child(2)")).click();
