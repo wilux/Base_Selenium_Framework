@@ -2,14 +2,11 @@ package TestCase;
 
 
 import Action.Choose;
+import Action.File;
 import Action.Keyboard;
-import Action.Write;
 import Config.BaseTest;
 import Tools.Cadena;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 import java.awt.*;
@@ -21,8 +18,8 @@ public class KsmsChallengeTest extends BaseTest {
     @Test
     public void Test() throws InterruptedException, AWTException {
         Choose choose = new Choose(driver);
-        Write write = new Write (driver);
-        Keyboard keyboard = new Keyboard ();
+        Keyboard keyboard = new Keyboard();
+        File file = new File();
 
         driver.get("http://ksms.mx/libertadqa/login/auth?format=");
         driver.findElement(By.id("username")).click();
@@ -180,32 +177,32 @@ public class KsmsChallengeTest extends BaseTest {
         driver.findElement(By.id("empleoCliente_calle")).sendKeys("Avenida Siempre Viva");
         driver.findElement(By.id("empleoCliente_numeroExterior")).sendKeys("12322");
         driver.findElement(By.id("empleoCliente_codigoPostal")).sendKeys("20263");
-        choose.byText ( By.id ( "empleoCliente_colonia" ), "Agua Clara" );
-        choose.byText ( By.id ( "empleoCliente_estado" ), "AGUASCALIENTES" );
-        choose.byText ( By.id ( "empleoCliente_delegacion" ), "Aguascalientes" );
+        choose.byText(By.id("empleoCliente_colonia"), "Agua Clara");
+        choose.byText(By.id("empleoCliente_estado"), "AGUASCALIENTES");
+        choose.byText(By.id("empleoCliente_delegacion"), "Aguascalientes");
         driver.findElement(By.id("empleoCliente_telefono")).click();
         Thread.sleep(500);
         driver.findElement(By.id("empleoCliente_telefono")).sendKeys("22222222222");
-        choose.byText ( By.id ( "empleoCliente_delegacion" ), "Aguascalientes" );
+        choose.byText(By.id("empleoCliente_delegacion"), "Aguascalientes");
 
         //Garantía Automotriz
 
         //Actividad económica
-        driver.findElement(By.xpath ("//*[@id='empleoCliente_actividadEconomica_chosen']/a")).click();
-        driver.findElement ( By.xpath ( "//*[@id='empleoCliente_actividadEconomica_chosen']/div/div/input" )).sendKeys ( "CULTIVO DE ALPISTE" );
-        keyboard.enter ( driver );
+        driver.findElement(By.xpath("//*[@id='empleoCliente_actividadEconomica_chosen']/a")).click();
+        driver.findElement(By.xpath("//*[@id='empleoCliente_actividadEconomica_chosen']/div/div/input")).sendKeys("CULTIVO DE ALPISTE");
+        keyboard.enter(driver);
 
         //Sector económico
-        driver.findElement(By.xpath ("//*[@id='empleoCliente_sectorEconomico_chosen']/a")).click();
-        driver.findElement ( By.xpath ( "//*[@id='empleoCliente_sectorEconomico_chosen']/div/div/input" )).sendKeys ( "AGRICULTURA" );
-        keyboard.enter ( driver );
-        choose.byText ( By.id ( "empleoCliente_periodicidadEmpleo" ), "Catorcenal" );
+        driver.findElement(By.xpath("//*[@id='empleoCliente_sectorEconomico_chosen']/a")).click();
+        driver.findElement(By.xpath("//*[@id='empleoCliente_sectorEconomico_chosen']/div/div/input")).sendKeys("AGRICULTURA");
+        keyboard.enter(driver);
+        choose.byText(By.id("empleoCliente_periodicidadEmpleo"), "Catorcenal");
 
 
         //Garantía Automotriz
-        choose.byText ( By.id ( "garantiaAutomotriz_anio" ), "2016" );
-        choose.byText ( By.id ( "garantiaAutomotriz_marcaAutomovil" ), "ACURA" );
-        choose.byText ( By.id ( "garantiaAutomotriz_modeloAutomovil" ), "TLX ADVANCE CA CE CD CQ CB PIEL AUT 6 Cil. 4 Pts. 2016" );
+        choose.byText(By.id("garantiaAutomotriz_anio"), "2016");
+        choose.byText(By.id("garantiaAutomotriz_marcaAutomovil"), "ACURA");
+        choose.byText(By.id("garantiaAutomotriz_modeloAutomovil"), "TLX ADVANCE CA CE CD CQ CB PIEL AUT 6 Cil. 4 Pts. 2016");
         driver.findElement(By.id("garantiaAutomotriz_numeroDeSerie")).sendKeys("234234");
         driver.findElement(By.id("garantiaAutomotriz_tarjetaDeCirculacion")).sendKeys("234234");
         driver.findElement(By.id("garantiaAutomotriz_tenencia")).sendKeys("34234");
@@ -235,6 +232,23 @@ public class KsmsChallengeTest extends BaseTest {
 
         // 7 - Carga Documentos
 
+        //Identificación Oficial *(Debes Subir el Anverso y Reverso de la Identificación Oficial)
+        driver.findElement(By.xpath("//*[@id='idDropzone']")).click();
+
+        Thread.sleep(1000);
+
+        file.upload("C:\\Users\\floresnes\\IdeaProjects\\Base_Selenium_Framework\\src\\test\\resources\\test.png");
+        //confirmo documento
+        Thread.sleep(4000);
+        js.executeScript("cargarDocumento(25)");
+
+        //Comprobante de domicilio
+        driver.findElement(By.xpath("(//div[@data-dztype='comprobanteDeDomicilio']//div)[1]")).click();
+        file.upload("C:\\Users\\floresnes\\IdeaProjects\\Base_Selenium_Framework\\src\\test\\resources\\test.png");
+
+        //confirmo documento
+        Thread.sleep(4000);
+        js.executeScript("cargarDocumento2(27)");
 
     }
 
