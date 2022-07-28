@@ -148,11 +148,12 @@ public class KsmsChallengeTest extends BaseTest {
         driver.findElement(By.id("referenciaCliente_referencia1SegundoNombre")).sendKeys("Daniel");
         driver.findElement(By.id("referenciaCliente_referencia1ApellidoPaterno")).sendKeys("Flores");
         driver.findElement(By.id("referenciaCliente_referencia1ApellidoMaterno")).sendKeys("Alvarez");
-        Thread.sleep(5000);
+        driver.findElement(By.id("telefonoCliente_telefonoCelular")).click();
+        Thread.sleep(500);
         driver.findElement(By.id("referenciaCliente_referencia1TelefonoCasa")).sendKeys("22222222222");
-        Thread.sleep(5000);
+        driver.findElement(By.id("referenciaCliente_referencia1TelefonoCel")).click();
+        Thread.sleep(500);
         driver.findElement(By.id("referenciaCliente_referencia1TelefonoCel")).sendKeys("22222222222");
-        Thread.sleep(5000);
         choose.byText(By.id("referenciaCliente_referencia1TipoDeReferencia"), "AMISTAD");
         choose.byText(By.id("referenciaCliente_referencia1AntiguedadDeRelacionMes"), "Marzo");
         choose.byText(By.id("referenciaCliente_referencia1AntiguedadDeRelacionAnio"), "2019");
@@ -162,11 +163,12 @@ public class KsmsChallengeTest extends BaseTest {
         driver.findElement(By.id("referenciaCliente_referencia2SegundoNombre")).sendKeys("Daniel");
         driver.findElement(By.id("referenciaCliente_referencia2ApellidoPaterno")).sendKeys("Flores");
         driver.findElement(By.id("referenciaCliente_referencia2ApellidoMaterno")).sendKeys("Alvarez");
-        Thread.sleep(5000);
+        driver.findElement(By.id("referenciaCliente_referencia2TelefonoCasa")).click();
+        Thread.sleep(500);
         driver.findElement(By.id("referenciaCliente_referencia2TelefonoCasa")).sendKeys("22222222222");
-        Thread.sleep(5000);
+        driver.findElement(By.id("referenciaCliente_referencia2TelefonoCel")).click();
+        Thread.sleep(500);
         driver.findElement(By.id("referenciaCliente_referencia2TelefonoCel")).sendKeys("22222222222");
-        Thread.sleep(5000);
         choose.byText(By.id("referenciaCliente_referencia2TipoDeReferencia"), "AMISTAD");
         choose.byText(By.id("referenciaCliente_referencia2AntiguedadDeRelacionMes"), "Marzo");
         choose.byText(By.id("referenciaCliente_referencia2AntiguedadDeRelacionAnio"), "2019");
@@ -181,9 +183,9 @@ public class KsmsChallengeTest extends BaseTest {
         choose.byText ( By.id ( "empleoCliente_colonia" ), "Agua Clara" );
         choose.byText ( By.id ( "empleoCliente_estado" ), "AGUASCALIENTES" );
         choose.byText ( By.id ( "empleoCliente_delegacion" ), "Aguascalientes" );
-        Thread.sleep(5000);
+        driver.findElement(By.id("referenciaCliente_referencia2TelefonoCel")).click();
+        Thread.sleep(500);
         driver.findElement(By.id("empleoCliente_telefono")).sendKeys("22222222222");
-        Thread.sleep(5000);
         choose.byText ( By.id ( "empleoCliente_delegacion" ), "Aguascalientes" );
 
         //Garantía Automotriz
@@ -214,9 +216,9 @@ public class KsmsChallengeTest extends BaseTest {
         driver.findElement(By.id("beneficiario1_segundoNombre")).sendKeys("Daniel");
         driver.findElement(By.id("beneficiario1_apellidoPaterno")).sendKeys("Flores");
         driver.findElement(By.id("beneficiario1_codigoPostal")).sendKeys("20263");
-        Thread.sleep(5000);
+        driver.findElement(By.id("beneficiario1_telefono")).click();
+        Thread.sleep(500);
         driver.findElement(By.id("beneficiario1_telefono")).sendKeys("33333333333");
-        Thread.sleep(5000);
         driver.findElement(By.id("beneficiario1_apellidoMaterno")).sendKeys("Alvarez");
         driver.findElement(By.id("beneficiario1_calle")).sendKeys("Avenida Siempre");
         driver.findElement(By.id("beneficiario1_numeroExterior")).sendKeys("123123");
@@ -233,24 +235,6 @@ public class KsmsChallengeTest extends BaseTest {
 
         //7
 
-
-
-        choose.byText ( By.id("empleoCliente_periodicidadEmpleo"), "Catorcenal" );
-        driver.findElement(By.id("empleoCliente_numeroDeSeguroSocial")).click();
-        driver.findElement(By.id("siguiente")).click();
-        js.executeScript("window.scrollTo(0,4351)");
-        js.executeScript("window.scrollTo(0,0)");
-        driver.findElement(By.id("btn-sms-docs")).click();
-        driver.findElement(By.cssSelector(".confirm")).click();
-        driver.findElement(By.id("tipoDeDocumento")).click();
-        driver.findElement(By.cssSelector(".col-md-12:nth-child(8)")).click();
-        driver.findElement(By.cssSelector("#idDropzone > .dz-message")).click();
-        vars.put("window_handles", driver.getWindowHandles());
-        driver.findElement(By.cssSelector("#idDropzone > .dz-message")).click();
-//        vars.put("win8761", waitForWindow(2000));
-        driver.switchTo().window(vars.get("win8761").toString());
-        driver.close();
-        driver.switchTo().window(vars.get("root").toString());
         driver.findElement(By.id("terminarSolicitud")).click();
     }
 
