@@ -2,6 +2,7 @@ package TestCase;
 
 
 import Action.Choose;
+import Action.File;
 import Action.Keyboard;
 import Action.Write;
 import Config.BaseTest;
@@ -22,6 +23,7 @@ public class ContinuarPaso7Test extends BaseTest {
         Choose choose = new Choose(driver);
         Write write = new Write (driver);
         Keyboard keyboard = new Keyboard ();
+        File file = new File (  );
 
         driver.get("http://ksms.mx/libertadqa/login/auth?format=");
         driver.findElement(By.id("username")).click();
@@ -43,34 +45,38 @@ public class ContinuarPaso7Test extends BaseTest {
         driver.findElement(By.xpath("//*[@id='idDropzone']")).click();
 
         Thread.sleep ( 1000 );
-        // creating object of Robot class
-        Robot rb = new Robot();
 
-        // copying File path to Clipboard
-        StringSelection str = new StringSelection( "C:\\Users\\floresnes\\IdeaProjects\\Base_Selenium_Framework\\src\\test\\resources\\test.png");
-        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(str, null);
-
-        // press Contol+V for pasting
-        rb.keyPress( KeyEvent.VK_CONTROL);
-        rb.keyPress(KeyEvent.VK_V);
-
-        // release Contol+V for pasting
-        rb.keyRelease(KeyEvent.VK_CONTROL);
-        rb.keyRelease(KeyEvent.VK_V);
-
-        // for pressing and releasing Enter
-        rb.keyPress(KeyEvent.VK_ENTER);
-        rb.keyRelease(KeyEvent.VK_ENTER);
+        file.upload ( "C:\\Users\\floresnes\\IdeaProjects\\Base_Selenium_Framework\\src\\test\\resources\\test.png" );
+//        // creating object of Robot class
+//        Robot rb = new Robot();
+//
+//        // copying File path to Clipboard
+//        StringSelection str = new StringSelection( "C:\\Users\\floresnes\\IdeaProjects\\Base_Selenium_Framework\\src\\test\\resources\\test.png");
+//        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(str, null);
+//
+//        // press Contol+V for pasting
+//        rb.keyPress( KeyEvent.VK_CONTROL);
+//        rb.keyPress(KeyEvent.VK_V);
+//
+//        // release Contol+V for pasting
+//        rb.keyRelease(KeyEvent.VK_CONTROL);
+//        rb.keyRelease(KeyEvent.VK_V);
+//
+//        // for pressing and releasing Enter
+//        rb.keyPress(KeyEvent.VK_ENTER);
+//        rb.keyRelease(KeyEvent.VK_ENTER);
 
         //confirmo documento
         Thread.sleep ( 4000 );
         js.executeScript("cargarDocumento(25)");
-//
-//        //Comprobante de domicilio
-//        driver.findElement(By.xpath("(//div[@data-dztype='comprobanteDeDomicilio']//div)[1]")).click();
-//
-//        //confirmo documento
-//        js.executeScript("cargarDocumento2(27)");
+
+        //Comprobante de domicilio
+        driver.findElement(By.xpath("(//div[@data-dztype='comprobanteDeDomicilio']//div)[1]")).click();
+
+        file.upload ( "C:\\Users\\floresnes\\IdeaProjects\\Base_Selenium_Framework\\src\\test\\resources\\test.png" );
+
+        //confirmo documento
+        js.executeScript("cargarDocumento2(27)");
 //
 //
 //        //Comprobante de ingresos *(Debes Subir 6 Comprobantes de Ingresos)
