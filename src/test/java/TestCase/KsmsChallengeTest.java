@@ -1,25 +1,27 @@
 package TestCase;
 
-
 import Action.Choose;
 import Action.File;
 import Action.Keyboard;
+import Action.WaitFor;
 import Config.BaseTest;
 import Tools.Cadena;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import java.awt.*;
 
 
 public class KsmsChallengeTest extends BaseTest {
-
+    String FILEIMG = "C:\\Users\\nesto\\IdeaProjects\\Base_Selenium_Framework\\src\\test\\resources\\test.png";
 
     @Test
     public void Test() throws InterruptedException, AWTException {
         Choose choose = new Choose(driver);
         Keyboard keyboard = new Keyboard();
-        File file = new File();
+        File file = new File(FILEIMG);
+        WaitFor waitFor = new WaitFor(driver);
 
         driver.get("http://ksms.mx/libertadqa/login/auth?format=");
         driver.findElement(By.id("username")).click();
@@ -36,24 +38,24 @@ public class KsmsChallengeTest extends BaseTest {
         // 1 - Datos Personales
         driver.manage().window().fullscreen();
         driver.findElement(By.id("cliente_nombre")).click();
-        driver.findElement(By.id("cliente_nombre")).sendKeys("Test1");
-        driver.findElement(By.id("cliente_segundoNombre")).sendKeys("Test1");
-        driver.findElement(By.id("cliente_apellidoPaterno")).sendKeys("Test1");
-        driver.findElement(By.id("cliente_apellidoMaterno")).sendKeys("Test1");
+        driver.findElement(By.id("cliente_nombre")).sendKeys("1Tes1");
+        driver.findElement(By.id("cliente_segundoNombre")).sendKeys("1Tes1");
+        driver.findElement(By.id("cliente_apellidoPaterno")).sendKeys("1Tes1");
+        driver.findElement(By.id("cliente_apellidoMaterno")).sendKeys("1Tes1");
         driver.findElement(By.id("emailCliente_emailPersonal")).click();
-        driver.findElement(By.id("emailCliente_emailPersonal")).sendKeys("Test1@gmail.com");
+        driver.findElement(By.id("emailCliente_emailPersonal")).sendKeys("1Tes1@gmail.com");
         driver.findElement(By.id("telefonoCliente_telefonoCelular")).click();
         Thread.sleep(1000);
-        driver.findElement(By.id("telefonoCliente_telefonoCelular")).sendKeys("22222222222");
+        driver.findElement(By.id("telefonoCliente_telefonoCelular")).sendKeys("33333333333");
         driver.findElement(By.id("emailCliente_emailPersonal")).click();
         Thread.sleep(5000);
         driver.findElement(By.xpath(" //button[@class='confirm']")).click();
         Thread.sleep(200);
-        driver.findElement(By.id("cliente_codigoVerificacion")).sendKeys("11111");
+        driver.findElement(By.id("cliente_codigoVerificacion")).sendKeys("55555");
         Thread.sleep(200);
         driver.findElement(By.id("telefonoCliente_telefonoCasa")).click();
         Thread.sleep(1000);
-        driver.findElement(By.id("telefonoCliente_telefonoCasa")).sendKeys("22222222222");
+        driver.findElement(By.id("telefonoCliente_telefonoCasa")).sendKeys("33333333333");
         Thread.sleep(200);
 
         choose.byText(By.id("cliente_fechaDeNacimiento_dia"), "2");
@@ -105,24 +107,34 @@ public class KsmsChallengeTest extends BaseTest {
         driver.findElement(By.id("siguiente")).click();
 
         // 4 - Historial Crediticio
-        driver.findElement(By.id("consultaTradicional")).click();
-        driver.findElement(By.id("cadenaBuroTestTradicional")).click();
-        driver.findElement(By.id("cadenaBuroTestTradicional")).sendKeys(Cadena.cadenaBuro);
-        driver.findElement(By.cssSelector(".cbct-btn")).click();
-        Thread.sleep(1000);
-        driver.findElement(By.xpath("//*[@id='barraIconos']/div[12]/div[7]/div/button")).click();
-        driver.findElement(By.xpath("//*[@id='continuarConsultaBCTrad']/button")).click();
-        Thread.sleep(5000);
+        try {
+            driver.findElement(By.id("consultaTradicional")).click();
+            driver.findElement(By.id("cadenaBuroTestTradicional")).click();
+            driver.findElement(By.id("cadenaBuroTestTradicional")).sendKeys(Cadena.cadenaBuro);
+            driver.findElement(By.cssSelector(".cbct-btn")).click();
+            Thread.sleep(1000);
+            driver.findElement(By.xpath("//*[@id='barraIconos']/div[12]/div[7]/div/button")).click();
+            driver.findElement(By.xpath("//*[@id='continuarConsultaBCTrad']/button")).click();
+            Thread.sleep(5000);
+            // 5 - Ofertas
+            driver.findElement(By.linkText("5 - Ofertas")).click();
+            Thread.sleep(2000);
+            driver.findElement(By.linkText("5 - Ofertas")).click();
+        } catch (Exception e) {
+
+            driver.findElement(By.xpath("//*[@id='padreBuro']/div[3]/button")).click();
+        }
+
 
         // 5 - Ofertas
-        driver.findElement(By.linkText("5 - Ofertas")).click();
-        Thread.sleep(2000);
-        driver.findElement(By.linkText("5 - Ofertas")).click();
+        Thread.sleep(5000);
         //View
-        driver.findElement(By.xpath("//*[@id='wrapper_bu']/div[2]/div/div/div[1]/div[6]/a")).click();
+        WebElement element = driver.findElement(By.xpath("//*[@id='wrapper_bu']"));
+        element.findElement(By.xpath("//a[@href='#collapse0']/i[@class='fa fa-eye icon-eye']")).click();
         //Aplicar
+        ////p[@class='button-choose-offer background-color-offer-0']
         js.executeScript("confirmarSeleccion(0,'8')");
-//        driver.findElement(By.xpath("/html/body/div[5]/div[3]/div/div[5]/form/div/div/div/div/div/div[2]/div/div/div[2]/div[2]/p")).click();
+
         //Si
         Thread.sleep(2000);
         driver.findElement(By.xpath("//*[@id='barraIconos']/div[12]/div[7]/div/button")).click();
@@ -131,10 +143,9 @@ public class KsmsChallengeTest extends BaseTest {
 
         //Continuar
         js.executeScript("cerrarModalConfirmacion()");
-//        driver.findElement(By.xpath("//*[@id='cerrarModalConfirmacion']")).click();
         Thread.sleep(5000);
 
-        //6 / Datos Complementarios
+        // 6 -Datos Complementarios
 
         choose.byText(By.id("cliente_clasificacion"), "Compra de bienes");
         choose.byText(By.id("cliente_finalidad"), "Compra");
@@ -234,21 +245,40 @@ public class KsmsChallengeTest extends BaseTest {
 
         //Identificación Oficial *(Debes Subir el Anverso y Reverso de la Identificación Oficial)
         driver.findElement(By.xpath("//*[@id='idDropzone']")).click();
-
-        Thread.sleep(1000);
-
-        file.upload("C:\\Users\\floresnes\\IdeaProjects\\Base_Selenium_Framework\\src\\test\\resources\\test.png");
+        file.upload();
         //confirmo documento
-        Thread.sleep(4000);
-        js.executeScript("cargarDocumento(25)");
+        waitFor.element(By.xpath("//li[contains(.,'Pasaporte')]")).click();
+
 
         //Comprobante de domicilio
-        driver.findElement(By.xpath("(//div[@data-dztype='comprobanteDeDomicilio']//div)[1]")).click();
-        file.upload("C:\\Users\\floresnes\\IdeaProjects\\Base_Selenium_Framework\\src\\test\\resources\\test.png");
-
+        waitFor.element(By.xpath("//*[@id='idDropzone2']")).click();
+        file.upload();
         //confirmo documento
-        Thread.sleep(4000);
-        js.executeScript("cargarDocumento2(27)");
+        waitFor.element(By.xpath("//span[contains(.,'Recibo Telefonia Fija (no movil)')]")).click();
+
+
+        //Comprobante de ingresos *(Debes Subir 6 Comprobantes de Ingresos)
+        for (int i = 0; i <= 5; i++) {
+            Thread.sleep(2000);
+            driver.findElement(By.xpath("//*[@id='idDropzone3']")).click();
+            file.upload();
+        }
+
+
+        //Garantía Automotriz
+        waitFor.element(By.xpath("//*[@id='idDropzone5']")).click();
+        file.upload();
+        //confirmo documento
+        waitFor.element(By.xpath("//span[contains(.,'Última Verificación Vehicular')]")).click();
+
+        //Solicitud de crédito
+        waitFor.element(By.xpath("//*[@id='idDropzone4']")).click();
+        file.upload();
+
+        //Fin
+        //Siguiente
+        waitFor.element(By.linkText("Siguiente")).click();
+
 
     }
 
